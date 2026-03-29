@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cdpp8n7pjmd6f"]
+
+[node name="ZanderTestScene" type="Node3D" unique_id=1441254301]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1681373755]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1314812264]
