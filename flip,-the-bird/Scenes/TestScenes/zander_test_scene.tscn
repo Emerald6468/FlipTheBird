@@ -1,7 +1,13 @@
 [gd_scene format=3 uid="uid://cdpp8n7pjmd6f"]
 
+[ext_resource type="PackedScene" uid="uid://b2svsxeylpykh" path="res://Scenes/Prefabs/player.tscn" id="1_5cjin"]
+
 [node name="ZanderTestScene" type="Node3D" unique_id=1441254301]
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1681373755]
+[node name="Player" parent="." unique_id=992012420 instance=ExtResource("1_5cjin")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1314812264]
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1448157915]
+transform = Transform3D(16.66148, 0, 0, 0, 1.0000006, 0, 0, 0, 16.148373, 0, -1.9211966, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=228486163]
+transform = Transform3D(-0.06846804, 0.26479867, -0.96186996, 3.216822e-09, 0.9641325, 0.26542157, 0.99765337, 0.018172888, -0.06601226, -4.3571615, 2.2422285, -0.60502565)
