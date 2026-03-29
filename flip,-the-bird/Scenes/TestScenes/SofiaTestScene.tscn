@@ -1,3 +1,8 @@
 [gd_scene format=3 uid="uid://bfa5wt83dkkb3"]
 
-[node name="SophiaTestScene" type="Node3D" unique_id=1169943562]
+[ext_resource type="PackedScene" uid="uid://btx6dyemce3dt" path="res://Scenes/TestScenes/Sofia_Test_Branch.tscn" id="1_hgw2x"]
+
+[node name="SofiaTestScene" type="Node3D" unique_id=1169943562]
+
+[node name="CharacterBody3D" parent="." unique_id=716542733 instance=ExtResource("1_hgw2x")]
+transform = Transform3D(-4.371139e-08, -0.9659258, 0.25881904, 0, -0.25881907, -0.96592593, 1.0000001, -4.2221963e-08, 1.13133405e-08, 0, 0, 0)
