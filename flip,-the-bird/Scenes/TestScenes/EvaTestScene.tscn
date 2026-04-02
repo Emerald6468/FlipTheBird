@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cb1etiwormk5y" path="res://Assets/prototype_Flip.glb" id="1_hdt5n"]
 [ext_resource type="PackedScene" uid="uid://b43oti4k0ee64" path="res://Assets/sledding_prototype_Flip.glb" id="2_18lfm"]
+[ext_resource type="PackedScene" uid="uid://d0jrf6x8c50ha" path="res://Assets/proto_hill-default.glb" id="3_n1lhh"]
 
 [node name="EvaTestScene" type="Node3D" unique_id=474966633]
 
@@ -10,3 +11,6 @@ transform = Transform3D(0.64, 0, 0, 0, 0.64, 0, 0, 0, 0.64, 0, 0, 0)
 
 [node name="sledding_prototype_Flip" parent="." unique_id=867450591 instance=ExtResource("2_18lfm")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -2.0218697, 0, 0)
+
+[node name="proto_hill-default" parent="." unique_id=134611912 instance=ExtResource("3_n1lhh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5536847, 0, -12.823141)
