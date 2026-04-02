@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bfa5wt83dkkb3"]
+
+[ext_resource type="PackedScene" uid="uid://btx6dyemce3dt" path="res://Scenes/TestScenes/Sofia_Test_Branch.tscn" id="1_hgw2x"]
+
+[sub_resource type="Sky" id="Sky_hgw2x"]
+
+[sub_resource type="Environment" id="Environment_dig3a"]
+background_mode = 2
+background_color = Color(0.3316867, 0.42630965, 0.732932, 1)
+background_energy_multiplier = 12.1
+background_camera_feed_id = 6
+sky = SubResource("Sky_hgw2x")
+sky_custom_fov = 154.1
+ambient_light_source = 2
+ambient_light_color = Color(0.8131195, 0.3196447, 0.64992756, 1)
+ambient_light_energy = 3.35
+reflected_light_source = 2
+tonemap_mode = 2
+tonemap_white = 12.55
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_a7i45"]
+
+[sub_resource type="Compositor" id="Compositor_nlqyp"]
+
+[node name="SofiaTestScene" type="Node3D" unique_id=1169943562]
+
+[node name="CharacterBody3D" parent="." unique_id=716542733 instance=ExtResource("1_hgw2x")]
+transform = Transform3D(-4.371139e-08, -0.9659258, 0.25881904, 0, -0.25881907, -0.96592593, 1.0000001, -4.2221963e-08, 1.13133405e-08, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=113409032]
+environment = SubResource("Environment_dig3a")
+camera_attributes = SubResource("CameraAttributesPhysical_a7i45")
+compositor = SubResource("Compositor_nlqyp")
