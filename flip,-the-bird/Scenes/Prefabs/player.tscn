@@ -11,6 +11,11 @@ script = ExtResource("1_sfbl0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1016772518]
 shape = SubResource("CapsuleShape3D_qohmv")
+debug_color = Color(0, 11.708403, 13.469126, 0.61960787)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" unique_id=68442305]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.5071369, 0)
 mesh = SubResource("CapsuleMesh_sfbl0")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1204415277]
+transform = Transform3D(0.25881907, -0.20082727, 0.944818, 0, 0.9781476, 0.2079117, -0.9659258, -0.053811513, 0.25316325, 7.9706388, 3.311362, 2.0218885)
