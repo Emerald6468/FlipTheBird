@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b576l0vg2u016"]
+
+[ext_resource type="Script" uid="uid://x3oecuaqwl86" path="res://node_3d.gd" id="1_a202f"]
+
+[node name="Node3D" type="Node" unique_id=884226594]
+script = ExtResource("1_a202f")
+variable2 = 6
+
+[node name="Label" type="Label" parent="." unique_id=95822629]
+anchors_preset = -1
+anchor_right = 1.6040001
+anchor_bottom = 1.8030001
+offset_right = 0.19189453
+offset_bottom = 1.6558838
+theme_override_font_sizes/font_size = 40
+text = "THIS IS A LABEL"
+horizontal_alignment = 1
+vertical_alignment = 1
