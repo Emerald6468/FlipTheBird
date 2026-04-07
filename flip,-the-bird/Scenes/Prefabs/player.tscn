@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://b2svsxeylpykh"]
 
 [ext_resource type="Script" uid="uid://bncoejlqlfy4e" path="res://Scripts/player.gd" id="1_sfbl0"]
-[ext_resource type="PackedScene" uid="uid://cb1etiwormk5y" path="res://Assets/prototype_Flip.glb" id="2_pv3ct"]
+[ext_resource type="PackedScene" uid="uid://dw6jql5rd5yg8" path="res://Scenes/UI/UI.tscn" id="3_0ctox"]
+[ext_resource type="PackedScene" uid="uid://b43oti4k0ee64" path="res://Assets/sledding_prototype_Flip.glb" id="3_v1l4e"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qohmv"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_pv3ct"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_sfbl0"]
 
@@ -14,12 +17,20 @@ script = ExtResource("1_sfbl0")
 shape = SubResource("CapsuleShape3D_qohmv")
 debug_color = Color(0, 11.708403, 13.469126, 0.61960787)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" unique_id=68442305]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.5071369, 0)
-mesh = SubResource("CapsuleMesh_sfbl0")
+[node name="Model" parent="CollisionShape3D" unique_id=1921737992 instance=ExtResource("3_v1l4e")]
+transform = Transform3D(-0.75, 0, -6.556708e-08, 0, 0.75, 0, 6.556708e-08, 0, -0.75, 0, -1.0796245, 0.18759444)
 
-[node name="prototype_Flip" parent="CollisionShape3D/MeshInstance3D" unique_id=558009765 instance=ExtResource("2_pv3ct")]
-transform = Transform3D(-0.75, 1.13246855e-07, 0, -1.13246855e-07, -0.75, 0, 0, 0, 0.75, 0, 1.1202836, -5.9604645e-08)
+[node name="SlopeCollider" type="ShapeCast3D" parent="CollisionShape3D/Model" unique_id=1241178530]
+unique_name_in_owner = true
+transform = Transform3D(-1.2, -1.8119496e-07, -7.920283e-15, -1.8119496e-07, 1.2, -1.1959295e-21, 7.920284e-15, 1.1959296e-21, -1.2, -2.676903e-07, 1.7728328, 0.25012594)
+shape = SubResource("SphereShape3D_pv3ct")
+
+[node name="BaseModel" type="MeshInstance3D" parent="." unique_id=68442305]
+transform = Transform3D(1, 4.2351647e-22, 1.4210855e-14, 1.4210855e-14, -4.371139e-08, -1, 0, 1, -4.371139e-08, -5.8672596e-15, -0.5071369, -1.4901161e-08)
+visible = false
+mesh = SubResource("CapsuleMesh_sfbl0")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1204415277]
 transform = Transform3D(0.25881907, -0.20082727, 0.9448181, 0, 0.9781476, 0.2079117, -0.9659258, -0.053811513, 0.25316328, 12.250565, 7.3592367, 2.0218885)
+
+[node name="Ui" parent="." unique_id=1288116663 instance=ExtResource("3_0ctox")]
