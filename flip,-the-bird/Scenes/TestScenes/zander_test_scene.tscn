@@ -36,24 +36,132 @@ transform = Transform3D(503.72678, 0, 0, 0, 1.0000006, 0, 0, 0, 474.52408, 0, -1
 use_collision = true
 size = Vector3(1, 1, 6.562256)
 
-[node name="Ramp" type="StaticBody3D" parent="." unique_id=1896874701]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -49.000652)
+[node name="Hill" type="Node3D" parent="." unique_id=688835563]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -128.88882)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ramp" unique_id=1717678886]
-transform = Transform3D(31.195919, 0, 0, 0, 0.41523963, -7.632969, 0, 0.19895835, 15.930518, 1.9697914, 1.8518071, -5.2750216)
+[node name="Ramp2" type="StaticBody3D" parent="Hill" unique_id=2047099467]
+transform = Transform3D(1, 0, 0, 0, 0.7762353, -1.5563174, 0, 0.46663067, 2.5889194, 0, -1.949, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hill/Ramp2" unique_id=694754966]
+transform = Transform3D(31.195919, 0, 0, 0, 0.46044368, 0, 0, 0, 17.664757, 1.9697914, 1.8518071, -5.2750216)
 shape = SubResource("BoxShape3D_blgmw")
 debug_color = Color(0, 11.708403, 13.469126, 0.41960785)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ramp/CollisionShape3D" unique_id=1003473856]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hill/Ramp2/CollisionShape3D" unique_id=1857481231]
 mesh = SubResource("BoxMesh_ugqxb")
 
-[node name="Ramp2" type="StaticBody3D" parent="." unique_id=2047099467]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -195.92775)
+[node name="Ramp4" type="StaticBody3D" parent="Hill" unique_id=1609869029]
+transform = Transform3D(-0.9999999, -4.0321112e-08, -7.633606e-07, -3.2070364e-08, 0.88327897, -1.6776311, 8.1327926e-08, -0.14747742, -10.04775, 0, -4.207, -176.59596)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ramp2" unique_id=694754966]
-transform = Transform3D(31.195919, 0, 0, 0, 0.41523963, -7.632969, 0, 0.19895835, 15.930518, 1.9697914, 1.8518071, -5.2750216)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hill/Ramp4" unique_id=29503291]
+transform = Transform3D(31.195919, 0, 0, 0, 0.46044368, 0, 0, 0, 17.664757, 1.9697914, 1.8518071, -5.2750216)
 shape = SubResource("BoxShape3D_blgmw")
 debug_color = Color(0, 11.708403, 13.469126, 0.41960785)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ramp2/CollisionShape3D" unique_id=1857481231]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hill/Ramp4/CollisionShape3D" unique_id=928521869]
+transform = Transform3D(1, -5.551115e-17, -2.842171e-14, 6.82121e-13, 1.0000002, 3.8146973e-06, 1.4210855e-14, -5.820766e-10, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_ugqxb")
+
+[node name="Hill4" type="Node3D" parent="." unique_id=225626852]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -508.46506)
+
+[node name="Ramp2" type="StaticBody3D" parent="Hill4" unique_id=2005030552]
+transform = Transform3D(1, 0, 0, 0, 0.7762353, -1.5563174, 0, 0.46663067, 2.5889194, 0, -1.949, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hill4/Ramp2" unique_id=1253484963]
+transform = Transform3D(31.195919, 0, 0, 0, 0.46044368, 0, 0, 0, 17.664757, 1.9697914, 1.8518071, -5.2750216)
+shape = SubResource("BoxShape3D_blgmw")
+debug_color = Color(0, 11.708403, 13.469126, 0.41960785)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hill4/Ramp2/CollisionShape3D" unique_id=1454138621]
+mesh = SubResource("BoxMesh_ugqxb")
+
+[node name="Ramp4" type="StaticBody3D" parent="Hill4" unique_id=1870696196]
+transform = Transform3D(-0.9999999, -4.0321112e-08, -7.633606e-07, -3.2070364e-08, 0.88327897, -1.6776311, 8.1327926e-08, -0.14747742, -10.04775, 0, -4.207, -176.59596)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hill4/Ramp4" unique_id=1835597917]
+transform = Transform3D(31.195919, 0, 0, 0, 0.46044368, 0, 0, 0, 17.664757, 1.9697914, 1.8518071, -5.2750216)
+shape = SubResource("BoxShape3D_blgmw")
+debug_color = Color(0, 11.708403, 13.469126, 0.41960785)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hill4/Ramp4/CollisionShape3D" unique_id=650427073]
+transform = Transform3D(1, -5.551115e-17, -2.842171e-14, 6.82121e-13, 1.0000002, 3.8146973e-06, 1.4210855e-14, -5.820766e-10, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_ugqxb")
+
+[node name="Hill5" type="Node3D" parent="." unique_id=1996014758]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1396.1198)
+
+[node name="Ramp2" type="StaticBody3D" parent="Hill5" unique_id=1705185670]
+transform = Transform3D(1, 0, 0, 0, 0.7762353, -1.5563174, 0, 0.46663067, 2.5889194, 0, -1.949, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hill5/Ramp2" unique_id=1151759435]
+transform = Transform3D(31.195919, 0, 0, 0, 0.46044368, 0, 0, 0, 17.664757, 1.9697914, 1.8518071, -5.2750216)
+shape = SubResource("BoxShape3D_blgmw")
+debug_color = Color(0, 11.708403, 13.469126, 0.41960785)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hill5/Ramp2/CollisionShape3D" unique_id=1086352415]
+mesh = SubResource("BoxMesh_ugqxb")
+
+[node name="Ramp4" type="StaticBody3D" parent="Hill5" unique_id=1941469160]
+transform = Transform3D(-0.9999999, -4.0321112e-08, -7.633606e-07, -3.2070364e-08, 0.88327897, -1.6776311, 8.1327926e-08, -0.14747742, -10.04775, 0, -4.207, -176.59596)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hill5/Ramp4" unique_id=926103848]
+transform = Transform3D(31.195919, 0, 0, 0, 0.46044368, 0, 0, 0, 17.664757, 1.9697914, 1.8518071, -5.2750216)
+shape = SubResource("BoxShape3D_blgmw")
+debug_color = Color(0, 11.708403, 13.469126, 0.41960785)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hill5/Ramp4/CollisionShape3D" unique_id=1666006397]
+transform = Transform3D(1, -5.551115e-17, -2.842171e-14, 6.82121e-13, 1.0000002, 3.8146973e-06, 1.4210855e-14, -5.820766e-10, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_ugqxb")
+
+[node name="Hill2" type="Node3D" parent="." unique_id=1783758473]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -960.48804)
+
+[node name="Ramp2" type="StaticBody3D" parent="Hill2" unique_id=2127572304]
+transform = Transform3D(1, 0, 0, 0, 0.7762353, -1.5563174, 0, 0.46663067, 2.5889194, 0, -1.949, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hill2/Ramp2" unique_id=1849895374]
+transform = Transform3D(31.195919, 0, 0, 0, 0.46044368, 0, 0, 0, 17.664757, 1.9697914, 1.8518071, -5.2750216)
+shape = SubResource("BoxShape3D_blgmw")
+debug_color = Color(0, 11.708403, 13.469126, 0.41960785)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hill2/Ramp2/CollisionShape3D" unique_id=1542600117]
+mesh = SubResource("BoxMesh_ugqxb")
+
+[node name="Ramp4" type="StaticBody3D" parent="Hill2" unique_id=1337802528]
+transform = Transform3D(-0.9999999, -4.0321112e-08, -7.633606e-07, -3.2070364e-08, 0.88327897, -1.6776311, 8.1327926e-08, -0.14747742, -10.04775, 0, -4.207, -176.59596)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hill2/Ramp4" unique_id=1639647733]
+transform = Transform3D(31.195919, 0, 0, 0, 0.46044368, 0, 0, 0, 17.664757, 1.9697914, 1.8518071, -5.2750216)
+shape = SubResource("BoxShape3D_blgmw")
+debug_color = Color(0, 11.708403, 13.469126, 0.41960785)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hill2/Ramp4/CollisionShape3D" unique_id=683420728]
+transform = Transform3D(1, -5.551115e-17, -2.842171e-14, 6.82121e-13, 1.0000002, 3.8146973e-06, 1.4210855e-14, -5.820766e-10, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_ugqxb")
+
+[node name="Hill3" type="Node3D" parent="." unique_id=2052506725]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1960.8007)
+
+[node name="Ramp2" type="StaticBody3D" parent="Hill3" unique_id=729620672]
+transform = Transform3D(1, 0, 0, 0, 0.7762353, -1.5563174, 0, 0.46663067, 2.5889194, 0, -1.949, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hill3/Ramp2" unique_id=1070526941]
+transform = Transform3D(31.195919, 0, 0, 0, 0.46044368, 0, 0, 0, 17.664757, 1.9697914, 1.8518071, -5.2750216)
+shape = SubResource("BoxShape3D_blgmw")
+debug_color = Color(0, 11.708403, 13.469126, 0.41960785)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hill3/Ramp2/CollisionShape3D" unique_id=603598336]
+mesh = SubResource("BoxMesh_ugqxb")
+
+[node name="Ramp4" type="StaticBody3D" parent="Hill3" unique_id=48364716]
+transform = Transform3D(-0.9999999, -4.0321112e-08, -7.633606e-07, -3.2070364e-08, 0.88327897, -1.6776311, 8.1327926e-08, -0.14747742, -10.04775, 0, -4.207, -176.59596)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hill3/Ramp4" unique_id=1974707067]
+transform = Transform3D(31.195919, 0, 0, 0, 0.46044368, 0, 0, 0, 17.664757, 1.9697914, 1.8518071, -5.2750216)
+shape = SubResource("BoxShape3D_blgmw")
+debug_color = Color(0, 11.708403, 13.469126, 0.41960785)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hill3/Ramp4/CollisionShape3D" unique_id=1637498730]
+transform = Transform3D(1, -5.551115e-17, -2.842171e-14, 6.82121e-13, 1.0000002, 3.8146973e-06, 1.4210855e-14, -5.820766e-10, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_ugqxb")
