@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://uity7bb048uy"]
+
+[ext_resource type="PackedScene" uid="uid://cqbb55i2a7wwi" path="res://Assets/protohill4.glb" id="1_oj14e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bngny"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1885f"]
+albedo_color = Color(0.94509804, 0.41568628, 0.49803922, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fapn8"]
+material = SubResource("StandardMaterial3D_1885f")
+
+[node name="protohill4" unique_id=1070191520 instance=ExtResource("1_oj14e")]
+
+[node name="Plane" parent="." index="0" unique_id=79470176]
+transparency = 0.92
+
+[node name="Ramp2" type="StaticBody3D" parent="." index="1" unique_id=2005071328]
+transform = Transform3D(-1.1691381e-08, 0.18546373, 0.79485166, -1.1035116e-09, 0.3867459, -0.3811705, -0.26865634, -2.0615106e-08, -1.948918e-08, 7.053239, -0.18378985, -0.91248703)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ramp2" index="0" unique_id=1535302325]
+transform = Transform3D(31.195919, 0, 0, 0, 0.46044368, 0, 0, 0, 17.664757, 1.9697914, 1.8518071, -5.2750216)
+shape = SubResource("BoxShape3D_bngny")
+debug_color = Color(0, 11.708403, 13.469126, 0.41960785)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ramp2/CollisionShape3D" index="0" unique_id=444301250]
+transform = Transform3D(1, -2.220446e-16, 2.1316282e-14, 0, 1.0784681, 4.6300942e-14, 1.7763568e-15, 2.4628294e-17, 1.1793758, 0, -1.1930676, 0.0066191554)
+mesh = SubResource("BoxMesh_fapn8")
