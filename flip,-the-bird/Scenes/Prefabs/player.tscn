@@ -31,6 +31,6 @@ visible = false
 mesh = SubResource("CapsuleMesh_sfbl0")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1204415277]
-transform = Transform3D(0.25881907, -0.20082727, 0.9448181, 0, 0.9781476, 0.2079117, -0.9659258, -0.053811513, 0.25316328, 12.250565, 7.3592367, 2.0218885)
+transform = Transform3D(0.8233345, -0.11800163, 0.55515397, 2.5289013e-09, 0.9781476, 0.20791171, -0.56755644, -0.17118089, 0.80534273, 13.085773, 5.4978437, 7.072418)
 
 [node name="Ui" parent="." unique_id=1288116663 instance=ExtResource("3_0ctox")]
