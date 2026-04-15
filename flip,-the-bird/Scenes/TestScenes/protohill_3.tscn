@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bn7764qk3ep54"]
+
+[ext_resource type="PackedScene" uid="uid://b3nkebuigsqie" path="res://Assets/protohill3.glb" id="1_sx1oh"]
+
+[node name="protohill3" unique_id=1087105440 instance=ExtResource("1_sx1oh")]
+transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, 0, 0, 0)

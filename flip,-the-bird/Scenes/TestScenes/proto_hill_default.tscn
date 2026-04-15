@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://clwscxjkep4b3"]
+
+[ext_resource type="PackedScene" uid="uid://d0jrf6x8c50ha" path="res://Assets/proto_hill-default.glb" id="1_8fj8j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8fj8j"]
+
+[node name="proto_hill-default" unique_id=134611912 instance=ExtResource("1_8fj8j")]
+transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, 0, 0, 0)
+
+[node name="Plane" parent="." index="0" unique_id=880442436]
+transform = Transform3D(-10, 0, -8.7422785e-07, 0, 10, 0, 8.7422785e-07, 0, -10, 0, 0, 0)
+
+[node name="ramps2" type="Node3D" parent="." index="1" unique_id=1349865935]
+transform = Transform3D(0.99322957, 0.116168045, 2.9594815e-10, -0.116168045, 0.99322957, 5.077866e-09, 2.9594815e-10, -5.077866e-09, 1, 6, -3, -2.6226832e-07)
+
+[node name="top_ramp" type="StaticBody3D" parent="ramps2" index="0" unique_id=905051528]
+transform = Transform3D(-3.294616e-06, 0.31349057, 26.513044, -2.962427e-07, 0.6537191, -12.714312, -72.122, -1.7005775e-08, -1.1589219e-06, 6.010868, 0.41804636, -1.2252967)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ramps2/top_ramp" index="0" unique_id=768876362]
+shape = SubResource("BoxShape3D_8fj8j")
+debug_color = Color(0, 11.708403, 13.469126, 0.41960785)
+
+[node name="bottomramp" type="StaticBody3D" parent="ramps2" index="1" unique_id=140261737]
+transform = Transform3D(-4.2139877e-08, -0.16981883, 0.62989855, 2.6571714e-09, 0.31465414, 0.33995625, -0.83295304, 9.595061e-09, -3.0782672e-08, -8.181413, 5.03175, -1.0356258)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ramps2/bottomramp" index="0" unique_id=998447493]
+transform = Transform3D(43.67428, -1.0214052e-14, -3.5527137e-14, -1.1368684e-13, 0.55611247, -1.4305115e-06, -2.1316282e-14, 2.9802322e-08, 25.141178, 1.9697909, 0.01971054, -8.817608)
+shape = SubResource("BoxShape3D_8fj8j")
+debug_color = Color(0, 11.708403, 13.469126, 0.41960785)
