@@ -19,6 +19,12 @@ var previous_angle
 var angle_power = 1.0
 var total_flips = 0
 #var axis_speed = 1.0
+
+#Obstacle Collision
+@onready var collision_checker: Area3D = $CollisionShape3D/Model/CollisionChecker
+var dont_check = false
+var fragile = false
+var just_hit = false
 #Maybe player rotates faster per full spin? 
 
 @export var gravity_modifier = 5.0
@@ -34,18 +40,18 @@ func SlopeSliding():
 		slope_hit = slope_collider.get_collision_point(0)
 		slope_angle = get_floor_angle()
 		slope_angle = rad_to_deg(slope_angle)
-		print("slope angle " + str(slope_angle))
+		#print("slope angle " + str(slope_angle))
 		slope_normal = get_floor_normal()
 		var yInverse = 1 - slope_normal.y
 		var speed_increase = yInverse * slope_normal.z * angle_power * 1000
 		if speed_increase > 0: speed_increase = 0.3
-		print("speed increase " + str(speed_increase))
+		#print("speed increase " + str(speed_increase))
 		velocity.z += speed_increase
 
 func rotation_math():
 	#TO DO: Allow rotation only when midair
 	var current_angle = model.get_rotation().x
-	print(current_angle)
+	#print(current_angle)
 	
 	#Commented code below causes player to launch out of bounds
 	#if current_angle > 90 or current_angle < -90:
@@ -64,8 +70,35 @@ func rotation_math():
 		#print("Total Score: "+ str($Global.score))
 	#FOR LATER: Add multiplier from fish/stonse to scoring
 
+func fragile_timer():
+	if just_hit:
+		#SWAP FOR DIZZY TIMER
+		just_hit = false
+		await get_tree().create_timer(10).timeout
+		fragile = false
+
+
+func check_collisions():
+	if fragile: fragile_timer()
+	var area_list = collision_checker.get_overlapping_areas()
+	if collision_checker.has_overlapping_bodies() and !dont_check:
+		for area in area_list:
+			if area.is_in_group("Obstacle"):
+				#game over trigger
+				if fragile: Global.game_over = true
+				dont_check = true
+				velocity.z = -Force
+				print("hit something")
+				fragile = true
+				just_hit = true
+				#SWAP FOR AWAIT WHEN THE SPIN ANIMATION FINISHES
+				await get_tree().create_timer(2).timeout
+				print("can get hit again")
+				dont_check = false
+				
 		
 func _physics_process(delta: float) -> void:
+	check_collisions()
 	velocity.z += .1
 	if velocity.z >= 0: velocity.z = -100
 	Global.forward_velocity = velocity.z

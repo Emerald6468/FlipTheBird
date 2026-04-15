@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b2svsxeylpykh" path="res://Scenes/Prefabs/player.tscn" id="1_5cjin"]
 [ext_resource type="Script" uid="uid://dsylgw6jbiv5q" path="res://Level.gd" id="1_blgmw"]
+[ext_resource type="PackedScene" uid="uid://buc5mi1l0tx4e" path="res://Scenes/Prefabs/rock.tscn" id="3_1885f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5cjin"]
 
@@ -165,3 +166,9 @@ debug_color = Color(0, 11.708403, 13.469126, 0.41960785)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Hill3/Ramp4/CollisionShape3D" unique_id=1637498730]
 transform = Transform3D(1, -5.551115e-17, -2.842171e-14, 6.82121e-13, 1.0000002, 3.8146973e-06, 1.4210855e-14, -5.820766e-10, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_ugqxb")
+
+[node name="Rock" parent="." unique_id=1886200248 instance=ExtResource("3_1885f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0.8788929, -451.60754)
+
+[node name="Rock2" parent="." unique_id=897545220 instance=ExtResource("3_1885f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -5.2056465, 1.5979538, -852.0762)
