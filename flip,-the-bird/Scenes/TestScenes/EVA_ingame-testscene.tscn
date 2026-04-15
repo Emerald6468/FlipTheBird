@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://uity7bb048uy" path="res://Scenes/TestScenes/protohill_4.tscn" id="3_fhf2n"]
 [ext_resource type="PackedScene" uid="uid://clwscxjkep4b3" path="res://Scenes/TestScenes/proto_hill_default.tscn" id="4_tv5n2"]
 [ext_resource type="PackedScene" uid="uid://di4ue8cff8s6t" path="res://Scenes/TestScenes/protohill_2.tscn" id="5_xh3i1"]
+[ext_resource type="PackedScene" uid="uid://qqcyn32vo85f" path="res://Scenes/TestScenes/protohill_5.tscn" id="6_rmdik"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5cjin"]
 
@@ -151,3 +152,6 @@ transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, 0, -
 
 [node name="protohill2" parent="." unique_id=1544088978 instance=ExtResource("5_xh3i1")]
 transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, 0, -1.9803772, -239.41176)
+
+[node name="protohill_5" parent="." unique_id=864387903 instance=ExtResource("6_rmdik")]
+transform = Transform3D(2, 0, 0, 0, 2.152031, 0, 0, 0, 1.5014141, 0, -3.002884, -377.24124)
