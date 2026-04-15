@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://buc5mi1l0tx4e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bseyl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fldgw"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ompd4"]
+material = SubResource("StandardMaterial3D_fldgw")
+
+[node name="Rock" type="Node3D" unique_id=1886200248 groups=["Obstacle"]]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="rocky" type="Area3D" parent="." unique_id=1535179531 groups=["Obstacle"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="rocky" unique_id=286554116]
+shape = SubResource("BoxShape3D_bseyl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="rocky/CollisionShape3D" unique_id=288996928]
+mesh = SubResource("BoxMesh_ompd4")
