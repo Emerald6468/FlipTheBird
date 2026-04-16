@@ -4,6 +4,7 @@ extends CharacterBody3D
 @export var Speed = 20.0
 @export var Force = 100
 const JUMP_VELOCITY = 25
+@export var Max_Velocity = 200
 
 #Slope
 var is_gripping = false
@@ -70,11 +71,11 @@ func rotation_math():
 	#solution for measuring rotations totaling approximately 360
 	if current_angle > 1.4 && current_angle <1.6:
 		print("Points received!")
+
 		total_flips += 1
 		#TO DO: Create higher node for Global.gd to be embeded
 		#Code below will not function until Global.gd is actually used
-	#for i in total_flips:
-		#$Global.score += 50
+	
 		#print("Total Score: "+ str($Global.score))
 	#FOR LATER: Add multiplier from fish/stones to scoring
 
@@ -106,11 +107,12 @@ func check_collisions():
 				dont_check = false
 
 #Running every frame main function
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void: 
 	check_collisions()
+	Global.is_fragile = fragile
 	velocity.z += .1
 	if velocity.z >= 0: velocity.z = -Force
-	if velocity.z < -200: velocity.z = -200
+	if velocity.z < -Max_Velocity: velocity.z = -Max_Velocity
 	Global.forward_velocity = velocity.z
 	previous_angle = model.get_rotation().x
 	#W and S rotate, A and D steer
@@ -130,6 +132,8 @@ func _physics_process(delta: float) -> void:
 	#Gravity
 	if is_on_floor():
 		#Set total_flips back to 0
+		for i in total_flips:
+			Global.score += 1
 		total_flips = 0
 		SlopeSliding()
 	else:
