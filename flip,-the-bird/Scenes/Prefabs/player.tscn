@@ -24,7 +24,7 @@ transform = Transform3D(-0.75, 0, -6.556708e-08, 0, 0.75, 0, 6.556708e-08, 0, -0
 
 [node name="SlopeCollider" type="ShapeCast3D" parent="CollisionShape3D/Model" unique_id=1241178530]
 unique_name_in_owner = true
-transform = Transform3D(-1.2, -1.8119496e-07, -1.4210855e-14, -1.8119496e-07, 1.2, -1.1959295e-21, 1.4210855e-14, 3.3881318e-21, -1.2, -2.676903e-07, 1.7728328, 0.25012597)
+transform = Transform3D(-1.2, -1.8119496e-07, -7.920283e-15, -1.8119496e-07, 1.2, -1.1959295e-21, 7.920284e-15, 1.1959296e-21, -1.2, -2.676903e-07, 1.7728328, 0.25012594)
 shape = SubResource("SphereShape3D_pv3ct")
 
 [node name="CollisionChecker" type="Area3D" parent="CollisionShape3D/Model" unique_id=34973778]
