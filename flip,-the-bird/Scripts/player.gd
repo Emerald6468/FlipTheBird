@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-
+#Basics
 @export var Speed = 20.0
 @export var Force = 100
 const JUMP_VELOCITY = 25
@@ -29,9 +29,12 @@ var just_hit = false
 
 @export var gravity_modifier = 5.0
 
+#FUNCTIONS
+#Only runs on start
 func _ready() -> void:
 	velocity.z = -Force
 
+#Increases your speed going down slopes
 func SlopeSliding():
 	if slope_collider.is_colliding():
 		if !ignore:
@@ -47,6 +50,7 @@ func SlopeSliding():
 		#print("speed increase " + str(speed_increase))
 		velocity.z += speed_increase
 
+#All the reflection code
 func rotation_math():
 	#TO DO: Allow rotation only when midair
 	var current_angle = model.get_rotation().x
@@ -74,6 +78,7 @@ func rotation_math():
 		#print("Total Score: "+ str($Global.score))
 	#FOR LATER: Add multiplier from fish/stones to scoring
 
+#Fragile State that can make you game over
 func fragile_timer():
 	if just_hit:
 		#SWAP FOR DIZZY TIMER
@@ -81,7 +86,7 @@ func fragile_timer():
 		await get_tree().create_timer(10).timeout
 		fragile = false
 
-
+#Interactions with obstacles
 func check_collisions():
 	if fragile: fragile_timer()
 	var area_list = collision_checker.get_overlapping_areas()
@@ -99,8 +104,8 @@ func check_collisions():
 				await get_tree().create_timer(2).timeout
 				print("can get hit again")
 				dont_check = false
-				
-		
+
+#Running every frame main function
 func _physics_process(delta: float) -> void:
 	check_collisions()
 	velocity.z += .1
@@ -116,7 +121,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction.x * Speed
 		#Rotate
 		var air_change = 1.0
-		if !is_on_floor(): air_change = 2.0
+		if !is_on_floor(): air_change = 4.0
 		var rad_change = deg_to_rad(input_dir.y)*2.5 * air_change
 		model.rotate_x(rad_change)
 	else:
