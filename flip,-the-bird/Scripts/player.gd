@@ -31,7 +31,7 @@ var just_hit = false
 
 func _ready() -> void:
 	velocity.z = -Force
-	
+	set_floor_snap_length(1.0)
 
 func SlopeSliding():
 	if slope_collider.is_colliding():
@@ -56,14 +56,7 @@ func rotation_math():
 	#Commented code below causes player to launch out of bounds
 	#if current_angle > 90 or current_angle < -90:
 		#current_angle = -90
-	
-	
-		
 	angle_power = (current_angle*.2)+1
-	if current_angle < 90 and current_angle > 0:
-		set_floor_snap_length(1.0)
-		angle_power *= 2
-	else: set_floor_snap_length(0.0)
 	#For every 360 midair, add to score
 	#Because current_angle can't increase past ~1.5, this if statement is a bandaid
 	#solution for measuring rotations totaling approximately 360
@@ -75,7 +68,7 @@ func rotation_math():
 	#for i in total_flips:
 		#$Global.score += 50
 		#print("Total Score: "+ str($Global.score))
-	#FOR LATER: Add multiplier from fish/stones to scoring
+	#FOR LATER: Add multiplier from fish/stonse to scoring
 
 func fragile_timer():
 	if just_hit:
@@ -107,8 +100,7 @@ func check_collisions():
 func _physics_process(delta: float) -> void:
 	check_collisions()
 	velocity.z += .1
-	if velocity.z >= 0: velocity.z = -Force
-	if velocity.z < -200: velocity.z = - 200
+	if velocity.z >= 0: velocity.z = -100
 	Global.forward_velocity = velocity.z
 	previous_angle = model.get_rotation().x
 	#W and S rotate, A and D steer
@@ -118,9 +110,7 @@ func _physics_process(delta: float) -> void:
 		#Left and right
 		velocity.x = direction.x * Speed
 		#Rotate
-		var air_change = 1
-		if !is_on_floor(): air_change = 2
-		var rad_change = deg_to_rad(input_dir.y)*2.5*air_change
+		var rad_change = deg_to_rad(input_dir.y)*2.5
 		model.rotate_x(rad_change)
 	else:
 		velocity.x = move_toward(velocity.x, 0, Speed)
@@ -138,7 +128,7 @@ func _physics_process(delta: float) -> void:
 		velocity += (get_gravity() * gravity_modifier) * delta
 		#Commented code below causes player to launch out of bounds (overflows velocity.y)
 		#Note: As result, Flip will slowly lose momentum, but regain it when near ~(-10)
-		velocity.y *= angle_power
+		#velocity.y *= angle_power
 	#Handle jump
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
