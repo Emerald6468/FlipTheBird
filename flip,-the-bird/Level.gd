@@ -1,5 +1,7 @@
 extends Node3D
 
+@onready var all_ground: Node3D = $AllGround
+
 # Increases in intervals of 50 based on total flips + multiplier
 var score = 0
 
@@ -11,6 +13,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	all_ground.position.z -= Global.velocity * delta
 	if Global.game_over:
 		print("GAME OVER")
 

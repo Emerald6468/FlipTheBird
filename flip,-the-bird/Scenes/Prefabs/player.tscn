@@ -13,6 +13,7 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_sfbl0"]
 
 [node name="Player" type="CharacterBody3D" unique_id=992012420]
+collision_priority = 0.001
 script = ExtResource("1_sfbl0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1016772518]

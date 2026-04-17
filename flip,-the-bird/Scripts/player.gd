@@ -2,9 +2,10 @@ extends CharacterBody3D
 
 #Basics
 @export var Speed = 20.0
-@export var Force = 100
+@export var Force = 90
 const JUMP_VELOCITY = 25
-@export var Max_Velocity = 200
+@export var Max_Velocity = 120
+var current_velocity = Force
 
 #Slope
 var is_gripping = false
@@ -19,7 +20,8 @@ var slope_normal: Vector3
 var previous_angle
 var angle_power = 1.0
 var total_flips = 0
-#var axis_speed = 1.0
+var is_flipping = false
+var axis_speed = 1.0
 
 #Obstacle Collision
 @onready var collision_checker: Area3D = $CollisionShape3D/Model/CollisionChecker
@@ -28,12 +30,12 @@ var fragile = false
 var just_hit = false
 #Maybe player rotates faster per full spin? 
 
-@export var gravity_modifier = 5.0
+@export var gravity_modifier = 1.0
 
 #FUNCTIONS
 #Only runs on start
 func _ready() -> void:
-	velocity.z = -Force
+	current_velocity = -Force
 
 #Increases your speed going down slopes
 func SlopeSliding():
@@ -49,7 +51,7 @@ func SlopeSliding():
 		var speed_increase = yInverse * slope_normal.z * angle_power * 1000
 		if speed_increase > 0: speed_increase = 0.3
 		#print("speed increase " + str(speed_increase))
-		velocity.z += speed_increase
+		current_velocity += speed_increase
 
 #All the reflection code
 func rotation_math():
@@ -61,10 +63,12 @@ func rotation_math():
 	if current_angle > 90 or current_angle < -90:
 		current_angle = -90
 	angle_power = (current_angle*.2)+1
+	#fall faster when looking down
 	if current_angle < 90 and current_angle > 0:
 		set_floor_snap_length(1.0)
-		angle_power *= 2
-	else: set_floor_snap_length(0.0)
+		#angle_power *= 2
+	else: 
+		set_floor_snap_length(0.1)
 		
 	#For every 360 midair, add to score
 	#Because current_angle can't increase past ~1.5, this if statement is a bandaid
@@ -110,10 +114,10 @@ func check_collisions():
 func _physics_process(delta: float) -> void: 
 	check_collisions()
 	Global.is_fragile = fragile
-	velocity.z += .1
-	if velocity.z >= 0: velocity.z = -Force
-	if velocity.z < -Max_Velocity: velocity.z = -Max_Velocity
-	Global.forward_velocity = velocity.z
+	current_velocity += .1
+	if current_velocity >= 0: current_velocity = -Force
+	if current_velocity < -Max_Velocity: current_velocity = -Max_Velocity
+	Global.forward_velocity = current_velocity
 	previous_angle = model.get_rotation().x
 	#W and S rotate, A and D steer
 	var input_dir := Input.get_vector("Left", "Right", "Forward", "Backward")
@@ -124,7 +128,8 @@ func _physics_process(delta: float) -> void:
 		#Rotate
 		var air_change = 1.0
 		if !is_on_floor(): air_change = 4.0
-		var rad_change = deg_to_rad(input_dir.y)*2.5 * air_change
+		var rad_change = (deg_to_rad(input_dir.y)*4.5)* axis_speed
+		#var rad_change = deg_to_rad(input_dir.y)*2.5 * air_change
 		model.rotate_x(rad_change)
 	else:
 		velocity.x = move_toward(velocity.x, 0, Speed)
@@ -135,6 +140,7 @@ func _physics_process(delta: float) -> void:
 		for i in total_flips:
 			Global.score += 1
 		total_flips = 0
+		axis_speed = 1.0
 		SlopeSliding()
 	else:
 		if is_gripping:
@@ -150,3 +156,4 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		
 	move_and_slide()
+	Global.velocity = current_velocity
