@@ -8,7 +8,6 @@ const JUMP_VELOCITY = 25
 var current_velocity = Force
 
 #Slope
-var is_gripping = false
 var ignore = false
 @onready var slope_collider: ShapeCast3D = %SlopeCollider
 var slope_hit: Vector3
@@ -40,8 +39,6 @@ func _ready() -> void:
 #Increases your speed going down slopes
 func SlopeSliding():
 	if slope_collider.is_colliding():
-		if !ignore:
-			is_gripping = true
 		slope_hit = slope_collider.get_collision_point(0)
 		slope_angle = get_floor_angle()
 		slope_angle = rad_to_deg(slope_angle)
@@ -55,6 +52,7 @@ func SlopeSliding():
 
 #All the reflection code
 func rotation_math():
+	angle_power = 1.0
 	#TO DO: Allow rotation only when midair
 	var current_angle = model.get_rotation().x
 	#print(current_angle)
@@ -62,19 +60,23 @@ func rotation_math():
 	#Commented code below causes player to launch out of bounds
 	if current_angle > 90 or current_angle < -90:
 		current_angle = -90
-	angle_power = (current_angle*.2)+1
+	if !is_flipping: angle_power = (current_angle*.2)+1
 	#fall faster when looking down
 	if current_angle < 90 and current_angle > 0:
-		set_floor_snap_length(1.0)
+		if !is_flipping:
+			print("not flipping")
+			set_floor_snap_length(1.0)
 		#angle_power *= 2
 	else: 
-		set_floor_snap_length(0.1)
+		set_floor_snap_length(0.0)
+		
+	
 		
 	#For every 360 midair, add to score
 	#Because current_angle can't increase past ~1.5, this if statement is a bandaid
 	#solution for measuring rotations totaling approximately 360
 	if current_angle > 1.4 && current_angle <1.6:
-		print("Points received!")
+		#print("Points received!")
 
 		total_flips += 1
 		#TO DO: Create higher node for Global.gd to be embeded
@@ -130,10 +132,17 @@ func _physics_process(delta: float) -> void:
 		if !is_on_floor(): air_change = 4.0
 		var rad_change = (deg_to_rad(input_dir.y)*4.5)* axis_speed
 		#var rad_change = deg_to_rad(input_dir.y)*2.5 * air_change
+
 		model.rotate_x(rad_change)
 	else:
 		velocity.x = move_toward(velocity.x, 0, Speed)
-	rotation_math()
+	if input_dir.y != 0: 
+		print("we flip")
+		is_flipping = true
+	else: 
+		print(str(input_dir.y))
+		is_flipping = false
+	call_deferred("rotation_math")
 	#Gravity
 	if is_on_floor():
 		#Set total_flips back to 0
@@ -143,10 +152,6 @@ func _physics_process(delta: float) -> void:
 		axis_speed = 1.0
 		SlopeSliding()
 	else:
-		if is_gripping:
-			pass
-			#print("test")
-			#apply_floor_snap()
 		velocity += (get_gravity() * gravity_modifier) * delta
 		#Commented code below causes player to launch out of bounds (overflows velocity.y)
 		#Note: As result, Flip will slowly lose momentum, but regain it when near ~(-10)
