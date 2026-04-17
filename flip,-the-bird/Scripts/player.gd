@@ -2,9 +2,9 @@ extends CharacterBody3D
 
 #Basics
 @export var Speed = 20.0
-@export var Force = 90
+@export var Force = 400
 const JUMP_VELOCITY = 25
-@export var Max_Velocity = 120
+@export var Max_Velocity = 400
 var current_velocity = Force
 
 #Slope
@@ -64,7 +64,6 @@ func rotation_math():
 	#fall faster when looking down
 	if current_angle < 90 and current_angle > 0:
 		if !is_flipping:
-			print("not flipping")
 			set_floor_snap_length(1.0)
 		#angle_power *= 2
 	else: 
@@ -116,7 +115,7 @@ func check_collisions():
 func _physics_process(delta: float) -> void: 
 	check_collisions()
 	Global.is_fragile = fragile
-	current_velocity += .1
+	if !is_on_floor(): current_velocity += .1
 	if current_velocity >= 0: current_velocity = -Force
 	if current_velocity < -Max_Velocity: current_velocity = -Max_Velocity
 	Global.forward_velocity = current_velocity
@@ -137,10 +136,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, Speed)
 	if input_dir.y != 0: 
-		print("we flip")
 		is_flipping = true
 	else: 
-		print(str(input_dir.y))
 		is_flipping = false
 	call_deferred("rotation_math")
 	#Gravity

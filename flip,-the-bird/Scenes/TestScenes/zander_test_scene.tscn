@@ -45,6 +45,7 @@ transform = Transform3D(1, 0, 0, 0, 0.35903603, 0.9333238, 0, -0.9333238, 0.3590
 
 [node name="Ground" type="CSGBox3D" parent="AllGround" unique_id=1448157915]
 transform = Transform3D(200, 0, 0, 0, 2.107, 0, 0, 0, 1000, 0, -1.874646, -4443.084)
+transparency = 0.7
 use_collision = true
 size = Vector3(1, 1, 10.893982)
 material = SubResource("StandardMaterial3D_ugqxb")
@@ -85,10 +86,9 @@ mesh = SubResource("BoxMesh_ugqxb")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -508.46506)
 
 [node name="Ramp2" type="StaticBody3D" parent="AllGround/Hill4" unique_id=2005030552]
-transform = Transform3D(1, 0, 0, 0, 0.7762353, -1.5563174, 0, 0.46663067, 2.5889194, 0, -1.949, 0)
+transform = Transform3D(42.90181, 0, 0, 0, 25.09878, 17.426615, 0, -34.79392, 12.5707855, 0.33011627, 1.6472073, -23.91977)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AllGround/Hill4/Ramp2" unique_id=1253484963]
-transform = Transform3D(31.195919, 0, 0, 0, 0.46044368, 0, 0, 0, 17.664757, 1.9697914, 1.8518071, -5.2750216)
 shape = SubResource("BoxShape3D_blgmw")
 debug_color = Color(0, 11.708403, 13.469126, 0.41960785)
 
