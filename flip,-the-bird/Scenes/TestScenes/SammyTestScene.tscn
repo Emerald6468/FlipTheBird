@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://yvwkv71cwdv6"]
 
+[ext_resource type="AudioStream" uid="uid://d0ck1pji7418t" path="res://Assets/Sounds/groovy_beat.wav" id="1_dw08r"]
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_8wn77"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dw08r"]
@@ -15,3 +17,7 @@ shape = SubResource("CylinderShape3D_8wn77")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player" unique_id=548076824]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011981487, 0, 0)
 mesh = SubResource("CapsuleMesh_dw08r")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=215915988]
+stream = ExtResource("1_dw08r")
+autoplay = true
