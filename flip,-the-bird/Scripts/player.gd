@@ -1,6 +1,5 @@
 extends CharacterBody3D
 
-
 @export var Speed = 20.0
 @export var Force = 100
 const JUMP_VELOCITY = 25
@@ -18,8 +17,8 @@ var slope_normal: Vector3
 var previous_angle
 var angle_power = 1.0
 var total_flips = 0
-#var axis_speed = 1.0
-#Maybe player rotates faster per full spin? 
+var axis_speed = 1.0
+
 
 @export var gravity_modifier = 5.0
 
@@ -57,6 +56,7 @@ func rotation_math():
 	if current_angle > 1.4 && current_angle <1.6:
 		print("Points received!")
 		total_flips += 1
+		axis_speed += 0.5
 		#TO DO: Create higher node for Global.gd to be embeded
 		#Code below will not function until Global.gd is actually used
 	#for i in total_flips:
@@ -77,15 +77,16 @@ func _physics_process(delta: float) -> void:
 		#Left and right
 		velocity.x = direction.x * Speed
 		#Rotate
-		var rad_change = deg_to_rad(input_dir.y)*2.5
+		var rad_change = (deg_to_rad(input_dir.y)*4.5)* axis_speed
 		model.rotate_x(rad_change)
 	else:
 		velocity.x = move_toward(velocity.x, 0, Speed)
 	rotation_math()
 	#Gravity
 	if is_on_floor():
-		#Set total_flips back to 0
+		#Set total_flips back to 0 and axis_speed back to 1
 		total_flips = 0
+		axis_speed = 1.0
 		SlopeSliding()
 	else:
 		if is_gripping:
@@ -93,11 +94,7 @@ func _physics_process(delta: float) -> void:
 			#print("test")
 			#apply_floor_snap()
 		velocity += (get_gravity() * gravity_modifier) * delta
-		#Commented code below causes player to launch out of bounds (overflows velocity.y)
-		#Note: As result, Flip will slowly lose momentum, but regain it when near ~(-10)
-		#velocity.y *= angle_power
 	#Handle jump
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		
 	move_and_slide()

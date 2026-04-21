@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://b5iab4cj543nm"]
+
+[ext_resource type="PackedScene" uid="uid://cdpp8n7pjmd6f" path="res://Scenes/TestScenes/zander_test_scene.tscn" id="1_80vkl"]
+[ext_resource type="Script" uid="uid://t8xmkxeccwjx" path="res://Scenes/TestScenes/collision_shape_3d.gd" id="2_ql7y7"]
+[ext_resource type="PackedScene" uid="uid://dq1stw5bc8k13" path="res://Scenes/TestScenes/terrain_controller.tscn" id="3_jp4vs"]
+[ext_resource type="PackedScene" uid="uid://ldnjbn3k88re" path="res://LevelSegments/hill_2.tscn" id="4_jr0a2"]
+[ext_resource type="PackedScene" uid="uid://dfiaqxqj22ekl" path="res://LevelSegments/hill_3.tscn" id="5_3oysp"]
+[ext_resource type="PackedScene" uid="uid://bbq4jtxtxacnn" path="res://LevelSegments/hill_4.tscn" id="6_oq305"]
+[ext_resource type="PackedScene" uid="uid://dfrjm43ipgfch" path="res://LevelSegments/hill_5.tscn" id="7_p4iyk"]
+
+[node name="Node3D" type="Node3D" unique_id=1788349822]
+
+[node name="ZanderTestScene" parent="." unique_id=1441254301 instance=ExtResource("1_80vkl")]
+script = ExtResource("2_ql7y7")
+get_level_segments = "res://LevelSegments/"
+
+[node name="Node3D" type="Node3D" parent="ZanderTestScene" unique_id=1664023032]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2554.495)
+script = ExtResource("2_ql7y7")
+
+[node name="TerrainContoller" parent="ZanderTestScene/Node3D" unique_id=1287271157 instance=ExtResource("3_jp4vs")]
+
+[node name="Hill2" parent="ZanderTestScene/Node3D" unique_id=1749338322 instance=ExtResource("4_jr0a2")]
+
+[node name="Hill3" parent="ZanderTestScene/Node3D" unique_id=1669907315 instance=ExtResource("5_3oysp")]
+
+[node name="Hill4" parent="ZanderTestScene/Node3D" unique_id=1300234469 instance=ExtResource("6_oq305")]
+
+[node name="Hill5" parent="ZanderTestScene/Node3D" unique_id=503658807 instance=ExtResource("7_p4iyk")]
