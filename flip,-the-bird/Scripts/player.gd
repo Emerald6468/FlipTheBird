@@ -81,7 +81,7 @@ func rotation_math():
 	#fall faster when looking down
 	if current_angle < 90 and current_angle > 0 and !is_flipping:
 		if close_to_hill:
-			print("snap")
+			#print("snap")
 			set_floor_snap_length(3.0)
 		velocity.y -= 2
 		if current_angle <=90 and current_angle <=  75:
