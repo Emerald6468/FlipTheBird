@@ -3,17 +3,20 @@
 [ext_resource type="Script" uid="uid://bncoejlqlfy4e" path="res://Scripts/player.gd" id="1_sfbl0"]
 [ext_resource type="PackedScene" uid="uid://dw6jql5rd5yg8" path="res://Scenes/UI/UI.tscn" id="3_0ctox"]
 [ext_resource type="PackedScene" uid="uid://b43oti4k0ee64" path="res://Assets/sledding_prototype_Flip.glb" id="3_v1l4e"]
+[ext_resource type="AudioStream" uid="uid://duaqp1csd3nyi" path="res://Assets/Sounds/MUS_twink_jazz_EXT.wav" id="4_0ctox"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qohmv"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_pv3ct"]
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v1l4e"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_sfbl0"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_pv3ct"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0ctox"]
+height = 5.14209
 
 [node name="Player" type="CharacterBody3D" unique_id=992012420]
 collision_priority = 0.001
+floor_snap_length = 0.0
 script = ExtResource("1_sfbl0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1016772518]
@@ -23,24 +26,35 @@ debug_color = Color(0, 11.708403, 13.469126, 0.61960787)
 [node name="Model" parent="CollisionShape3D" unique_id=1921737992 instance=ExtResource("3_v1l4e")]
 transform = Transform3D(-0.75, 0, -6.556708e-08, 0, 0.75, 0, 6.556708e-08, 0, -0.75, 0, -1.0796245, 0.18759444)
 
-[node name="SlopeCollider" type="ShapeCast3D" parent="CollisionShape3D/Model" unique_id=1241178530]
-unique_name_in_owner = true
-transform = Transform3D(-1.2, -1.8119496e-07, -7.920283e-15, -1.8119496e-07, 1.2, -1.1959295e-21, 7.920284e-15, 1.1959296e-21, -1.2, -2.676903e-07, 1.7728328, 0.25012594)
-shape = SubResource("SphereShape3D_pv3ct")
-
 [node name="CollisionChecker" type="Area3D" parent="CollisionShape3D/Model" unique_id=34973778]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.945905e-09, 0, -0.102329254)
+transform = Transform3D(1.3, 0, 0, 0, 1.7000002, 0, 0, 0, 1, 8.945905e-09, -0.8266556, -0.102329254)
+collision_layer = 8
+collision_mask = 6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionShape3D/Model/CollisionChecker" unique_id=884599138]
 transform = Transform3D(2.5, 0, 0, 0, -1.09278474e-07, -2.5, 0, 2.5, -1.09278474e-07, -3.7304268e-08, 1, 0.4267111)
 shape = SubResource("CapsuleShape3D_v1l4e")
+debug_color = Color(0.60817593, 0.53965366, 0.05646863, 0.41960785)
 
-[node name="BaseModel" type="MeshInstance3D" parent="." unique_id=68442305]
-transform = Transform3D(1, 4.2351647e-22, 1.4210855e-14, 1.4210855e-14, -4.371139e-08, -1, 0, 1, -4.371139e-08, -5.8672596e-15, -0.5071369, -1.4901161e-08)
-visible = false
-mesh = SubResource("CapsuleMesh_sfbl0")
+[node name="SlopeCollider" type="ShapeCast3D" parent="CollisionShape3D/Model" unique_id=1241178530]
+unique_name_in_owner = true
+transform = Transform3D(-1.2, -1.8119496e-07, -1.4210855e-14, -1.8119496e-07, 1.2, -1.1959295e-21, 1.4210855e-14, 3.3881318e-21, -1.2, -2.676903e-07, 1.7728328, 0.25012597)
+shape = SubResource("SphereShape3D_pv3ct")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1204415277]
 transform = Transform3D(0.8233345, -0.11800163, 0.55515397, 2.5289013e-09, 0.9781476, 0.20791171, -0.56755644, -0.17118089, 0.80534273, 13.085773, 5.4978437, 7.072418)
 
 [node name="Ui" parent="." unique_id=1288116663 instance=ExtResource("3_0ctox")]
+
+[node name="NightTimeMusic" type="AudioStreamPlayer" parent="." unique_id=1889990550]
+stream = ExtResource("4_0ctox")
+autoplay = true
+
+[node name="GroundChecker" type="Area3D" parent="." unique_id=1064808601]
+collision_layer = 8
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundChecker" unique_id=899539815]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.8586276, 0)
+shape = SubResource("CapsuleShape3D_0ctox")
+debug_color = Color(0.8235294, 0.39607844, 0.09803922, 0.827451)

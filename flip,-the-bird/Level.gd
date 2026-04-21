@@ -18,7 +18,5 @@ func _process(delta: float) -> void:
 		print("GAME OVER")
 
 func _input(event):
-	if event.is_action_pressed("Escape"):
-		get_tree().quit()
 	if event.is_action_pressed("Restart"):
 		get_tree().reload_current_scene()
