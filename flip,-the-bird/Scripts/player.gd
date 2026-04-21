@@ -20,7 +20,7 @@ var slope_points = 0
 var nothing_around = false
 var touching_hill = false
 var going_up = false
-@export var height_shrinker = 1.0
+@export var height_shrinker = 0.001
 
 #Player angle
 @onready var model: Node3D = $CollisionShape3D/Model
@@ -72,17 +72,18 @@ func rotation_math():
 	#Commented code below causes player to launch out of bounds
 	#if current_angle > 90 or current_angle < -90:
 	#	current_angle = -90
-	if !is_flipping: angle_power = (current_angle*.001)+1
+	if !is_flipping: angle_power = (current_angle*.01)+1
 	
 	#gain slope_points when sliding up
 	if current_angle < 0 and current_angle >= -90 and going_up and close_to_hill:
 		slope_points += 1
 	else: print("ang:"+str(current_angle)+"up?:"+str(going_up)+"touching nothing:"+str(nothing_around)+"hill:"+str(close_to_hill)+"upvelocity:"+str(velocity.y))
 	#fall faster when looking down
-	if current_angle < 90 and current_angle > 0 and !is_flipping and close_to_hill:
-		print("snap")
-		set_floor_snap_length(1.0)
-		angle_power *= 2
+	if current_angle < 90 and current_angle > 0 and !is_flipping:
+		if close_to_hill:
+			print("snap")
+			set_floor_snap_length(1.0)
+		velocity.y -= 1 * angle_power * 2
 	else: 
 		
 		set_floor_snap_length(0.0)
@@ -121,7 +122,7 @@ func check_collisions():
 				#game over trigger
 				if fragile: Global.game_over = true
 				dont_check = true
-				velocity.z = -Force
+				current_velocity = -Force
 				print("hit something")
 				fragile = true
 				just_hit = true
@@ -154,8 +155,9 @@ func leaping():
 		just_leaped = true
 		var height_gain = 0.0
 		if slope_points != 0:
-			height_gain = (-1 * velocity.z * height_shrinker) + slope_points
+			height_gain = (-1 * current_velocity * height_shrinker) + slope_points
 			velocity.y += height_gain
+			print("slope points: " + str(slope_points))
 			slope_points = 0
 
 #Running every frame main function
@@ -202,8 +204,8 @@ func _physics_process(delta: float) -> void:
 		velocity += (get_gravity() * gravity_modifier) * delta
 		#Commented code below causes player to launch out of bounds (overflows velocity.y)
 		#Note: As result, Flip will slowly lose momentum, but regain it when near ~(-10)
-		velocity.y *= angle_power
-		if velocity.y > 30: velocity.y = 30
+		#velocity.y += angle_power
+		if velocity.y > 50: velocity.y = 50
 		elif velocity.y < -50: velocity.y = -50
 	#Handle jump
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
