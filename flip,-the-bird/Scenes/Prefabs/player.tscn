@@ -1,18 +1,15 @@
 [gd_scene format=3 uid="uid://b2svsxeylpykh"]
 
-[ext_resource type="Script" uid="uid://bncoejlqlfy4e" path="res://Scripts/player.gd" id="1_sfbl0"]
-[ext_resource type="PackedScene" uid="uid://bwffiwrlf24k7" path="res://Assets/FINAL_flipglasses.glb" id="2_0ctox"]
+[ext_resource type="Script" uid="uid://bldkw0mc7vdsw" path="res://Scripts/Sammys_player_test.gd" id="1_v34u6"]
 [ext_resource type="PackedScene" uid="uid://dw6jql5rd5yg8" path="res://Scenes/UI/UI.tscn" id="3_0ctox"]
+[ext_resource type="PackedScene" uid="uid://b43oti4k0ee64" path="res://Assets/sledding_prototype_Flip.glb" id="3_v1l4e"]
 [ext_resource type="AudioStream" uid="uid://duaqp1csd3nyi" path="res://Assets/Sounds/MUS_twink_jazz_EXT.wav" id="4_0ctox"]
-<<<<<<< HEAD
 [ext_resource type="AudioStream" uid="uid://d0ck1pji7418t" path="res://Assets/Sounds/groovy_beat.wav" id="4_v34u6"]
 [ext_resource type="AudioStream" uid="uid://bejucnye8ufuv" path="res://Assets/Sounds/SFX_snow_slide.wav" id="6_ak25i"]
 [ext_resource type="AudioStream" uid="uid://dci5by8ay3vy8" path="res://Assets/Sounds/SFX_air_woosh.wav" id="7_68wta"]
 [ext_resource type="AudioStream" uid="uid://bub0e8du6g1dw" path="res://Assets/Sounds/SFX_hard snow impact.wav" id="8_b8ttq"]
 [ext_resource type="AudioStream" uid="uid://dljp130g6jj86" path="res://Assets/Sounds/SFX_rock_impact.wav" id="9_ofsyp"]
 [ext_resource type="AudioStream" uid="uid://6pxn1gpx5gvm" path="res://Assets/Sounds/SFX_soft_snow_land.wav" id="10_mhr4y"]
-=======
->>>>>>> d4d16471ad0647471524a9ce5796dc61539aee7e
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qohmv"]
 
@@ -26,17 +23,17 @@ height = 5.14209
 [node name="Player" type="CharacterBody3D" unique_id=992012420]
 collision_priority = 0.001
 floor_snap_length = 0.0
-script = ExtResource("1_sfbl0")
+script = ExtResource("1_v34u6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1016772518]
 shape = SubResource("CapsuleShape3D_qohmv")
 debug_color = Color(0, 11.708403, 13.469126, 0.61960787)
 
-[node name="Model" parent="CollisionShape3D" unique_id=1495461070 instance=ExtResource("2_0ctox")]
-transform = Transform3D(-0.85, 7.430935e-08, 1.2834644e-07, 7.430936e-08, 0.85, 7.430936e-08, -1.2834643e-07, 7.4309376e-08, -0.85, 0, -0.9068984, 0)
+[node name="Model" parent="CollisionShape3D" unique_id=1921737992 instance=ExtResource("3_v1l4e")]
+transform = Transform3D(-0.75, 0, -6.556708e-08, 0, 0.75, 0, 6.556708e-08, 0, -0.75, 0, -1.0796245, 0.18759444)
 
 [node name="CollisionChecker" type="Area3D" parent="CollisionShape3D/Model" unique_id=34973778]
-transform = Transform3D(1.1470588, 1.3113419e-07, 2.1036934e-07, -1.00279046e-07, 1.5000001, -7.713776e-08, -2.734801e-07, 1.3113419e-07, 0.88235295, -1.2848946e-07, -0.9326092, -0.31098998)
+transform = Transform3D(1.3, 0, 0, 0, 1.7000002, 0, 0, 0, 1, 8.945905e-09, -0.8266556, -0.102329254)
 collision_layer = 8
 collision_mask = 6
 
@@ -47,7 +44,7 @@ debug_color = Color(0.60817593, 0.53965366, 0.05646863, 0.41960785)
 
 [node name="SlopeCollider" type="ShapeCast3D" parent="CollisionShape3D/Model" unique_id=1241178530]
 unique_name_in_owner = true
-transform = Transform3D(-1.0588236, -6.731261e-08, -2.5244321e-07, -6.7312634e-08, 1.0588236, 9.2565315e-08, 2.5244321e-07, 9.2565344e-08, -1.0588236, -9.791578e-08, 1.361057, 1.5404898e-07)
+transform = Transform3D(-1.2, -1.8119496e-07, -1.4210855e-14, -1.8119496e-07, 1.2, -1.1959295e-21, 1.4210855e-14, 3.3881318e-21, -1.2, -2.676903e-07, 1.7728328, 0.25012597)
 shape = SubResource("SphereShape3D_pv3ct")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1204415277]
@@ -55,11 +52,14 @@ transform = Transform3D(0.8233345, -0.11800163, 0.55515397, 2.5289013e-09, 0.978
 
 [node name="Ui" parent="." unique_id=1288116663 instance=ExtResource("3_0ctox")]
 
+[node name="DayTimeMusic" type="AudioStreamPlayer" parent="." unique_id=2082059134]
+stream = ExtResource("4_v34u6")
+volume_db = -10.0
+
 [node name="NightTimeMusic" type="AudioStreamPlayer" parent="." unique_id=1889990550]
 stream = ExtResource("4_0ctox")
 autoplay = true
 
-<<<<<<< HEAD
 [node name="slide" type="AudioStreamPlayer" parent="." unique_id=1485078097]
 stream = ExtResource("6_ak25i")
 volume_db = -10.0
@@ -80,8 +80,6 @@ volume_db = -10.0
 stream = ExtResource("10_mhr4y")
 volume_db = -10.0
 
-=======
->>>>>>> d4d16471ad0647471524a9ce5796dc61539aee7e
 [node name="GroundChecker" type="Area3D" parent="." unique_id=1064808601]
 collision_layer = 8
 collision_mask = 6
