@@ -20,7 +20,7 @@ var slope_points = 0
 var nothing_around = false
 var touching_hill = false
 var going_up = false
-@export var height_shrinker = 0.001
+@export var height_shrinker = 0.04
 
 #Player angle
 @onready var model: Node3D = $CollisionShape3D/Model
@@ -58,7 +58,7 @@ func SlopeSliding():
 		var speed_increase = yInverse * slope_normal.z * 1000
 		if speed_increase > 0: 
 			going_up = true
-			speed_increase = 0.3
+			speed_increase = 0.05
 		else: going_up = false
 		#print("speed increase " + str(speed_increase))
 		current_velocity += speed_increase
@@ -77,13 +77,15 @@ func rotation_math():
 	#gain slope_points when sliding up
 	if current_angle < 0 and current_angle >= -90 and going_up and close_to_hill:
 		slope_points += 1
-	else: print("ang:"+str(current_angle)+"up?:"+str(going_up)+"touching nothing:"+str(nothing_around)+"hill:"+str(close_to_hill)+"upvelocity:"+str(velocity.y))
+	#else: print("ang:"+str(current_angle)+"up?:"+str(going_up)+"touching nothing:"+str(nothing_around)+"hill:"+str(close_to_hill)+"upvelocity:"+str(velocity.y))
 	#fall faster when looking down
 	if current_angle < 90 and current_angle > 0 and !is_flipping:
 		if close_to_hill:
 			print("snap")
-			set_floor_snap_length(1.0)
-		velocity.y -= 1 * angle_power * 2
+			set_floor_snap_length(3.0)
+		velocity.y -= 2
+		if current_angle <=90 and current_angle <=  75:
+			velocity.y -= 2
 	else: 
 		
 		set_floor_snap_length(0.0)
@@ -143,7 +145,7 @@ func check_collisions():
 		for body in ground_body_list:
 			if body.is_in_group("Hill"): 
 				close_to_hill = true
-				print("close to hill")
+				#print("close to hill")
 	else: close_to_hill = false 
 	if is_on_floor() and !close_to_hill: slope_points = 0
 	
@@ -179,7 +181,7 @@ func _physics_process(delta: float) -> void:
 		#Rotate
 		var air_change = 1.0
 		if !is_on_floor(): air_change = 4.0
-		var rad_change = (deg_to_rad(input_dir.y)*4.5)* axis_speed
+		var rad_change = (deg_to_rad(input_dir.y)*4.5)* axis_speed  * air_change
 		#var rad_change = deg_to_rad(input_dir.y)*2.5 * air_change
 
 		model.rotate_x(rad_change)
