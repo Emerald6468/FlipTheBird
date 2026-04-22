@@ -3,68 +3,20 @@
 [ext_resource type="PackedScene" uid="uid://b2svsxeylpykh" path="res://Scenes/Prefabs/player.tscn" id="1_5cjin"]
 [ext_resource type="Script" uid="uid://dsylgw6jbiv5q" path="res://Level.gd" id="1_blgmw"]
 [ext_resource type="PackedScene" uid="uid://buc5mi1l0tx4e" path="res://Scenes/Prefabs/rock.tscn" id="3_1885f"]
-[ext_resource type="Shader" uid="uid://bbbvg2ngukcs8" path="res://Assets/Shaders/stylizesky.gdshader" id="3_kb8m7"]
 [ext_resource type="PackedScene" uid="uid://bsy5qvhnfe3j6" path="res://Scenes/TestScenes/testhillzanderstyle.tscn" id="4_ugqxb"]
 
-[sub_resource type="Curve" id="Curve_kb8m7"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.20363638, 0.9900154), 0.0, 0.0, 0, 0, Vector2(1, 0.85222733), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_h5jjn"]
-curve = SubResource("Curve_kb8m7")
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_gb4s8"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_q0fji"]
-noise = SubResource("FastNoiseLite_gb4s8")
-seamless = true
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vn3ux"]
-noise = SubResource("FastNoiseLite_gb4s8")
-seamless = true
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_v65t1"]
-noise = SubResource("FastNoiseLite_gb4s8")
-seamless = true
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_h5jjn"]
-shader = ExtResource("3_kb8m7")
-shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_vn3ux")
-shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_q0fji")
-shader_parameter/cloud_curves = SubResource("CurveTexture_h5jjn")
-shader_parameter/clouds_samples = 32
-shader_parameter/shadow_sample = 4
-shader_parameter/clouds_density = 0.40000000596048
-shader_parameter/clouds_scale = 0.5
-shader_parameter/clouds_smoothness = 0.10000000149012
-shader_parameter/clouds_light_color = Color(0.9137255, 1, 1, 1)
-shader_parameter/clouds_shadow_intensity = 1.0
-shader_parameter/exposure = 1.0
-shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_v65t1")
-shader_parameter/high_clouds_density = 0.5000000074506
-shader_parameter/top_color = Color(0.70139146, 0.70887965, 0.90456724, 1)
-shader_parameter/bottom_color = Color(0.49411765, 0.7764706, 1, 1)
-shader_parameter/sun_scatter = Color(0.29803923, 0.29803923, 0.29803923, 1)
-shader_parameter/ground_bottom_color = Color(0.4024136, 0.65960586, 0.999993, 1)
-shader_parameter/ground_horizon_color = Color(0.2888931, 0.7827567, 0.9999998, 1)
-shader_parameter/inv_ground_curve = 30.0
-shader_parameter/astro_tint = Color(0.90588236, 0.7882353, 0.627451, 1)
-shader_parameter/astro_scale = 9.000000134110799
-shader_parameter/astro_intensity = 3.0
-shader_parameter/stars_intensity = 0.0
-shader_parameter/shooting_stars_intensity = 0.0
-shader_parameter/shooting_star_tint = Color(0, 0, 0, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5cjin"]
+sky_top_color = Color(2.695322e-06, 0.873922, 0.9911999, 1)
+sky_horizon_color = Color(0.8221627, 0.9743741, 0.9950823, 1)
+ground_bottom_color = Color(0.5058824, 0.7176471, 1, 1)
+ground_horizon_color = Color(0.47843137, 0.68235296, 1, 1)
 
 [sub_resource type="Sky" id="Sky_blgmw"]
-sky_material = SubResource("ShaderMaterial_h5jjn")
+sky_material = SubResource("ProceduralSkyMaterial_5cjin")
 
 [sub_resource type="Environment" id="Environment_1885f"]
 background_mode = 2
 sky = SubResource("Sky_blgmw")
-ambient_light_sky_contribution = 0.2
-ambient_light_energy = 0.5
-adjustment_enabled = true
-adjustment_saturation = 1.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ugqxb"]
 
@@ -82,7 +34,7 @@ script = ExtResource("1_blgmw")
 environment = SubResource("Environment_1885f")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=985792327]
-transform = Transform3D(1, 0, 0, 0, 0.3679786, 0.92983437, 0, -0.92983437, 0.3679786, -77.96352, 74.75569, 171.13345)
+transform = Transform3D(1, 0, 0, 0, 0.35903603, 0.9333238, 0, -0.9333238, 0.35903603, -77.96352, 74.75569, 171.13345)
 
 [node name="AllGround" type="Node3D" parent="." unique_id=821388857]
 
