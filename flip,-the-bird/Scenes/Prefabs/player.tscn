@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b2svsxeylpykh"]
 
-[ext_resource type="Script" path="res://Scripts/Sammys_player_test.gd" id="1_v34u6"]
+[ext_resource type="Script" uid="uid://bncoejlqlfy4e" path="res://Scripts/player.gd" id="1_68wta"]
 [ext_resource type="PackedScene" uid="uid://bwffiwrlf24k7" path="res://Assets/FINAL_flipglasses.glb" id="2_68wta"]
 [ext_resource type="PackedScene" uid="uid://dw6jql5rd5yg8" path="res://Scenes/UI/UI.tscn" id="3_0ctox"]
 [ext_resource type="AudioStream" uid="uid://duaqp1csd3nyi" path="res://Assets/Sounds/MUS_twink_jazz_EXT.wav" id="4_0ctox"]
@@ -23,7 +23,7 @@ height = 5.14209
 [node name="Player" type="CharacterBody3D" unique_id=992012420]
 collision_priority = 0.001
 floor_snap_length = 0.0
-script = ExtResource("1_v34u6")
+script = ExtResource("1_68wta")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1016772518]
 shape = SubResource("CapsuleShape3D_qohmv")
