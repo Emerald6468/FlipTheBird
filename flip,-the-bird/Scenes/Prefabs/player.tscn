@@ -4,12 +4,21 @@
 [ext_resource type="PackedScene" uid="uid://dw6jql5rd5yg8" path="res://Scenes/UI/UI.tscn" id="3_0ctox"]
 [ext_resource type="PackedScene" uid="uid://b43oti4k0ee64" path="res://Assets/sledding_prototype_Flip.glb" id="3_v1l4e"]
 [ext_resource type="AudioStream" uid="uid://duaqp1csd3nyi" path="res://Assets/Sounds/MUS_twink_jazz_EXT.wav" id="4_0ctox"]
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> parent of 13bdc85 (jolene recovery)
 [ext_resource type="AudioStream" uid="uid://d0ck1pji7418t" path="res://Assets/Sounds/groovy_beat.wav" id="4_v34u6"]
 [ext_resource type="AudioStream" uid="uid://bejucnye8ufuv" path="res://Assets/Sounds/SFX_snow_slide.wav" id="6_ak25i"]
 [ext_resource type="AudioStream" uid="uid://dci5by8ay3vy8" path="res://Assets/Sounds/SFX_air_woosh.wav" id="7_68wta"]
 [ext_resource type="AudioStream" uid="uid://bub0e8du6g1dw" path="res://Assets/Sounds/SFX_hard snow impact.wav" id="8_b8ttq"]
 [ext_resource type="AudioStream" uid="uid://dljp130g6jj86" path="res://Assets/Sounds/SFX_rock_impact.wav" id="9_ofsyp"]
 [ext_resource type="AudioStream" uid="uid://6pxn1gpx5gvm" path="res://Assets/Sounds/SFX_soft_snow_land.wav" id="10_mhr4y"]
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> d4d16471ad0647471524a9ce5796dc61539aee7e
+>>>>>>> parent of 13bdc85 (jolene recovery)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qohmv"]
 
@@ -60,6 +69,10 @@ volume_db = -10.0
 stream = ExtResource("4_0ctox")
 autoplay = true
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> parent of 13bdc85 (jolene recovery)
 [node name="slide" type="AudioStreamPlayer" parent="." unique_id=1485078097]
 stream = ExtResource("6_ak25i")
 volume_db = -10.0
@@ -80,6 +93,11 @@ volume_db = -10.0
 stream = ExtResource("10_mhr4y")
 volume_db = -10.0
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> d4d16471ad0647471524a9ce5796dc61539aee7e
+>>>>>>> parent of 13bdc85 (jolene recovery)
 [node name="GroundChecker" type="Area3D" parent="." unique_id=1064808601]
 collision_layer = 8
 collision_mask = 6
@@ -88,6 +106,3 @@ collision_mask = 6
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.8586276, 0)
 shape = SubResource("CapsuleShape3D_0ctox")
 debug_color = Color(0.8235294, 0.39607844, 0.09803922, 0.827451)
-
-[node name="slide" type="AudioStreamPlayer" parent="." unique_id=1089668183]
-stream = ExtResource("5_cb7df")

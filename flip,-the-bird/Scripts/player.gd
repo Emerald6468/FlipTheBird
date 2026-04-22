@@ -135,9 +135,6 @@ func check_collisions():
 	elif collision_checker.has_overlapping_bodies():
 		#print(str(body_list))
 		nothing_around = false
-		var Slide = $slide
-		if !Slide.playing:
-			Slide.play()
 		#for body in body_list:
 		#	if body.is_in_group("Hill"): touching_hill = true
 		#	else: touching_hill = false
