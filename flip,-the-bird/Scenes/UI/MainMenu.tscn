@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bhxhkhl0usd2h"]
+
+[ext_resource type="Script" uid="uid://dbqnh5p3bebpd" path="res://Scripts/main_menu.gd" id="1_mjmdf"]
+[ext_resource type="Texture2D" uid="uid://cv5xvxtcs0jqp" path="res://Assets/SPR_TITLE.png" id="2_72sra"]
+
+[node name="MainMenu" type="Control" unique_id=1070244605]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mjmdf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1348930792]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=379141766]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ColorRect" unique_id=1042566138]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.22200002
+anchor_right = 0.5
+anchor_bottom = 0.22200002
+offset_left = -241.0
+offset_top = -141.85602
+offset_right = 237.22217
+offset_bottom = 127.14398
+texture = ExtResource("2_72sra")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ColorRect" unique_id=1010680906]
+layout_mode = 0
+offset_left = 518.0
+offset_top = 309.0
+offset_right = 614.0
+offset_bottom = 349.0
+
+[node name="StartButton" type="Button" parent="CanvasLayer/ColorRect/VBoxContainer" unique_id=502594273]
+layout_mode = 2
+text = "Start Game
+"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/ColorRect/VBoxContainer" unique_id=453758472]
+layout_mode = 2
+text = "Quit Game
+"
+
+[connection signal="pressed" from="CanvasLayer/ColorRect/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://f8r8jqwq6ko0"]
+
+[ext_resource type="Script" uid="uid://chi4c63b16fgk" path="res://Scripts/cutscene.gd" id="1_rw70w"]
+[ext_resource type="Texture2D" uid="uid://3ux82jmrekh7" path="res://Assets/icon.svg" id="2_wc2vm"]
+
+[node name="Cutscene" type="Control" unique_id=1071302831]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rw70w")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=925286612]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1421841267]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ColorRect" unique_id=1886935216]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_wc2vm")
+
+[node name="NextButton" type="Button" parent="CanvasLayer" unique_id=299359449]
+offset_left = 1611.0
+offset_top = 855.00006
+offset_right = 1660.0
+offset_bottom = 886.00006
+scale = Vector2(4.3097224, 4.3097224)
+text = "NEXT"
+flat = true
+
+[connection signal="pressed" from="CanvasLayer/NextButton" to="." method="_on_next_button_pressed"]
