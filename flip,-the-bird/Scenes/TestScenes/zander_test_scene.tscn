@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://bsy5qvhnfe3j6" path="res://Scenes/TestScenes/testhillzanderstyle.tscn" id="4_ugqxb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5cjin"]
+sky_top_color = Color(2.695322e-06, 0.873922, 0.9911999, 1)
+sky_horizon_color = Color(0.8221627, 0.9743741, 0.9950823, 1)
+ground_bottom_color = Color(0.5058824, 0.7176471, 1, 1)
+ground_horizon_color = Color(0.47843137, 0.68235296, 1, 1)
 
 [sub_resource type="Sky" id="Sky_blgmw"]
 sky_material = SubResource("ProceduralSkyMaterial_5cjin")
@@ -20,9 +24,6 @@ sky = SubResource("Sky_blgmw")
 
 [sub_resource type="BoxMesh" id="BoxMesh_gb4s8"]
 material = SubResource("StandardMaterial3D_h5jjn")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kb8m7"]
-albedo_color = Color(0.39499223, 0.5150157, 1, 1)
 
 [node name="ZanderTestScene" type="Node3D" unique_id=1441254301]
 script = ExtResource("1_blgmw")
@@ -46,12 +47,6 @@ shape = SubResource("BoxShape3D_ugqxb")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="AllGround/Ground/CollisionShape3D" unique_id=798219564]
 mesh = SubResource("BoxMesh_gb4s8")
-
-[node name="Ground2" type="CSGBox3D" parent="AllGround" unique_id=1650501423]
-transform = Transform3D(5000, 0, 0, 0, 2.107, 0, 0, 0, 1000, -1640.6832, -39.87965, -4443.084)
-use_collision = true
-size = Vector3(1, 1, 10.893982)
-material = SubResource("StandardMaterial3D_kb8m7")
 
 [node name="Rock" parent="AllGround" unique_id=1886200248 instance=ExtResource("3_1885f")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 45.279037, 0.8788929, -451.60754)
