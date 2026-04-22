@@ -19,4 +19,5 @@ func _process(delta: float) -> void:
 
 func _input(event):
 	if event.is_action_pressed("Restart"):
+		Global.reset_var()
 		get_tree().reload_current_scene()

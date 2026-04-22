@@ -19,7 +19,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if page >= cutscene_1_length: get_tree().change_scene_to_file("res://Scenes/UI/MainMenu.tscn")
+	if page >= cutscene_1_length: 
+		Global.have_played_c1 = true
+		get_tree().change_scene_to_file("res://Scenes/UI/MainMenu.tscn")
 	else: texture_rect.texture = cutscene_1[page]
 
 
