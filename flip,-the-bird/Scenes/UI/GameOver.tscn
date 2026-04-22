@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dxg61un5lpj8c"]
+
+[ext_resource type="Script" uid="uid://dfj7emp282ijs" path="res://Scripts/game_over.gd" id="1_34bmr"]
+[ext_resource type="Texture2D" uid="uid://xahpxv64ojol" path="res://Assets/UI/SPR_SCOREBOARD.png" id="2_wpfos"]
+[ext_resource type="Texture2D" uid="uid://c16nf1o27rvfk" path="res://Assets/UI/SPR_RESTART.png" id="3_ielvo"]
+
+[node name="GameOver" type="Control" unique_id=1881715488]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_34bmr")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=460207881]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1982518038]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.5137255, 0.5137255, 0.5137255, 0.47843137)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ColorRect" unique_id=2000563342]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 72.0
+offset_right = 1350.0
+offset_bottom = 496.0
+texture = ExtResource("2_wpfos")
+
+[node name="Restart" type="TextureButton" parent="CanvasLayer/ColorRect" unique_id=1353236441]
+layout_mode = 0
+offset_left = 710.0
+offset_top = 788.0
+offset_right = 1145.0
+offset_bottom = 1028.0
+texture_normal = ExtResource("3_ielvo")
+
+[connection signal="pressed" from="CanvasLayer/ColorRect/Restart" to="." method="_on_restart_pressed"]

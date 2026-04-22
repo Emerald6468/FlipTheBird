@@ -39,6 +39,8 @@ var close_to_hill = false
 var dont_check = false
 var fragile = false
 var just_hit = false
+var was_in_air = false
+var first_one = true
 #Maybe player rotates faster per full spin? 
 
 
@@ -121,6 +123,8 @@ func check_collisions():
 				if fragile: Global.game_over = true
 				dont_check = true
 				current_velocity = -Force
+				var rockhit = $RockImpact
+				if !rockhit.playing: rockhit.play()
 				print("hit something")
 				fragile = true
 				just_hit = true
@@ -144,6 +148,17 @@ func check_collisions():
 				#print("close to hill")
 	else: close_to_hill = false 
 	if is_on_floor() and !close_to_hill: slope_points = 0
+	var airslide = $AirSlide
+	var groundslide = $slide
+	if !first_one: 
+		if nothing_around: 
+			was_in_air = true
+			groundslide.stop()
+			if !airslide.playing: airslide.play()
+		else:
+			airslide.stop()
+			if !groundslide.playing: groundslide.play()
+	else: first_one = false
 	
 
 #When you leap
@@ -175,7 +190,7 @@ func _physics_process(delta: float) -> void:
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		#Left and right
-		velocity.x = direction.x * Speed
+		velocity.x = direction.x * Speed * 2
 		#Rotate
 		var air_change = 1.0
 		if !is_on_floor(): air_change = 2.5
@@ -194,6 +209,10 @@ func _physics_process(delta: float) -> void:
 	call_deferred("rotation_math")
 	#Gravity
 	if is_on_floor():
+		if was_in_air:
+			was_in_air = false
+			var softland = $SoftSnowImpact
+			if !softland.playing: softland.play()
 		just_leaped = false
 		#Set total_flips back to 0
 		for i in total_flips:

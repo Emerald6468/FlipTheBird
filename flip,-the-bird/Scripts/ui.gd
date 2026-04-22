@@ -14,5 +14,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	velocity.text = "Forward Velocity: " + str(Global.forward_velocity)
 	score.text = "Score: " + str(Global.score)
-	if Global.game_over: gameover.text = "GAMEOVER"
+	if Global.game_over:
+		$CanvasLayer/GameOver.turn_on()
+		gameover.text = "GAMEOVER"
 	fragile.text = "Is Fragile: " + str(Global.is_fragile)
