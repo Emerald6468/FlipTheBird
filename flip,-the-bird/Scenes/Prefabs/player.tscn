@@ -5,11 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://b43oti4k0ee64" path="res://Assets/sledding_prototype_Flip.glb" id="3_v1l4e"]
 [ext_resource type="AudioStream" uid="uid://duaqp1csd3nyi" path="res://Assets/Sounds/MUS_twink_jazz_EXT.wav" id="4_0ctox"]
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
 <<<<<<< HEAD
->>>>>>> parent of 13bdc85 (jolene recovery)
-=======
 >>>>>>> parent of 13bdc85 (jolene recovery)
 [ext_resource type="AudioStream" uid="uid://d0ck1pji7418t" path="res://Assets/Sounds/groovy_beat.wav" id="4_v34u6"]
 [ext_resource type="AudioStream" uid="uid://bejucnye8ufuv" path="res://Assets/Sounds/SFX_snow_slide.wav" id="6_ak25i"]
@@ -18,11 +15,6 @@
 [ext_resource type="AudioStream" uid="uid://dljp130g6jj86" path="res://Assets/Sounds/SFX_rock_impact.wav" id="9_ofsyp"]
 [ext_resource type="AudioStream" uid="uid://6pxn1gpx5gvm" path="res://Assets/Sounds/SFX_soft_snow_land.wav" id="10_mhr4y"]
 <<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> d4d16471ad0647471524a9ce5796dc61539aee7e
->>>>>>> parent of 13bdc85 (jolene recovery)
 =======
 =======
 >>>>>>> d4d16471ad0647471524a9ce5796dc61539aee7e
@@ -78,11 +70,8 @@ stream = ExtResource("4_0ctox")
 autoplay = true
 
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
 <<<<<<< HEAD
->>>>>>> parent of 13bdc85 (jolene recovery)
-=======
 >>>>>>> parent of 13bdc85 (jolene recovery)
 [node name="slide" type="AudioStreamPlayer" parent="." unique_id=1485078097]
 stream = ExtResource("6_ak25i")
@@ -105,11 +94,6 @@ stream = ExtResource("10_mhr4y")
 volume_db = -10.0
 
 <<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> d4d16471ad0647471524a9ce5796dc61539aee7e
->>>>>>> parent of 13bdc85 (jolene recovery)
 =======
 =======
 >>>>>>> d4d16471ad0647471524a9ce5796dc61539aee7e
