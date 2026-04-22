@@ -3,20 +3,32 @@
 [ext_resource type="PackedScene" uid="uid://b2svsxeylpykh" path="res://Scenes/Prefabs/player.tscn" id="1_5cjin"]
 [ext_resource type="Script" uid="uid://dsylgw6jbiv5q" path="res://Level.gd" id="1_blgmw"]
 [ext_resource type="PackedScene" uid="uid://buc5mi1l0tx4e" path="res://Scenes/Prefabs/rock.tscn" id="3_1885f"]
+[ext_resource type="Shader" uid="uid://4gy6lqo48q7y" path="res://Assets/Mainshader.gdshader" id="3_kb8m7"]
 [ext_resource type="PackedScene" uid="uid://bsy5qvhnfe3j6" path="res://Scenes/TestScenes/testhillzanderstyle.tscn" id="4_ugqxb"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5cjin"]
-sky_top_color = Color(2.695322e-06, 0.873922, 0.9911999, 1)
-sky_horizon_color = Color(0.8221627, 0.9743741, 0.9950823, 1)
-ground_bottom_color = Color(0.5058824, 0.7176471, 1, 1)
-ground_horizon_color = Color(0.47843137, 0.68235296, 1, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h5jjn"]
+shader = ExtResource("3_kb8m7")
+shader_parameter/sky_top_color = Color(2.695322e-06, 0.873922, 0.9911999, 1)
+shader_parameter/sky_horizon_color = Color(0.8221627, 0.9743741, 0.9950823, 1)
+shader_parameter/inv_sky_curve = 3.999999841054287
+shader_parameter/ground_bottom_color = Color(0.5058824, 0.7176471, 1, 1)
+shader_parameter/ground_horizon_color = Color(0.47843137, 0.68235296, 1, 1)
+shader_parameter/inv_ground_curve = 30.000000670552268
+shader_parameter/sun_angle_max = 0.8660254
+shader_parameter/inv_sun_curve = 22.782017
+shader_parameter/exposure = 1.0
+shader_parameter/sky_cover_modulate = Color(1, 1, 1, 1)
 
 [sub_resource type="Sky" id="Sky_blgmw"]
-sky_material = SubResource("ProceduralSkyMaterial_5cjin")
+sky_material = SubResource("ShaderMaterial_h5jjn")
 
 [sub_resource type="Environment" id="Environment_1885f"]
 background_mode = 2
 sky = SubResource("Sky_blgmw")
+ambient_light_sky_contribution = 0.2
+ambient_light_energy = 0.5
+adjustment_enabled = true
+adjustment_saturation = 1.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ugqxb"]
 

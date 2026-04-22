@@ -19,22 +19,21 @@ func _toggle_pause() -> void:
 	
 	if paused:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		resume_button.grab_focus()
+		
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 
 
-func _on_resume_pressed() -> void:
-	_toggle_pause()
-
-func _on_menu_pressed() -> void:
-	get_tree().paused = false
-	get_tree().change_scene_to_file("res://Scenes/UI/MainMenu.tscn")
-
-func _on_reload_pressed() -> void:
-	Global.reset_state()
-	
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_resume_button_pressed() -> void:
+	_toggle_pause()
+
+
+func _on_menu_button_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://Scenes/UI/MainMenu.tscn")

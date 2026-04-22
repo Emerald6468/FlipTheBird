@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://chi4c63b16fgk" path="res://Scripts/cutscene.gd" id="1_rw70w"]
 [ext_resource type="Texture2D" uid="uid://3ux82jmrekh7" path="res://Assets/icon.svg" id="2_wc2vm"]
+[ext_resource type="Texture2D" uid="uid://c64jgugvqd3wu" path="res://Assets/UI/SPR_NEXT.png" id="3_wc2vm"]
 
 [node name="Cutscene" type="Control" unique_id=1071302831]
 layout_mode = 3
@@ -30,13 +31,12 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_wc2vm")
 
-[node name="NextButton" type="Button" parent="CanvasLayer" unique_id=299359449]
-offset_left = 1611.0
-offset_top = 855.00006
-offset_right = 1660.0
-offset_bottom = 886.00006
-scale = Vector2(4.3097224, 4.3097224)
-text = "NEXT"
-flat = true
+[node name="NextButton" type="TextureButton" parent="CanvasLayer" unique_id=1123792164]
+offset_left = 1651.0
+offset_top = 811.0
+offset_right = 1990.0
+offset_bottom = 1246.0
+scale = Vector2(0.5497172, 0.5497172)
+texture_normal = ExtResource("3_wc2vm")
 
 [connection signal="pressed" from="CanvasLayer/NextButton" to="." method="_on_next_button_pressed"]

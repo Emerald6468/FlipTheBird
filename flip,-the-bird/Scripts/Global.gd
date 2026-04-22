@@ -2,6 +2,7 @@ extends Node
 
 var forward_velocity = 0.0
 # Increases in intervals of 50 based on total flips + multiplier
+var high_score = 0
 var score = 0
 
 #game over logic
@@ -10,6 +11,10 @@ var is_fragile = false
 
 #ENDLESS RUNNER
 var velocity = 50
+
+func reset_var():
+	game_over = false
+	score = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print(score)

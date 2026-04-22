@@ -1,6 +1,41 @@
 [gd_scene format=3 uid="uid://bwwhjhcvtwsc2"]
 
 [ext_resource type="Script" uid="uid://dx6jkxk8sob7w" path="res://Scripts/pause_menu.gd" id="1_eod5q"]
+[ext_resource type="Texture2D" uid="uid://38q5trcrkc2n" path="res://Assets/UI/SPR_PAUSE.png" id="2_2bpff"]
+[ext_resource type="Texture2D" uid="uid://chnkl5g3i4v4l" path="res://Assets/UI/SPR_MENU.png" id="3_8hc20"]
+[ext_resource type="Texture2D" uid="uid://cmykwqat7u88x" path="res://Assets/UI/SPR_CONTROL_SCHEME.png" id="4_gdh0q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_djuuc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_85qas"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qjuxo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ftuca"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p8na2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1uuo4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kpum6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e6kvg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rkfds"]
+
+[sub_resource type="Theme" id="Theme_138wg"]
+Button/styles/disabled = SubResource("StyleBoxEmpty_djuuc")
+Button/styles/focus = SubResource("StyleBoxEmpty_85qas")
+Button/styles/hover = SubResource("StyleBoxEmpty_qjuxo")
+Button/styles/hover_mirrored = SubResource("StyleBoxEmpty_ftuca")
+Button/styles/hover_pressed = SubResource("StyleBoxEmpty_p8na2")
+Button/styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_1uuo4")
+Button/styles/normal = SubResource("StyleBoxEmpty_kpum6")
+Button/styles/normal_mirrored = SubResource("StyleBoxEmpty_e6kvg")
+Button/styles/pressed = SubResource("StyleBoxEmpty_rkfds")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_buady"]
+load_path = "res://.godot/imported/SPR_RESUME.png-80ecc54d71f9a8fe0971e3246b9ab189.ctex"
 
 [node name="PauseMenu" type="Control" unique_id=1430205416]
 layout_mode = 3
@@ -20,26 +55,39 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.5137255, 0.5137255, 0.5137255, 0.47843137)
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=386307298]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="PauseMenuBackground" type="TextureRect" parent="ColorRect" unique_id=1067115283]
+layout_mode = 0
+offset_left = 1242.0
+offset_top = 15.0
+offset_right = 1804.0
+offset_bottom = 1054.0
+texture = ExtResource("2_2bpff")
 
-[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=849954585]
-layout_mode = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect" unique_id=1600704036]
+layout_mode = 0
+offset_left = 1357.0
+offset_top = 210.0
+offset_right = 1803.0
+offset_bottom = 810.0
+scale = Vector2(0.7999951, 0.7999951)
+theme_override_constants/separation = 50
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer" unique_id=1600704036]
+[node name="ResumeButton" type="TextureButton" parent="ColorRect/VBoxContainer" unique_id=695851915]
 layout_mode = 2
+theme = SubResource("Theme_138wg")
+texture_normal = SubResource("CompressedTexture2D_buady")
 
-[node name="ResumeButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=180418306]
+[node name="MenuButton" type="TextureButton" parent="ColorRect/VBoxContainer" unique_id=248232893]
 layout_mode = 2
-text = "RESUME"
+texture_normal = ExtResource("3_8hc20")
+
+[node name="Controls" type="TextureRect" parent="ColorRect" unique_id=5708029]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 43.0
+offset_right = 683.0
+offset_bottom = 1000.0
+texture = ExtResource("4_gdh0q")
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
