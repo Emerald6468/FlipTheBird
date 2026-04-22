@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b2svsxeylpykh"]
 
-[ext_resource type="Script" uid="uid://bldkw0mc7vdsw" path="res://Scripts/Sammys_player_test.gd" id="1_v34u6"]
+[ext_resource type="Script" path="res://Scripts/Sammys_player_test.gd" id="1_v34u6"]
 [ext_resource type="PackedScene" uid="uid://dw6jql5rd5yg8" path="res://Scenes/UI/UI.tscn" id="3_0ctox"]
 [ext_resource type="PackedScene" uid="uid://b43oti4k0ee64" path="res://Assets/sledding_prototype_Flip.glb" id="3_v1l4e"]
 [ext_resource type="AudioStream" uid="uid://duaqp1csd3nyi" path="res://Assets/Sounds/MUS_twink_jazz_EXT.wav" id="4_0ctox"]
@@ -55,10 +55,10 @@ transform = Transform3D(0.8233345, -0.11800163, 0.55515397, 2.5289013e-09, 0.978
 [node name="DayTimeMusic" type="AudioStreamPlayer" parent="." unique_id=2082059134]
 stream = ExtResource("4_v34u6")
 volume_db = -10.0
+autoplay = true
 
 [node name="NightTimeMusic" type="AudioStreamPlayer" parent="." unique_id=1889990550]
 stream = ExtResource("4_0ctox")
-autoplay = true
 
 [node name="slide" type="AudioStreamPlayer" parent="." unique_id=1485078097]
 stream = ExtResource("6_ak25i")
