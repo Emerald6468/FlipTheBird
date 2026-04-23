@@ -151,8 +151,7 @@ func check_collisions():
 	var Slide = $slide
 	if not Slide.playing:
 		Slide.play()
-	
-	
+
 	
 	var ground_body_list = ground_checker.get_overlapping_bodies()
 	if ground_checker.has_overlapping_bodies():

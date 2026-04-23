@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://d0ck1pji7418t" path="res://Assets/Sounds/groovy_beat.wav" id="4_v34u6"]
 [ext_resource type="AudioStream" uid="uid://bejucnye8ufuv" path="res://Assets/Sounds/SFX_snow_slide.wav" id="6_ak25i"]
 [ext_resource type="AudioStream" uid="uid://dci5by8ay3vy8" path="res://Assets/Sounds/SFX_air_woosh.wav" id="7_68wta"]
-[ext_resource type="AudioStream" uid="uid://bub0e8du6g1dw" path="res://Assets/Sounds/SFX_hard snow impact.wav" id="8_b8ttq"]
+[ext_resource type="AudioStream" uid="uid://bxtm0w0rdannr" path="res://Assets/Sounds/SFX_snow_impact.wav" id="8_68wta"]
 [ext_resource type="AudioStream" uid="uid://dljp130g6jj86" path="res://Assets/Sounds/SFX_rock_impact.wav" id="9_ofsyp"]
 [ext_resource type="AudioStream" uid="uid://6pxn1gpx5gvm" path="res://Assets/Sounds/SFX_soft_snow_land.wav" id="10_mhr4y"]
 
@@ -62,14 +62,14 @@ stream = ExtResource("4_0ctox")
 
 [node name="slide" type="AudioStreamPlayer" parent="." unique_id=1485078097]
 stream = ExtResource("6_ak25i")
-volume_db = -10.0
+volume_db = -13.0
 
 [node name="AirSlide" type="AudioStreamPlayer" parent="." unique_id=1521799113]
 stream = ExtResource("7_68wta")
-volume_db = -10.0
+volume_db = -12.0
 
 [node name="HardSnowImpact" type="AudioStreamPlayer" parent="." unique_id=1551675499]
-stream = ExtResource("8_b8ttq")
+stream = ExtResource("8_68wta")
 volume_db = -10.0
 
 [node name="RockImpact" type="AudioStreamPlayer" parent="." unique_id=142218657]
