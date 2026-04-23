@@ -2,16 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://b2svsxeylpykh" path="res://Scenes/Prefabs/player.tscn" id="1_5cjin"]
 [ext_resource type="Script" uid="uid://dsylgw6jbiv5q" path="res://Level.gd" id="1_blgmw"]
-[ext_resource type="PackedScene" uid="uid://buc5mi1l0tx4e" path="res://Scenes/Prefabs/rock.tscn" id="3_1885f"]
 [ext_resource type="PackedScene" uid="uid://c5bxnb6qqq0aq" path="res://zander_test_scene.tscn" id="3_kb8m7"]
-[ext_resource type="Script" uid="uid://lpbq5pety6lu" path="res://Scenes/TestScenes/all_ground.gd" id="3_v65t1"]
 [ext_resource type="PackedScene" uid="uid://bbq4jtxtxacnn" path="res://LevelSegments/hill_4.tscn" id="4_gb4s8"]
 [ext_resource type="PackedScene" uid="uid://ldnjbn3k88re" path="res://LevelSegments/hill_2.tscn" id="4_h5jjn"]
-[ext_resource type="PackedScene" uid="uid://bsy5qvhnfe3j6" path="res://Scenes/TestScenes/testhillzanderstyle.tscn" id="4_ugqxb"]
 [ext_resource type="PackedScene" uid="uid://dfiaqxqj22ekl" path="res://LevelSegments/hill_3.tscn" id="5_gb4s8"]
 [ext_resource type="PackedScene" uid="uid://dfrjm43ipgfch" path="res://LevelSegments/hill_5.tscn" id="5_q0fji"]
-[ext_resource type="Script" uid="uid://t8xmkxeccwjx" path="res://Assets/collision_shape_3d.gd" id="11_hrcda"]
-[ext_resource type="PackedScene" uid="uid://edeht4tfk0fo" path="res://Ground/ground_scene.tscn" id="12_fphsk"]
+[ext_resource type="PackedScene" uid="uid://buc5mi1l0tx4e" path="res://Scenes/Prefabs/rock.tscn" id="3_1885f"]
+[ext_resource type="PackedScene" uid="uid://bsy5qvhnfe3j6" path="res://Scenes/TestScenes/testhillzanderstyle.tscn" id="4_ugqxb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5cjin"]
 sky_top_color = Color(2.695322e-06, 0.873922, 0.9911999, 1)
@@ -45,8 +42,21 @@ environment = SubResource("Environment_1885f")
 transform = Transform3D(1, 0, 0, 0, 0.35903603, 0.9333238, 0, -0.9333238, 0.35903603, -77.96352, 74.75569, 171.13345)
 
 [node name="AllGround" type="Node3D" parent="." unique_id=821388857]
-script = ExtResource("3_v65t1")
 
+[node name="Hill" parent="." unique_id=1813017817 instance=ExtResource("3_kb8m7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -128.88882)
+
+[node name="Hill4" parent="." unique_id=1300234469 instance=ExtResource("4_gb4s8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -508.46506)
+
+[node name="Hill5" parent="." unique_id=503658807 instance=ExtResource("5_q0fji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1396.1198)
+
+[node name="Hill2" parent="." unique_id=1749338322 instance=ExtResource("4_h5jjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -960.48804)
+
+[node name="Hill3" parent="." unique_id=1669907315 instance=ExtResource("5_gb4s8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1960.8007)
 [node name="Ground" type="StaticBody3D" parent="AllGround" unique_id=265430207]
 transform = Transform3D(119.19823, 0, 0, 0, 2.107, 0, 0, 0, -12046.2705, 0, -1.874646, -4443.084)
 collision_layer = 3
@@ -128,25 +138,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6818.3027)
 
 [node name="Hill17" parent="AllGround" unique_id=1497218420 instance=ExtResource("4_ugqxb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7998.403)
-
-[node name="Hill" parent="." unique_id=1813017817 instance=ExtResource("3_kb8m7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -225.06287, 365.49698)
-
-[node name="Hill4" parent="." unique_id=1300234469 instance=ExtResource("4_gb4s8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -97.73002, -273.15555, 347.15335)
-
-[node name="Hill5" parent="." unique_id=503658807 instance=ExtResource("5_q0fji")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -239.97313, -1196.565, -3735.2715)
-
-[node name="Hill2" parent="." unique_id=1749338322 instance=ExtResource("4_h5jjn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140.61583, -419.26764, 377.69247)
-
-[node name="Hill3" parent="." unique_id=1669907315 instance=ExtResource("5_gb4s8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1960.8007)
-
-[node name="GroundScene" parent="." unique_id=1802863577 instance=ExtResource("12_fphsk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 341.914, 167.48114, 4627.4575)
-
-[node name="TerrainSpawner" type="Node3D" parent="." unique_id=1305868581]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2545.2017)
-script = ExtResource("11_hrcda")

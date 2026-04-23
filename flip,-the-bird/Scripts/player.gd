@@ -13,11 +13,10 @@ var slope_hit: Vector3
 var slope_angle
 var slope_normal: Vector3
 
-#Gaining height
+#Gaining Height
 const JUMP_VELOCITY = 25
 var just_leaped = false
 var slope_points = 0
-var flip_points = 0
 var nothing_around = false
 var touching_hill = false
 var going_up = false
@@ -31,14 +30,16 @@ var total_flips = 0
 var axis_speed = 1.0
 
 var is_flipping = false
+var axis_speed = 1.0
 
-#Obstacle collision
+#Obstacle Collision
 @onready var collision_checker: Area3D = $CollisionShape3D/Model/CollisionChecker
 @onready var ground_checker: Area3D = $GroundChecker
 var close_to_hill = false
 var dont_check = false
 var fragile = false
 var just_hit = false
+#Maybe player rotates faster per full spin? 
 
 @export var gravity_modifier = 1.0
 
@@ -93,6 +94,9 @@ func rotation_math():
 		
 	
 		
+	#For every 360 midair, add to score
+	#Because current_angle can't increase past ~1.5, this if statement is a bandaid
+	#solution for measuring rotations totaling approximately 360
 	if current_angle > 1.4 && current_angle <1.6:
 		print("Points received!")
 		total_flips += 1
@@ -168,7 +172,6 @@ func leaping():
 			velocity.y += height_gain
 			print("slope points: " + str(slope_points))
 			slope_points = 0
-			
 
 #Running every frame main function
 func _physics_process(delta: float) -> void: 
@@ -190,7 +193,7 @@ func _physics_process(delta: float) -> void:
 		var rad_change = (deg_to_rad(input_dir.y)*4.5)* axis_speed
 		var air_change = 1.0
 		if !is_on_floor(): air_change = 4.0
-		rad_change = (deg_to_rad(input_dir.y)*4.5)* axis_speed  * air_change
+		var rad_change = (deg_to_rad(input_dir.y)*4.5)* axis_speed  * air_change
 		#var rad_change = deg_to_rad(input_dir.y)*2.5 * air_change
 
 		model.rotate_x(rad_change)
@@ -227,11 +230,3 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 	move_and_slide()
 	Global.velocity = current_velocity
-	
-	
-func _scoring(delta: float) -> void: 
-	var total_score = 0
-	total_score = (flip_points + slope_points)
-	#$Global.global_score = self.total_score
-	
-	pass
