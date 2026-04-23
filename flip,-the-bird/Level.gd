@@ -24,7 +24,8 @@ func _ready() -> void:
 	#spawn_level_segments(0,0,-2000)
 	#spawn_level_segments(0,0,-2160)
 	print("Score is " + str(score))
-	pass # Replace with function body.
+	get_tree().paused = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 #func spawn_level_segments(x,y,z):
 	#var inst = level_segments[randi() % len(level_segments)].instance()
@@ -53,4 +54,5 @@ func _input(event):
 		player_script.save_and_quit()
 		get_tree().quit()
 	if event.is_action_pressed("Restart"):
+		Global.reset_var()
 		get_tree().reload_current_scene()
