@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b36xe1f3v50hk"]
+
+[ext_resource type="PackedScene" uid="uid://dfc2coumciouf" path="res://Assets/pickupable pebble.glb" id="1_08d14"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gf8ff"]
+
+[node name="Pebble" type="Node3D" unique_id=469391190]
+
+[node name="pickupable pebble" parent="." unique_id=1245232047 instance=ExtResource("1_08d14")]
+
+[node name="Area3D" type="Area3D" parent="pickupable pebble" unique_id=713019307 groups=["Pickup"]]
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pickupable pebble/Area3D" unique_id=1852100590]
+transform = Transform3D(4.989836, 0, 0, 0, 3.9564037, 0, 0, 0, 4.989836, 0, 0, 0)
+shape = SubResource("SphereShape3D_gf8ff")
