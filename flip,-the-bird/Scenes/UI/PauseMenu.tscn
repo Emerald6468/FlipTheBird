@@ -93,9 +93,11 @@ texture = ExtResource("4_gdh0q")
 
 [node name="Hover" type="AudioStreamPlayer" parent="." unique_id=351302964]
 stream = ExtResource("5_gdh0q")
+volume_db = -10.0
 
 [node name="Clicked" type="AudioStreamPlayer" parent="." unique_id=1784123521]
 stream = ExtResource("6_djuuc")
+volume_db = -10.0
 
 [connection signal="mouse_entered" from="ColorRect/VBoxContainer/ResumeButton" to="." method="_on_resume_button_mouse_entered"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
