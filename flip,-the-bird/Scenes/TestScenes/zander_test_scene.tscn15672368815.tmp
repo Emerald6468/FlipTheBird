@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://cdpp8n7pjmd6f"]
+
+[ext_resource type="PackedScene" uid="uid://b2svsxeylpykh" path="res://Scenes/Prefabs/player.tscn" id="1_5cjin"]
+[ext_resource type="Script" uid="uid://dsylgw6jbiv5q" path="res://Level.gd" id="1_blgmw"]
+[ext_resource type="PackedScene" uid="uid://buc5mi1l0tx4e" path="res://Scenes/Prefabs/rock.tscn" id="3_1885f"]
+[ext_resource type="PackedScene" uid="uid://c5bxnb6qqq0aq" path="res://zander_test_scene.tscn" id="3_kb8m7"]
+[ext_resource type="Script" uid="uid://lpbq5pety6lu" path="res://Scenes/TestScenes/all_ground.gd" id="3_v65t1"]
+[ext_resource type="PackedScene" uid="uid://bbq4jtxtxacnn" path="res://LevelSegments/hill_4.tscn" id="4_gb4s8"]
+[ext_resource type="PackedScene" uid="uid://ldnjbn3k88re" path="res://LevelSegments/hill_2.tscn" id="4_h5jjn"]
+[ext_resource type="PackedScene" uid="uid://bsy5qvhnfe3j6" path="res://Scenes/TestScenes/testhillzanderstyle.tscn" id="4_ugqxb"]
+[ext_resource type="PackedScene" uid="uid://dfiaqxqj22ekl" path="res://LevelSegments/hill_3.tscn" id="5_gb4s8"]
+[ext_resource type="PackedScene" uid="uid://dfrjm43ipgfch" path="res://LevelSegments/hill_5.tscn" id="5_q0fji"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5cjin"]
+sky_top_color = Color(2.695322e-06, 0.873922, 0.9911999, 1)
+sky_horizon_color = Color(0.8221627, 0.9743741, 0.9950823, 1)
+ground_bottom_color = Color(0.5058824, 0.7176471, 1, 1)
+ground_horizon_color = Color(0.47843137, 0.68235296, 1, 1)
+
+[sub_resource type="Sky" id="Sky_blgmw"]
+sky_material = SubResource("ProceduralSkyMaterial_5cjin")
+
+[sub_resource type="Environment" id="Environment_1885f"]
+background_mode = 2
+sky = SubResource("Sky_blgmw")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ugqxb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h5jjn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gb4s8"]
+material = SubResource("StandardMaterial3D_h5jjn")
+
+[node name="ZanderTestScene" type="Node3D" unique_id=1441254301]
+script = ExtResource("1_blgmw")
+
+[node name="Player" parent="." unique_id=992012420 instance=ExtResource("1_5cjin")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1740712861]
+environment = SubResource("Environment_1885f")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=985792327]
+transform = Transform3D(1, 0, 0, 0, 0.35903603, 0.9333238, 0, -0.9333238, 0.35903603, -77.96352, 74.75569, 171.13345)
+
+[node name="AllGround" type="Node3D" parent="." unique_id=821388857]
+script = ExtResource("3_v65t1")
+
+[node name="Ground" type="StaticBody3D" parent="AllGround" unique_id=265430207]
+transform = Transform3D(119.19823, 0, 0, 0, 2.107, 0, 0, 0, -12046.2705, 0, -1.874646, -4443.084)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AllGround/Ground" unique_id=917522003]
+shape = SubResource("BoxShape3D_ugqxb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AllGround/Ground/CollisionShape3D" unique_id=798219564]
+mesh = SubResource("BoxMesh_gb4s8")
+
+[node name="Rock" parent="AllGround" unique_id=1886200248 instance=ExtResource("3_1885f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 45.279037, 0.8788929, -451.60754)
+
+[node name="Rock2" parent="AllGround" unique_id=897545220 instance=ExtResource("3_1885f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -5.2056465, 1.5979538, -852.0762)
+
+[node name="Rock3" parent="AllGround" unique_id=1027319817 instance=ExtResource("3_1885f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 19.342606, 1.678894, -1212.7191)
+
+[node name="Rock4" parent="AllGround" unique_id=777978153 instance=ExtResource("3_1885f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -51.832993, 1.678833, -1542.445)
+
+[node name="Rock5" parent="AllGround" unique_id=1993248084 instance=ExtResource("3_1885f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 10.227287, 1.678894, -1884.791)
+
+[node name="Rock6" parent="AllGround" unique_id=1909641958 instance=ExtResource("3_1885f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -79.80174, 1.6789551, -2248.6987)
+
+[node name="Rock7" parent="AllGround" unique_id=1739780398 instance=ExtResource("3_1885f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 9.424789, 1.678894, -2281.2356)
+
+[node name="Rock8" parent="AllGround" unique_id=1963174713 instance=ExtResource("3_1885f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -34.001213, 1.678772, -393.62064)
+
+[node name="Rock9" parent="AllGround" unique_id=6629643 instance=ExtResource("3_1885f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 49.652462, 1.678772, -2264.1711)
+
+[node name="Rock10" parent="AllGround" unique_id=253356404 instance=ExtResource("3_1885f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 61.66272, 1.678894, -733.5206)
+
+[node name="Hill4" parent="AllGround" unique_id=1829706351 instance=ExtResource("4_ugqxb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -92.45355)
+
+[node name="Hill5" parent="AllGround" unique_id=618389352 instance=ExtResource("4_ugqxb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -509.10474)
+
+[node name="Hill6" parent="AllGround" unique_id=1651036245 instance=ExtResource("4_ugqxb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -991.97174)
+
+[node name="Hill7" parent="AllGround" unique_id=541763619 instance=ExtResource("4_ugqxb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1461.1404)
+
+[node name="Hill8" parent="AllGround" unique_id=699487612 instance=ExtResource("4_ugqxb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1805.7493)
+
+[node name="Hill9" parent="AllGround" unique_id=1799028134 instance=ExtResource("4_ugqxb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2254.916)
+
+[node name="Hill10" parent="AllGround" unique_id=1119110667 instance=ExtResource("4_ugqxb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2754.4902)
+
+[node name="Hill11" parent="AllGround" unique_id=388682666 instance=ExtResource("4_ugqxb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3335.9988)
+
+[node name="Hill12" parent="AllGround" unique_id=1142822827 instance=ExtResource("4_ugqxb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3788.4832)
+
+[node name="Hill13" parent="AllGround" unique_id=1957556254 instance=ExtResource("4_ugqxb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4237.7354)
+
+[node name="Hill14" parent="AllGround" unique_id=1904138307 instance=ExtResource("4_ugqxb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4940.748)
+
+[node name="Hill15" parent="AllGround" unique_id=1727751703 instance=ExtResource("4_ugqxb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5754.3774)
+
+[node name="Hill16" parent="AllGround" unique_id=1297349922 instance=ExtResource("4_ugqxb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6818.3027)
+
+[node name="Hill17" parent="AllGround" unique_id=1497218420 instance=ExtResource("4_ugqxb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7998.403)
+
+[node name="Hill" parent="." unique_id=1813017817 instance=ExtResource("3_kb8m7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -128.88882)
+
+[node name="Hill4" parent="." unique_id=1300234469 instance=ExtResource("4_gb4s8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -508.46506)
+
+[node name="Hill5" parent="." unique_id=503658807 instance=ExtResource("5_q0fji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1396.1198)
+
+[node name="Hill2" parent="." unique_id=1749338322 instance=ExtResource("4_h5jjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -960.48804)
+
+[node name="Hill3" parent="." unique_id=1669907315 instance=ExtResource("5_gb4s8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1960.8007)

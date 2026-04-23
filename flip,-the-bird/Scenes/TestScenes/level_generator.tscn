@@ -21,7 +21,6 @@ sky = SubResource("Sky_blgmw")
 [node name="Node3D" type="Node3D" unique_id=1788349822]
 
 [node name="ZanderTestScene" type="Node3D" parent="." unique_id=1441254301]
-script = ExtResource("2_ql7y7")
 
 [node name="Player" parent="ZanderTestScene" unique_id=992012420 instance=ExtResource("2_3oysp")]
 
@@ -52,8 +51,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -960.48804)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1960.8007)
 
 [node name="Node3D" type="Node3D" parent="ZanderTestScene" unique_id=1664023032]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2554.495)
-script = ExtResource("2_ql7y7")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -308.6735, 307.74878)
 
 [node name="TerrainContoller" parent="ZanderTestScene/Node3D" unique_id=1287271157 instance=ExtResource("3_jp4vs")]
 
@@ -64,3 +62,7 @@ script = ExtResource("2_ql7y7")
 [node name="Hill4" parent="ZanderTestScene/Node3D" unique_id=1555197679 instance=ExtResource("6_oq305")]
 
 [node name="Hill5" parent="ZanderTestScene/Node3D" unique_id=1136117673 instance=ExtResource("7_p4iyk")]
+
+[node name="TerrainSpawner" type="Node3D" parent="ZanderTestScene" unique_id=723739863]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 333.67334)
+script = ExtResource("2_ql7y7")

@@ -1,4 +1,7 @@
 extends Node3D
+#IMPORTANT: This script should be separate from the ground object, or otherwise
+#the player can never reach the hills
+
 #All different terrain types/shapes are catalogued here
 @onready var terrain_load = preload("res://Scenes/TestScenes/terrain_controller.tscn")
 #How about preloading each hill individually?
@@ -6,6 +9,7 @@ extends Node3D
 @onready var hill_3 = preload("res://LevelSegments/hill_3.tscn")
 @onready var hill_4 = preload("res://LevelSegments/hill_4.tscn")
 @onready var hill_5 = preload("res://LevelSegments/hill_5.tscn")
+@onready var ground = preload("res://Ground/ground_scene.tscn")
 var terrain_scene
 #Path to directory holding level segments
 @export_dir var get_level_segments = "res://LevelSegments/"
@@ -19,6 +23,8 @@ var terrain_scene
 
 #timer to prevent segments from spawning on top of each other
 var gen_cooldown = 0
+# Tracks when to spawn ground (The "hour hand" to the terrain's "minute hand")
+var spawn_ground = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -37,8 +43,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#Segment generator runs from player, should never be passed
-	var speed = 1 # Change this to increase it to more units/second
-	position = position.move_toward(Vector3(0,0,-30), delta * speed)
 	
 	#When timer reaches 0, generate a segment
 	gen_cooldown += 1
@@ -47,11 +51,17 @@ func _process(delta: float) -> void:
 		#Select random .tscn file a convert it into a string (picked_segment)
 		#IMPORTANT: Adjust randi_range for newly added segments (min:0, max: total - 1)
 		var picked_segment = terrain_scene[round(randi_range(0,3))]
-		#print(str(picked_segment))
+		print(str(picked_segment))
 		#Then, instantiate var picked_segment
 		var new_segment = picked_segment.instantiate()
 		add_child(new_segment)
 		gen_cooldown = 0
+		spawn_ground += 1
+	if spawn_ground >= 5:
+		print(str(ground))
+		ground.instantiate()
+		add_child(ground)
+		spawn_ground = 0
 	pass
 	
 	#Points
