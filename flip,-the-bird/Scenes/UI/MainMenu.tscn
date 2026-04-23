@@ -76,9 +76,11 @@ texture_normal = ExtResource("4_jex3y")
 
 [node name="Hover" type="AudioStreamPlayer" parent="." unique_id=1482494164]
 stream = ExtResource("6_744d7")
+volume_db = -10.0
 
 [node name="Clicked" type="AudioStreamPlayer" parent="." unique_id=1749250649]
 stream = ExtResource("7_kl3t2")
+volume_db = -10.0
 
 [connection signal="mouse_entered" from="CanvasLayer/ColorRect/VBoxContainer/StartButton" to="." method="_on_start_button_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/ColorRect/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

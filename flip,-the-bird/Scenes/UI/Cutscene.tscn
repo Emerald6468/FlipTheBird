@@ -43,6 +43,7 @@ texture_normal = ExtResource("3_wc2vm")
 
 [node name="Hover" type="AudioStreamPlayer" parent="." unique_id=1750482685]
 stream = ExtResource("4_40lf3")
+volume_db = -10.0
 
 [node name="Clicked" type="AudioStreamPlayer" parent="." unique_id=798468263]
 stream = ExtResource("5_2dkkc")
