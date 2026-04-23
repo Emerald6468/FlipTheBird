@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://bsy5qvhnfe3j6"]
 
+[ext_resource type="PackedScene" uid="uid://uity7bb048uy" path="res://Scenes/TestScenes/protohill_4.tscn" id="1_xk2y5"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_blgmw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1885f"]
@@ -19,6 +21,7 @@ shape = SubResource("BoxShape3D_blgmw")
 debug_color = Color(0, 11.708403, 13.469126, 0.41960785)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="UpHill/CollisionShape3D" unique_id=1294229343]
+visible = false
 mesh = SubResource("BoxMesh_ugqxb")
 
 [node name="DownHill" type="StaticBody3D" parent="." unique_id=683601782 groups=["Hill"]]
@@ -32,4 +35,11 @@ debug_color = Color(0, 11.708403, 13.469126, 0.41960785)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="DownHill/CollisionShape3D" unique_id=1370309085]
 transform = Transform3D(1, -5.551115e-17, -2.842171e-14, 6.82121e-13, 1.0000002, 3.8146973e-06, 1.4210855e-14, -5.820766e-10, 1, 0, 0, 0)
+visible = false
 mesh = SubResource("BoxMesh_ugqxb")
+
+[node name="protohill4" parent="." unique_id=1070191520 instance=ExtResource("1_xk2y5")]
+transform = Transform3D(-1.0103187e-07, 0, -4.011573, 0, 3.771, 0, 2.3113399, 0, -1.7535142e-07, -3.298294, -1.9655037, -18.233433)
+
+[node name="protohill5" parent="." unique_id=909311506 instance=ExtResource("1_xk2y5")]
+transform = Transform3D(-3.715468e-07, 0, 5.0426726, 0, 3.8232996, 0, -8.5, 0, -2.2042222e-07, 5.9581337, -2.9901314, -81.5897)
