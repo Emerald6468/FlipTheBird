@@ -215,8 +215,7 @@ func _physics_process(delta: float) -> void:
 			if !softland.playing: softland.play()
 		just_leaped = false
 		#Set total_flips back to 0
-		for i in total_flips:
-			Global.score += 1
+		Global.score += total_flips
 		total_flips = 0
 		axis_speed = 1.0
 		call_deferred("SlopeSliding")
