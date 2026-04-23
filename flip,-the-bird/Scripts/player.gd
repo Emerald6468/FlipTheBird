@@ -43,6 +43,8 @@ var was_in_air = false
 var first_one = true
 #Maybe player rotates faster per full spin? 
 
+#score
+@export var pebble_score = 100
 
 @export var gravity_modifier = 1.0
 
@@ -132,6 +134,12 @@ func check_collisions():
 				await get_tree().create_timer(2).timeout
 				print("can get hit again")
 				dont_check = false
+			if area.is_in_group("Pickup"):
+				print("COIN")
+				area.queue_free()
+				var coinpickup = $coinpickup
+				if !coinpickup.playing: coinpickup.play()
+				Global.score += pebble_score
 	elif collision_checker.has_overlapping_bodies():
 		#print(str(body_list))
 		nothing_around = false
