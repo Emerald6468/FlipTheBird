@@ -1,8 +1,27 @@
 extends Control
 
-@onready var image_1 = preload("res://Assets/icon.svg")
-@onready var image_2 = preload("res://Assets/pickupable pebble_pinkrocktexture.jpg")
-@onready var image_3 = preload("res://Assets/texturedrock3_bluerocktexture.jpg")
+#cutscene 1
+@onready var image_1 = preload("res://Assets/Comic/OPENINGCOMIC/flip_comic1.png")
+@onready var image_2 = preload("res://Assets/Comic/OPENINGCOMIC/flip_comic2.png")
+@onready var image_3 = preload("res://Assets/Comic/OPENINGCOMIC/flip_comic3.png")
+@onready var image_4 = preload("res://Assets/Comic/OPENINGCOMIC/flip_comic4.png")
+@onready var image_5 = preload("res://Assets/Comic/OPENINGCOMIC/flip_comic5.png")
+@onready var image_6= preload("res://Assets/Comic/OPENINGCOMIC/flip_comic6.png")
+@onready var image_7 = preload("res://Assets/Comic/OPENINGCOMIC/flip_comic7.png")
+@onready var image_8 = preload("res://Assets/Comic/OPENINGCOMIC/flip_comic8.png")
+@onready var image_9 = preload("res://Assets/Comic/OPENINGCOMIC/flip_comic9.png")
+@onready var image_10 = preload("res://Assets/Comic/OPENINGCOMIC/flip_comic10.png")
+@onready var image_11 = preload("res://Assets/Comic/OPENINGCOMIC/flip_comic11.png")
+@onready var image_12 = preload("res://Assets/Comic/OPENINGCOMIC/flip_comic12.png")
+
+#cutscene 2
+@onready var image_13 = preload("res://Assets/Comic/ENDINGCOMIC/flip_comic-ENDCOMIC1.png")
+@onready var image_14 = preload("res://Assets/Comic/ENDINGCOMIC/flip_comic-ENDCOMIC2.png")
+@onready var image_15 = preload("res://Assets/Comic/ENDINGCOMIC/flip_comic-ENDCOMIC3.png")
+@onready var image_16 = preload("res://Assets/Comic/ENDINGCOMIC/flip_comic-ENDCOMIC4.png")
+@onready var image_17 = preload("res://Assets/Comic/ENDINGCOMIC/flip_comic-ENDCOMIC5.png")
+@onready var image_18 = preload("res://Assets/Comic/ENDINGCOMIC/flip_comic-ENDCOMIC6.png")
+
 var cutscene_1
 var cutscene_1_length
 var page = 0
@@ -17,7 +36,16 @@ func _ready() -> void:
 	cutscene_1 = [
 		image_1,
 		image_2,
-		image_3
+		image_3,
+		image_4,
+		image_5,
+		image_6,
+		image_7,
+		image_8,
+		image_9,
+		image_10,
+		image_11,
+		image_12
 	]
 	cutscene_1_length = len(cutscene_1)
 

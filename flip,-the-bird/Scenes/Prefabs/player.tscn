@@ -30,7 +30,7 @@ shape = SubResource("CapsuleShape3D_qohmv")
 debug_color = Color(0, 11.708403, 13.469126, 0.61960787)
 
 [node name="Model" parent="CollisionShape3D" unique_id=1495461070 instance=ExtResource("2_68wta")]
-transform = Transform3D(-0.85, 7.430935e-08, 1.2834644e-07, 7.430936e-08, 0.85, 7.430936e-08, -1.2834643e-07, 7.4309376e-08, -0.85, 0, -0.8898792, 0)
+transform = Transform3D(-0.85, 7.430935e-08, 1.2834644e-07, 7.430936e-08, 0.85, 7.430936e-08, -1.2834643e-07, 7.4309376e-08, -0.85, 0, -0.18125057, 0)
 
 [node name="CollisionChecker" type="Area3D" parent="CollisionShape3D/Model" unique_id=34973778]
 transform = Transform3D(1.1470588, 1.3113419e-07, 2.1036934e-07, -1.00279046e-07, 1.5000001, -7.713776e-08, -2.734801e-07, 1.3113419e-07, 0.88235295, -1.3023988e-07, -0.95263183, -0.31098998)
