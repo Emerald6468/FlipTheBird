@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cdpp8n7pjmd6f"]
+
+[ext_resource type="PackedScene" uid="uid://b2svsxeylpykh" path="res://Scenes/Prefabs/player.tscn" id="1_5cjin"]
+[ext_resource type="Script" uid="uid://dsylgw6jbiv5q" path="res://Level.gd" id="1_blgmw"]
+[ext_resource type="PackedScene" uid="uid://c5bxnb6qqq0aq" path="res://zander_test_scene.tscn" id="3_kb8m7"]
+[ext_resource type="PackedScene" uid="uid://bbq4jtxtxacnn" path="res://LevelSegments/hill_4.tscn" id="4_gb4s8"]
+[ext_resource type="PackedScene" uid="uid://ldnjbn3k88re" path="res://LevelSegments/hill_2.tscn" id="4_h5jjn"]
+[ext_resource type="PackedScene" uid="uid://dfiaqxqj22ekl" path="res://LevelSegments/hill_3.tscn" id="5_gb4s8"]
+[ext_resource type="PackedScene" uid="uid://dfrjm43ipgfch" path="res://LevelSegments/hill_5.tscn" id="5_q0fji"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5cjin"]
+
+[sub_resource type="Sky" id="Sky_blgmw"]
+sky_material = SubResource("ProceduralSkyMaterial_5cjin")
+
+[sub_resource type="Environment" id="Environment_1885f"]
+background_mode = 2
+sky = SubResource("Sky_blgmw")
+
+[node name="ZanderTestScene" type="Node3D" unique_id=1441254301]
+script = ExtResource("1_blgmw")
+
+[node name="Player" parent="." unique_id=992012420 instance=ExtResource("1_5cjin")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1740712861]
+environment = SubResource("Environment_1885f")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=985792327]
+transform = Transform3D(1, 0, 0, 0, 0.35903603, 0.9333238, 0, -0.9333238, 0.35903603, -77.96352, 74.75569, 171.13345)
+
+[node name="Ground" type="CSGBox3D" parent="." unique_id=1448157915]
+transform = Transform3D(503.72678, 0, 0, 0, 1.0000006, 0, 0, 0, 474.52408, 0, -1.874646, -1319.7122)
+use_collision = true
+size = Vector3(1, 1, 6.562256)
+
+[node name="Hill" parent="." unique_id=1813017817 instance=ExtResource("3_kb8m7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -128.88882)
+
+[node name="Hill4" parent="." unique_id=1300234469 instance=ExtResource("4_gb4s8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -508.46506)
+
+[node name="Hill5" parent="." unique_id=503658807 instance=ExtResource("5_q0fji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1396.1198)
+
+[node name="Hill2" parent="." unique_id=1749338322 instance=ExtResource("4_h5jjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -960.48804)
+
+[node name="Hill3" parent="." unique_id=1669907315 instance=ExtResource("5_gb4s8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1960.8007)

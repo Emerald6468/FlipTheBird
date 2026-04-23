@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dq1stw5bc8k13"]
+
+[ext_resource type="PackedScene" uid="uid://ldnjbn3k88re" path="res://LevelSegments/hill_2.tscn" id="2_ss4os"]
+[ext_resource type="PackedScene" uid="uid://dfiaqxqj22ekl" path="res://LevelSegments/hill_3.tscn" id="3_riph7"]
+[ext_resource type="PackedScene" uid="uid://bbq4jtxtxacnn" path="res://LevelSegments/hill_4.tscn" id="4_b0a32"]
+[ext_resource type="PackedScene" uid="uid://dfrjm43ipgfch" path="res://LevelSegments/hill_5.tscn" id="5_clyoe"]
+
+[node name="TerrainContoller" type="Node3D" unique_id=1287271157]
+
+[node name="Hill2" parent="." unique_id=1749338322 instance=ExtResource("2_ss4os")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -162.35881, 0, -7.163168)
+
+[node name="Hill3" parent="." unique_id=1669907315 instance=ExtResource("3_riph7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.16895, 5.5146484, 1.4272308)
+
+[node name="Hill4" parent="." unique_id=1300234469 instance=ExtResource("4_b0a32")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.517044, -14.118561, -43.132507)
+
+[node name="Hill5" parent="." unique_id=503658807 instance=ExtResource("5_clyoe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0802, -9.866756, -25.921238)

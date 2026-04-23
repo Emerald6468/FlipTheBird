@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://b5iab4cj543nm"]
+
+[ext_resource type="PackedScene" uid="uid://b2svsxeylpykh" path="res://Scenes/Prefabs/player.tscn" id="2_3oysp"]
+[ext_resource type="Script" uid="uid://t8xmkxeccwjx" path="res://Assets/collision_shape_3d.gd" id="2_ql7y7"]
+[ext_resource type="PackedScene" uid="uid://dq1stw5bc8k13" path="res://Scenes/TestScenes/terrain_controller.tscn" id="3_jp4vs"]
+[ext_resource type="PackedScene" uid="uid://c5bxnb6qqq0aq" path="res://zander_test_scene.tscn" id="3_oq305"]
+[ext_resource type="PackedScene" uid="uid://ldnjbn3k88re" path="res://LevelSegments/hill_2.tscn" id="4_jr0a2"]
+[ext_resource type="PackedScene" uid="uid://dfiaqxqj22ekl" path="res://LevelSegments/hill_3.tscn" id="5_3oysp"]
+[ext_resource type="PackedScene" uid="uid://bbq4jtxtxacnn" path="res://LevelSegments/hill_4.tscn" id="6_oq305"]
+[ext_resource type="PackedScene" uid="uid://dfrjm43ipgfch" path="res://LevelSegments/hill_5.tscn" id="7_p4iyk"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5cjin"]
+
+[sub_resource type="Sky" id="Sky_blgmw"]
+sky_material = SubResource("ProceduralSkyMaterial_5cjin")
+
+[sub_resource type="Environment" id="Environment_1885f"]
+background_mode = 2
+sky = SubResource("Sky_blgmw")
+
+[node name="Node3D" type="Node3D" unique_id=1788349822]
+
+[node name="ZanderTestScene" type="Node3D" parent="." unique_id=1441254301]
+
+[node name="Player" parent="ZanderTestScene" unique_id=992012420 instance=ExtResource("2_3oysp")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="ZanderTestScene" unique_id=1740712861]
+environment = SubResource("Environment_1885f")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="ZanderTestScene" unique_id=985792327]
+transform = Transform3D(1, 0, 0, 0, 0.35903603, 0.9333238, 0, -0.9333238, 0.35903603, -77.96352, 74.75569, 171.13345)
+
+[node name="Ground" type="CSGBox3D" parent="ZanderTestScene" unique_id=1448157915]
+transform = Transform3D(503.72678, 0, 0, 0, 1.0000006, 0, 0, 0, 474.52408, 0, -1.874646, -1319.7122)
+use_collision = true
+size = Vector3(1, 1, 6.562256)
+
+[node name="Hill" parent="ZanderTestScene" unique_id=1813017817 instance=ExtResource("3_oq305")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -128.88882)
+
+[node name="Hill4" parent="ZanderTestScene" unique_id=1300234469 instance=ExtResource("6_oq305")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -508.46506)
+
+[node name="Hill5" parent="ZanderTestScene" unique_id=503658807 instance=ExtResource("7_p4iyk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1396.1198)
+
+[node name="Hill2" parent="ZanderTestScene" unique_id=1749338322 instance=ExtResource("4_jr0a2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -960.48804)
+
+[node name="Hill3" parent="ZanderTestScene" unique_id=1669907315 instance=ExtResource("5_3oysp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1960.8007)
+
+[node name="Node3D" type="Node3D" parent="ZanderTestScene" unique_id=1664023032]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -308.6735, 307.74878)
+
+[node name="TerrainContoller" parent="ZanderTestScene/Node3D" unique_id=1287271157 instance=ExtResource("3_jp4vs")]
+
+[node name="Hill2" parent="ZanderTestScene/Node3D" unique_id=1853871045 instance=ExtResource("4_jr0a2")]
+
+[node name="Hill3" parent="ZanderTestScene/Node3D" unique_id=875736665 instance=ExtResource("5_3oysp")]
+
+[node name="Hill4" parent="ZanderTestScene/Node3D" unique_id=1555197679 instance=ExtResource("6_oq305")]
+
+[node name="Hill5" parent="ZanderTestScene/Node3D" unique_id=1136117673 instance=ExtResource("7_p4iyk")]
+
+[node name="TerrainSpawner" type="Node3D" parent="ZanderTestScene" unique_id=723739863]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 333.67334)
+script = ExtResource("2_ql7y7")

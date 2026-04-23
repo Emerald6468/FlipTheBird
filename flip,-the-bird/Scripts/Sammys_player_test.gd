@@ -136,18 +136,13 @@ func check_collisions():
 		#print(str(body_list))
 		nothing_around = false
 		
-		# AIR WOOSH SFX SOUND
-		
-		#var Air = $AirSlide
-		#if not Air.playing():
-			#Air.play()
 		
 		#for body in body_list:
 		#	if body.is_in_group("Hill"): touching_hill = true
 		#	else: touching_hill = false
 	else: nothing_around = true
 
-	# SLIDING SFX SOUND
+	# SLIDING SFX
 	var Slide = $slide
 	if not Slide.playing:
 		Slide.play()
