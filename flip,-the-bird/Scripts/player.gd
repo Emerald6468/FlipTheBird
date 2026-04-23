@@ -6,6 +6,12 @@ extends CharacterBody3D
 @export var Max_Velocity = 300
 var current_velocity = Force
 
+#Animation
+@onready var anim = $CollisionShape3D/glassesflip_FINSKELETON2/Armature/AnimationPlayer
+@onready var cam = $Camera3D
+var random_anims = ["Armature|trick1", "Armature|trick2", "Armature|trick3"]
+var original_rotation: Vector3
+
 #Slope
 var ignore = false
 @onready var slope_collider: ShapeCast3D = %SlopeCollider
@@ -23,7 +29,7 @@ var going_up = false
 @export var height_shrinker = 0.04
 
 #Player angle
-@onready var model: Node3D = $CollisionShape3D/Model
+@onready var model: Node3D = $CollisionShape3D/glassesflip_FINSKELETON2
 var previous_angle
 var angle_power = 1.0
 var total_flips = 0
@@ -33,7 +39,7 @@ var axis_speed = 1.0
 var rad_change = 0.0
 
 #Obstacle Collision
-@onready var collision_checker: Area3D = $CollisionShape3D/Model/CollisionChecker
+@onready var collision_checker: Area3D = $CollisionShape3D/glassesflip_FINSKELETON2/CollisionChecker
 @onready var ground_checker: Area3D = $GroundChecker
 var close_to_hill = false
 var dont_check = false
@@ -52,6 +58,7 @@ var first_one = true
 #Only runs on start
 func _ready() -> void:
 	current_velocity = -Force
+	anim.play("Armature|main")
 
 #Increases your speed going down slopes
 func SlopeSliding():
@@ -182,7 +189,12 @@ func leaping():
 			slope_points = 0
 
 #Running every frame main function
-func _physics_process(delta: float) -> void: 
+func _physics_process(delta: float) -> void:
+	
+	#trick button
+	if Input.is_key_pressed(KEY_E):
+		play_random_anim() 
+		
 	check_collisions()
 	leaping()
 	#rad_change = 0.0
@@ -205,8 +217,9 @@ func _physics_process(delta: float) -> void:
 		rad_change = (deg_to_rad(input_dir.y)*4.5)* axis_speed  * air_change
 		#print("degrees changing: " + str(rad_to_deg(rad_change)))
 		#var rad_change = deg_to_rad(input_dir.y)*2.5 * air_change
-
-		model.rotate_x(rad_change)
+		#while trick, don't let it rotate
+		if !is_doing_random_anim:
+			model.rotate_x(rad_change)
 	else:
 		velocity.x = move_toward(velocity.x, 0, Speed)
 	if input_dir.y != 0: 
@@ -240,3 +253,37 @@ func _physics_process(delta: float) -> void:
 		
 	move_and_slide()
 	Global.velocity = current_velocity
+
+#Random Animations
+var is_doing_random_anim = false
+
+func play_random_anim():
+	if is_doing_random_anim:
+		return
+	
+	is_doing_random_anim = true
+	
+	#save  current rotation
+	var saved_rotation = model.global_transform.basis
+	
+	#face camera
+	model.look_at(cam.global_position, Vector3.UP)
+	
+	#rotate 180 degrees so it is correct
+	model.rotate_object_local(Vector3.UP, PI)
+	
+	#force the X and Z rotations to 0 so it stays upright
+	model.rotation.x = 0
+	model.rotation.z = 0
+	
+	var choice = random_anims.pick_random()
+	anim.play(choice)
+	
+	#wait for the animation to finish
+	await anim.animation_finished
+	
+	#restore the original rotation
+	model.global_transform.basis = saved_rotation
+	
+	is_doing_random_anim = false
+	anim.play("Armature|main")
