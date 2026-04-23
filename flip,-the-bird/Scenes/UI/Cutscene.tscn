@@ -46,6 +46,7 @@ stream = ExtResource("4_40lf3")
 
 [node name="Clicked" type="AudioStreamPlayer" parent="." unique_id=798468263]
 stream = ExtResource("5_2dkkc")
+volume_db = -19.373
 
 [connection signal="mouse_entered" from="CanvasLayer/NextButton" to="." method="_on_next_button_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/NextButton" to="." method="_on_next_button_pressed"]
