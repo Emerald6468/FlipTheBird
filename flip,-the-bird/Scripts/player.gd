@@ -27,8 +27,10 @@ var going_up = false
 var previous_angle
 var angle_power = 1.0
 var total_flips = 0
+var total_turned = 0.0
 var is_flipping = false
 var axis_speed = 1.0
+var rad_change = 0.0
 
 #Obstacle Collision
 @onready var collision_checker: Area3D = $CollisionShape3D/Model/CollisionChecker
@@ -37,7 +39,12 @@ var close_to_hill = false
 var dont_check = false
 var fragile = false
 var just_hit = false
+var was_in_air = false
+var first_one = true
 #Maybe player rotates faster per full spin? 
+
+#score
+@export var pebble_score = 100
 
 @export var gravity_modifier = 1.0
 
@@ -67,17 +74,12 @@ func SlopeSliding():
 func rotation_math():
 	angle_power = 1.0
 	var current_angle = rad_to_deg(model.get_rotation().x)
-	#print(current_angle)
-	
-	#Commented code below causes player to launch out of bounds
-	#if current_angle > 90 or current_angle < -90:
-	#	current_angle = -90
+
 	if !is_flipping: angle_power = (current_angle*.01)+1
 	
 	#gain slope_points when sliding up
 	if current_angle < 0 and current_angle >= -90 and going_up and close_to_hill:
 		slope_points += 1
-	#else: print("ang:"+str(current_angle)+"up?:"+str(going_up)+"touching nothing:"+str(nothing_around)+"hill:"+str(close_to_hill)+"upvelocity:"+str(velocity.y))
 	#fall faster when looking down
 	if current_angle < 90 and current_angle > 0 and !is_flipping:
 		if close_to_hill:
@@ -89,21 +91,19 @@ func rotation_math():
 	else: 
 		
 		set_floor_snap_length(0.0)
-		
 	
-		
-	#For every 360 midair, add to score
-	#Because current_angle can't increase past ~1.5, this if statement is a bandaid
-	#solution for measuring rotations totaling approximately 360
-	if current_angle > 1.4 && current_angle <1.6:
+	#score
+	
+
+	total_turned += rad_to_deg(rad_change)
+	if !nothing_around: total_turned == 0.0;
+	if total_turned >= 360.0 or total_turned <= 360.0:
+		total_turned = 0.0
 		#print("Points received!")
 
 		total_flips += 1
-		axis_speed += 1
-	
-		#print("Total Score: "+ str($Global.score))
-	#FOR LATER: Add multiplier from fish/stones to scoring
-
+		axis_speed += .001
+		
 #Fragile State that can make you game over
 func fragile_timer():
 	if just_hit:
@@ -125,6 +125,8 @@ func check_collisions():
 				if fragile: Global.game_over = true
 				dont_check = true
 				current_velocity = -Force
+				var rockhit = $RockImpact
+				if !rockhit.playing: rockhit.play()
 				print("hit something")
 				fragile = true
 				just_hit = true
@@ -132,6 +134,12 @@ func check_collisions():
 				await get_tree().create_timer(2).timeout
 				print("can get hit again")
 				dont_check = false
+			if area.is_in_group("Pickup"):
+				print("COIN")
+				area.queue_free()
+				var coinpickup = $coinpickup
+				if !coinpickup.playing: coinpickup.play()
+				Global.score += pebble_score
 	elif collision_checker.has_overlapping_bodies():
 		#print(str(body_list))
 		nothing_around = false
@@ -148,6 +156,17 @@ func check_collisions():
 				#print("close to hill")
 	else: close_to_hill = false 
 	if is_on_floor() and !close_to_hill: slope_points = 0
+	var airslide = $AirSlide
+	var groundslide = $slide
+	if !first_one: 
+		if nothing_around: 
+			was_in_air = true
+			groundslide.stop()
+			if !airslide.playing: airslide.play()
+		else:
+			airslide.stop()
+			if !groundslide.playing: groundslide.play()
+	else: first_one = false
 	
 
 #When you leap
@@ -166,22 +185,25 @@ func leaping():
 func _physics_process(delta: float) -> void: 
 	check_collisions()
 	leaping()
+	#rad_change = 0.0
 	Global.is_fragile = fragile
 	if !is_on_floor(): current_velocity += .01
 	if current_velocity >= 0: current_velocity = -Force
 	if current_velocity < -Max_Velocity: current_velocity = -Max_Velocity
 	Global.forward_velocity = current_velocity
 	previous_angle = model.get_rotation().x
+	previous_angle = rad_to_deg(previous_angle)
 	#W and S rotate, A and D steer
 	var input_dir := Input.get_vector("Left", "Right", "Forward", "Backward")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		#Left and right
-		velocity.x = direction.x * Speed
+		velocity.x = direction.x * Speed * 2
 		#Rotate
 		var air_change = 1.0
-		if !is_on_floor(): air_change = 4.0
-		var rad_change = (deg_to_rad(input_dir.y)*4.5)* axis_speed  * air_change
+		if !is_on_floor(): air_change = 2.5
+		rad_change = (deg_to_rad(input_dir.y)*4.5)* axis_speed  * air_change
+		#print("degrees changing: " + str(rad_to_deg(rad_change)))
 		#var rad_change = deg_to_rad(input_dir.y)*2.5 * air_change
 
 		model.rotate_x(rad_change)
@@ -195,10 +217,13 @@ func _physics_process(delta: float) -> void:
 	call_deferred("rotation_math")
 	#Gravity
 	if is_on_floor():
+		if was_in_air:
+			was_in_air = false
+			var softland = $SoftSnowImpact
+			if !softland.playing: softland.play()
 		just_leaped = false
 		#Set total_flips back to 0
-		for i in total_flips:
-			Global.score += 1
+		Global.score += total_flips
 		total_flips = 0
 		axis_speed = 1.0
 		call_deferred("SlopeSliding")

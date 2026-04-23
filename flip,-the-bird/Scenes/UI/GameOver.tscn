@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://dxg61un5lpj8c"]
+
+[ext_resource type="Script" uid="uid://dfj7emp282ijs" path="res://Scripts/game_over.gd" id="1_34bmr"]
+[ext_resource type="Texture2D" uid="uid://xahpxv64ojol" path="res://Assets/UI/SPR_SCOREBOARD.png" id="2_wpfos"]
+[ext_resource type="Texture2D" uid="uid://c16nf1o27rvfk" path="res://Assets/UI/SPR_RESTART.png" id="3_ielvo"]
+[ext_resource type="FontFile" uid="uid://nyh6pi4wihst" path="res://Assets/Fonts/PEPSI_pl.ttf" id="4_7n8ck"]
+[ext_resource type="Texture2D" uid="uid://tkxnhfka7y7n" path="res://Assets/UI/SPR_YOURSCORE.png" id="4_cf87c"]
+[ext_resource type="AudioStream" uid="uid://jinw6gmqi1n0" path="res://Assets/Sounds/UI_Button_Hover.wav" id="4_ielvo"]
+[ext_resource type="Texture2D" uid="uid://b4hqh5sapi8tu" path="res://Assets/UI/SPR_GAMEOVER.png" id="5_7n8ck"]
+[ext_resource type="AudioStream" uid="uid://8jbhq0c8kyvq" path="res://Assets/Sounds/UI_click.wav" id="5_bnh5c"]
+
+[sub_resource type="Theme" id="Theme_3gbkx"]
+default_font = ExtResource("4_7n8ck")
+default_font_size = 100
+
+[node name="GameOver" type="Control" unique_id=1881715488]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_34bmr")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=460207881]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1982518038]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.5137255, 0.5137255, 0.5137255, 0.47843137)
+
+[node name="Restart" type="TextureButton" parent="CanvasLayer/ColorRect" unique_id=1353236441]
+layout_mode = 0
+offset_left = 1296.0
+offset_top = 804.0
+offset_right = 1731.0
+offset_bottom = 1044.0
+texture_normal = ExtResource("3_ielvo")
+
+[node name="HighScore" type="TextureRect" parent="CanvasLayer/ColorRect" unique_id=2000563342]
+layout_mode = 1
+offset_left = 1212.0
+offset_top = 65.99991
+offset_right = 2058.0
+offset_bottom = 489.9999
+scale = Vector2(0.72, 0.72)
+texture = ExtResource("2_wpfos")
+
+[node name="HS" type="Label" parent="CanvasLayer/ColorRect/HighScore" unique_id=461212954]
+layout_mode = 0
+offset_left = 361.11115
+offset_top = 194.44455
+offset_right = 436.11115
+offset_bottom = 289.44455
+theme = SubResource("Theme_3gbkx")
+text = "0"
+horizontal_alignment = 1
+
+[node name="Score" type="TextureRect" parent="CanvasLayer/ColorRect" unique_id=1329492390]
+layout_mode = 1
+offset_left = 1210.0
+offset_top = 425.99997
+offset_right = 2056.0
+offset_bottom = 850.0
+scale = Vector2(0.72, 0.72)
+texture = ExtResource("4_cf87c")
+
+[node name="S" type="Label" parent="CanvasLayer/ColorRect/Score" unique_id=1986081626]
+layout_mode = 0
+offset_left = 361.11115
+offset_top = 194.44455
+offset_right = 436.11115
+offset_bottom = 289.44455
+theme = SubResource("Theme_3gbkx")
+text = "0"
+horizontal_alignment = 1
+
+[node name="sad" type="TextureRect" parent="CanvasLayer/ColorRect" unique_id=666524322]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 54.0
+offset_right = 971.0
+offset_bottom = 566.0
+texture = ExtResource("5_7n8ck")
+
+[node name="Hover" type="AudioStreamPlayer" parent="." unique_id=1924488629]
+stream = ExtResource("4_ielvo")
+
+[node name="Clicked" type="AudioStreamPlayer" parent="." unique_id=89226960]
+stream = ExtResource("5_bnh5c")
+
+[connection signal="pressed" from="CanvasLayer/ColorRect/Restart" to="." method="_on_restart_pressed"]
