@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bwffiwrlf24k7"
-path="res://.godot/imported/FINAL_flipglasses.glb-b20bdb13f662c82fb5ab74f210c9a600.scn"
+path="res://.godot/imported/FINAL_flipglasses.glb-7a17d10eae96acfc64deb6191e1a3a17.scn"
 
 [deps]
 
-source_file="res://Assets/FINAL_flipglasses.glb"
-dest_files=["res://.godot/imported/FINAL_flipglasses.glb-b20bdb13f662c82fb5ab74f210c9a600.scn"]
+source_file="res://Assets/Models/FINAL_flipglasses.glb"
+dest_files=["res://.godot/imported/FINAL_flipglasses.glb-7a17d10eae96acfc64deb6191e1a3a17.scn"]
 
 [params]
 

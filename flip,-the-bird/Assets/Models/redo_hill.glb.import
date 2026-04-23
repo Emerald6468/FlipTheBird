@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bq7crprq36ypf"
-path="res://.godot/imported/ANIMATIONREADY_flip.glb-35ab897b8234b74ee687336599a46df0.scn"
+uid="uid://bcp25yn7cbavs"
+path="res://.godot/imported/redo_hill.glb-12742be3cecc45816e7eb5aa745899f4.scn"
 
 [deps]
 
-source_file="res://Assets/ANIMATIONREADY_flip.glb"
-dest_files=["res://.godot/imported/ANIMATIONREADY_flip.glb-35ab897b8234b74ee687336599a46df0.scn"]
+source_file="res://Assets/Models/redo_hill.glb"
+dest_files=["res://.godot/imported/redo_hill.glb-12742be3cecc45816e7eb5aa745899f4.scn"]
 
 [params]
 

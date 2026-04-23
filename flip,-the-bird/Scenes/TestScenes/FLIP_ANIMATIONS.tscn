@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://rug512ukwyou"]
 
-[ext_resource type="PackedScene" uid="uid://bq7crprq36ypf" path="res://Assets/ANIMATIONREADY_flip.glb" id="1_mrw6e"]
-[ext_resource type="AnimationLibrary" uid="uid://ym2mx83jlgtc" path="res://Assets/ANIMATIONS-for-FLIP.glb" id="2_lmcs5"]
+[ext_resource type="PackedScene" uid="uid://bq7crprq36ypf" path="res://Assets/Animations/ANIMATIONREADY_flip.glb" id="1_mrw6e"]
+[ext_resource type="AnimationLibrary" uid="uid://ym2mx83jlgtc" path="res://Assets/Animations/ANIMATIONS-for-FLIP.glb" id="2_lmcs5"]
 
 [node name="ANIMATIONREADY_flip" unique_id=1018252854 instance=ExtResource("1_mrw6e")]
 
