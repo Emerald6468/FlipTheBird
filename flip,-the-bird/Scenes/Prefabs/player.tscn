@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://dljp130g6jj86" path="res://Assets/Sounds/SFX_rock_impact.wav" id="9_ofsyp"]
 [ext_resource type="AudioStream" uid="uid://6pxn1gpx5gvm" path="res://Assets/Sounds/SFX_soft_snow_land.wav" id="10_mhr4y"]
 [ext_resource type="AudioStream" uid="uid://mi5kckm8qcod" path="res://Assets/Sounds/UI_point.wav" id="11_b8ttq"]
+[ext_resource type="AudioStream" uid="uid://bo5tuetfsejjm" path="res://Assets/Sounds/SFX_jump.wav" id="12_ofsyp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qohmv"]
 
@@ -92,3 +93,6 @@ debug_color = Color(0.8235294, 0.39607844, 0.09803922, 0.827451)
 
 [node name="coinpickup" type="AudioStreamPlayer" parent="." unique_id=1743714254]
 stream = ExtResource("11_b8ttq")
+
+[node name="leap" type="AudioStreamPlayer" parent="." unique_id=2067522127]
+stream = ExtResource("12_ofsyp")

@@ -176,6 +176,8 @@ func leaping():
 		just_leaped = true
 		var height_gain = 0.0
 		if slope_points != 0:
+			var jumpsound = $leap
+			if !jumpsound.playing: jumpsound.play()
 			height_gain = (-1 * current_velocity * height_shrinker) + slope_points
 			velocity.y += height_gain
 			print("slope points: " + str(slope_points))
