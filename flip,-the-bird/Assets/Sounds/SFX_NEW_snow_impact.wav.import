@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bxtm0w0rdannr"
-path="res://.godot/imported/SFX_snow_impact.wav-568e16a3483d83aa5cba8241d355f945.sample"
+path="res://.godot/imported/SFX_NEW_snow_impact.wav-4a1281440997e045fb758f8dfa93115c.sample"
 
 [deps]
 
-source_file="res://Assets/Sounds/SFX_snow_impact.wav"
-dest_files=["res://.godot/imported/SFX_snow_impact.wav-568e16a3483d83aa5cba8241d355f945.sample"]
+source_file="res://Assets/Sounds/SFX_NEW_snow_impact.wav"
+dest_files=["res://.godot/imported/SFX_NEW_snow_impact.wav-4a1281440997e045fb758f8dfa93115c.sample"]
 
 [params]
 
