@@ -7,10 +7,9 @@
 [ext_resource type="AudioStream" uid="uid://d0ck1pji7418t" path="res://Assets/Sounds/groovy_beat.wav" id="4_v34u6"]
 [ext_resource type="AudioStream" uid="uid://bejucnye8ufuv" path="res://Assets/Sounds/SFX_snow_slide.wav" id="6_ak25i"]
 [ext_resource type="AudioStream" uid="uid://dci5by8ay3vy8" path="res://Assets/Sounds/SFX_air_woosh.wav" id="7_68wta"]
-[ext_resource type="AudioStream" uid="uid://bxtm0w0rdannr" path="res://Assets/Sounds/SFX_NEW_snow_impact.wav" id="8_68wta"]
+[ext_resource type="AudioStream" uid="uid://bub0e8du6g1dw" path="res://Assets/Sounds/SFX_hard snow impact.wav" id="8_b8ttq"]
 [ext_resource type="AudioStream" uid="uid://dljp130g6jj86" path="res://Assets/Sounds/SFX_rock_impact.wav" id="9_ofsyp"]
 [ext_resource type="AudioStream" uid="uid://6pxn1gpx5gvm" path="res://Assets/Sounds/SFX_soft_snow_land.wav" id="10_mhr4y"]
-[ext_resource type="AudioStream" uid="uid://mi5kckm8qcod" path="res://Assets/Sounds/UI_point.wav" id="11_b8ttq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qohmv"]
 
@@ -31,7 +30,7 @@ shape = SubResource("CapsuleShape3D_qohmv")
 debug_color = Color(0, 11.708403, 13.469126, 0.61960787)
 
 [node name="Model" parent="CollisionShape3D" unique_id=1495461070 instance=ExtResource("2_68wta")]
-transform = Transform3D(-0.85, 7.430935e-08, 1.2834644e-07, 7.430936e-08, 0.85, 7.430936e-08, -1.2834643e-07, 7.4309376e-08, -0.85, 0, -0.18125057, 0)
+transform = Transform3D(-0.85, 7.430935e-08, 1.2834644e-07, 7.430936e-08, 0.85, 7.430936e-08, -1.2834643e-07, 7.4309376e-08, -0.85, 0, -0.8898792, 0)
 
 [node name="CollisionChecker" type="Area3D" parent="CollisionShape3D/Model" unique_id=34973778]
 transform = Transform3D(1.1470588, 1.3113419e-07, 2.1036934e-07, -1.00279046e-07, 1.5000001, -7.713776e-08, -2.734801e-07, 1.3113419e-07, 0.88235295, -1.3023988e-07, -0.95263183, -0.31098998)
@@ -63,14 +62,14 @@ stream = ExtResource("4_0ctox")
 
 [node name="slide" type="AudioStreamPlayer" parent="." unique_id=1485078097]
 stream = ExtResource("6_ak25i")
-volume_db = -13.0
+volume_db = -10.0
 
 [node name="AirSlide" type="AudioStreamPlayer" parent="." unique_id=1521799113]
 stream = ExtResource("7_68wta")
-volume_db = -12.0
+volume_db = -10.0
 
 [node name="HardSnowImpact" type="AudioStreamPlayer" parent="." unique_id=1551675499]
-stream = ExtResource("8_68wta")
+stream = ExtResource("8_b8ttq")
 volume_db = -10.0
 
 [node name="RockImpact" type="AudioStreamPlayer" parent="." unique_id=142218657]
@@ -89,6 +88,3 @@ collision_mask = 6
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.8586276, 0)
 shape = SubResource("CapsuleShape3D_0ctox")
 debug_color = Color(0.8235294, 0.39607844, 0.09803922, 0.827451)
-
-[node name="coinpickup" type="AudioStreamPlayer" parent="." unique_id=1743714254]
-stream = ExtResource("11_b8ttq")

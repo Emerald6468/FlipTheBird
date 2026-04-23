@@ -3,33 +3,28 @@
 [ext_resource type="PackedScene" uid="uid://b2svsxeylpykh" path="res://Scenes/Prefabs/player.tscn" id="1_5cjin"]
 [ext_resource type="Script" uid="uid://dsylgw6jbiv5q" path="res://Level.gd" id="1_blgmw"]
 [ext_resource type="PackedScene" uid="uid://buc5mi1l0tx4e" path="res://Scenes/Prefabs/rock.tscn" id="3_1885f"]
-[ext_resource type="Shader" uid="uid://4gy6lqo48q7y" path="res://Assets/Mainshader.gdshader" id="3_kb8m7"]
+[ext_resource type="PackedScene" uid="uid://c5bxnb6qqq0aq" path="res://zander_test_scene.tscn" id="3_kb8m7"]
+[ext_resource type="Script" uid="uid://lpbq5pety6lu" path="res://Scenes/TestScenes/all_ground.gd" id="3_v65t1"]
+[ext_resource type="PackedScene" uid="uid://bbq4jtxtxacnn" path="res://LevelSegments/hill_4.tscn" id="4_gb4s8"]
+[ext_resource type="PackedScene" uid="uid://ldnjbn3k88re" path="res://LevelSegments/hill_2.tscn" id="4_h5jjn"]
 [ext_resource type="PackedScene" uid="uid://bsy5qvhnfe3j6" path="res://Scenes/TestScenes/testhillzanderstyle.tscn" id="4_ugqxb"]
-[ext_resource type="PackedScene" uid="uid://g17hi0bmeo4y" path="res://Scenes/Prefabs/Pebble.tscn" id="6_h5jjn"]
+[ext_resource type="PackedScene" uid="uid://dfiaqxqj22ekl" path="res://LevelSegments/hill_3.tscn" id="5_gb4s8"]
+[ext_resource type="PackedScene" uid="uid://dfrjm43ipgfch" path="res://LevelSegments/hill_5.tscn" id="5_q0fji"]
+[ext_resource type="Script" uid="uid://t8xmkxeccwjx" path="res://Assets/collision_shape_3d.gd" id="11_hrcda"]
+[ext_resource type="PackedScene" uid="uid://edeht4tfk0fo" path="res://Ground/ground_scene.tscn" id="12_fphsk"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_h5jjn"]
-shader = ExtResource("3_kb8m7")
-shader_parameter/sky_top_color = Color(2.695322e-06, 0.873922, 0.9911999, 1)
-shader_parameter/sky_horizon_color = Color(0.8221627, 0.9743741, 0.9950823, 1)
-shader_parameter/inv_sky_curve = 3.999999841054287
-shader_parameter/ground_bottom_color = Color(0.5058824, 0.7176471, 1, 1)
-shader_parameter/ground_horizon_color = Color(0.47843137, 0.68235296, 1, 1)
-shader_parameter/inv_ground_curve = 30.000000670552268
-shader_parameter/sun_angle_max = 0.8660254
-shader_parameter/inv_sun_curve = 22.782017
-shader_parameter/exposure = 1.0
-shader_parameter/sky_cover_modulate = Color(1, 1, 1, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5cjin"]
+sky_top_color = Color(2.695322e-06, 0.873922, 0.9911999, 1)
+sky_horizon_color = Color(0.8221627, 0.9743741, 0.9950823, 1)
+ground_bottom_color = Color(0.5058824, 0.7176471, 1, 1)
+ground_horizon_color = Color(0.47843137, 0.68235296, 1, 1)
 
 [sub_resource type="Sky" id="Sky_blgmw"]
-sky_material = SubResource("ShaderMaterial_h5jjn")
+sky_material = SubResource("ProceduralSkyMaterial_5cjin")
 
 [sub_resource type="Environment" id="Environment_1885f"]
 background_mode = 2
 sky = SubResource("Sky_blgmw")
-ambient_light_sky_contribution = 0.2
-ambient_light_energy = 0.5
-adjustment_enabled = true
-adjustment_saturation = 1.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ugqxb"]
 
@@ -134,20 +129,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6818.3027)
 [node name="Hill17" parent="AllGround" unique_id=1497218420 instance=ExtResource("4_ugqxb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7998.403)
 
-[node name="Pebble" parent="AllGround" unique_id=469391190 instance=ExtResource("6_h5jjn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.881958, -0.21572089, -405.27872)
+[node name="Hill" parent="." unique_id=1813017817 instance=ExtResource("3_kb8m7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -225.06287, 365.49698)
 
-[node name="Pebble2" parent="AllGround" unique_id=902008002 instance=ExtResource("6_h5jjn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.453552, -0.21575904, -481.65848)
+[node name="Hill4" parent="." unique_id=1300234469 instance=ExtResource("4_gb4s8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -97.73002, -273.15555, 347.15335)
 
-[node name="Pebble3" parent="AllGround" unique_id=574308450 instance=ExtResource("6_h5jjn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.18151, -0.21575141, -477.98877)
+[node name="Hill5" parent="." unique_id=503658807 instance=ExtResource("5_q0fji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -239.97313, -1196.565, -3735.2715)
 
-[node name="Pebble4" parent="AllGround" unique_id=452560883 instance=ExtResource("6_h5jjn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.209625, -0.21575904, -798.9016)
+[node name="Hill2" parent="." unique_id=1749338322 instance=ExtResource("4_h5jjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140.61583, -419.26764, 377.69247)
 
-[node name="Pebble5" parent="AllGround" unique_id=540752437 instance=ExtResource("6_h5jjn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.20347, -0.21576285, -712.8248)
+[node name="Hill3" parent="." unique_id=1669907315 instance=ExtResource("5_gb4s8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1960.8007)
 
-[node name="Pebble6" parent="AllGround" unique_id=103215125 instance=ExtResource("6_h5jjn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.48062134, -0.21575522, -850.3368)
+[node name="GroundScene" parent="." unique_id=1802863577 instance=ExtResource("12_fphsk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 341.914, 167.48114, 4627.4575)
+
+[node name="TerrainSpawner" type="Node3D" parent="." unique_id=1305868581]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2545.2017)
+script = ExtResource("11_hrcda")

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b2svsxeylpykh" path="res://Scenes/Prefabs/player.tscn" id="2_3oysp"]
 [ext_resource type="Script" uid="uid://t8xmkxeccwjx" path="res://Assets/collision_shape_3d.gd" id="2_ql7y7"]
 [ext_resource type="PackedScene" uid="uid://dq1stw5bc8k13" path="res://Scenes/TestScenes/terrain_controller.tscn" id="3_jp4vs"]
-[ext_resource type="PackedScene" uid="uid://cdpp8n7pjmd6f" path="res://Scenes/TestScenes/zander_test_scene.tscn" id="3_oq305"]
+[ext_resource type="PackedScene" uid="uid://c5bxnb6qqq0aq" path="res://zander_test_scene.tscn" id="3_oq305"]
 [ext_resource type="PackedScene" uid="uid://ldnjbn3k88re" path="res://LevelSegments/hill_2.tscn" id="4_jr0a2"]
 [ext_resource type="PackedScene" uid="uid://dfiaqxqj22ekl" path="res://LevelSegments/hill_3.tscn" id="5_3oysp"]
 [ext_resource type="PackedScene" uid="uid://bbq4jtxtxacnn" path="res://LevelSegments/hill_4.tscn" id="6_oq305"]
