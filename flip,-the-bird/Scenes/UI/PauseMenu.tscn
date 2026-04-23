@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://38q5trcrkc2n" path="res://Assets/UI/SPR_PAUSE.png" id="2_2bpff"]
 [ext_resource type="Texture2D" uid="uid://chnkl5g3i4v4l" path="res://Assets/UI/SPR_MENU.png" id="3_8hc20"]
 [ext_resource type="Texture2D" uid="uid://cmykwqat7u88x" path="res://Assets/UI/SPR_CONTROL_SCHEME.png" id="4_gdh0q"]
+[ext_resource type="AudioStream" uid="uid://jinw6gmqi1n0" path="res://Assets/Sounds/UI_Button_Hover.wav" id="5_gdh0q"]
+[ext_resource type="AudioStream" uid="uid://8jbhq0c8kyvq" path="res://Assets/Sounds/UI_click.wav" id="6_djuuc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2bpff"]
 
@@ -89,5 +91,13 @@ offset_right = 683.0
 offset_bottom = 1000.0
 texture = ExtResource("4_gdh0q")
 
+[node name="Hover" type="AudioStreamPlayer" parent="." unique_id=351302964]
+stream = ExtResource("5_gdh0q")
+
+[node name="Clicked" type="AudioStreamPlayer" parent="." unique_id=1784123521]
+stream = ExtResource("6_djuuc")
+
+[connection signal="mouse_entered" from="ColorRect/VBoxContainer/ResumeButton" to="." method="_on_resume_button_mouse_entered"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="mouse_entered" from="ColorRect/VBoxContainer/MenuButton" to="." method="_on_menu_button_mouse_entered"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

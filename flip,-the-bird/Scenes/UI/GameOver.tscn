@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://dfj7emp282ijs" path="res://Scripts/game_over.gd" id="1_34bmr"]
 [ext_resource type="Texture2D" uid="uid://xahpxv64ojol" path="res://Assets/UI/SPR_SCOREBOARD.png" id="2_wpfos"]
 [ext_resource type="Texture2D" uid="uid://c16nf1o27rvfk" path="res://Assets/UI/SPR_RESTART.png" id="3_ielvo"]
+[ext_resource type="AudioStream" uid="uid://jinw6gmqi1n0" path="res://Assets/Sounds/UI_Button_Hover.wav" id="4_ielvo"]
+[ext_resource type="AudioStream" uid="uid://8jbhq0c8kyvq" path="res://Assets/Sounds/UI_click.wav" id="5_bnh5c"]
 
 [node name="GameOver" type="Control" unique_id=1881715488]
 process_mode = 3
@@ -39,5 +41,11 @@ offset_top = 788.0
 offset_right = 1145.0
 offset_bottom = 1028.0
 texture_normal = ExtResource("3_ielvo")
+
+[node name="Hover" type="AudioStreamPlayer" parent="." unique_id=1924488629]
+stream = ExtResource("4_ielvo")
+
+[node name="Clicked" type="AudioStreamPlayer" parent="." unique_id=89226960]
+stream = ExtResource("5_bnh5c")
 
 [connection signal="pressed" from="CanvasLayer/ColorRect/Restart" to="." method="_on_restart_pressed"]
