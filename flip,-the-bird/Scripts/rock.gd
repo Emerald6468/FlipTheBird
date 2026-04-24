@@ -4,6 +4,9 @@ extends Node3D
 @onready var rock_3: Node3D = $texturedrock3
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	rock_1.hide()
+	rock_2.hide()
+	rock_3.hide()
 	var num = round(randf_range(.5,3))
 	print(str(num))
 	match num:

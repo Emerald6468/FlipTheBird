@@ -11,6 +11,7 @@ func _ready() -> void:
 	$CanvasLayer.visible = false
 
 func turn_on():
+	get_tree().paused = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if Global.high_score < Global.score: Global.high_score = Global.score
 	hs.text = str(Global.high_score)

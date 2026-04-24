@@ -10,6 +10,8 @@ albedo_color = Color(0.94509804, 0.41568628, 0.49803922, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_ugqxb"]
 material = SubResource("StandardMaterial3D_1885f")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_qdcjf"]
+
 [node name="Hill" type="Node3D" unique_id=1647938067]
 
 [node name="UpHill" type="StaticBody3D" parent="." unique_id=174311537 groups=["Hill"]]
@@ -17,6 +19,7 @@ transform = Transform3D(42.90181, 0, 0, 0, 25.09878, 17.426615, 0, -34.79392, 12
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="UpHill" unique_id=1207603985]
+transform = Transform3D(1.751576, 0, 0, 0, 1, -2.9802322e-08, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_blgmw")
 debug_color = Color(0, 11.708403, 13.469126, 0.41960785)
 
@@ -29,7 +32,7 @@ transform = Transform3D(43.83408, 0, 0, 0, 9.984864, 24.070646, 0, -1.933447, 12
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DownHill" unique_id=1061615628]
-transform = Transform3D(1, 0, 0, 0, 0.99999976, 4.7683716e-07, 0, 7.450581e-09, 0.9999995, 0, 0.10837364, 0.023145199)
+transform = Transform3D(1.700834, 0, 0, 0, 0.99999976, 4.7683716e-07, 0, 9.313226e-09, 0.9999995, 0, 0.10837364, 0.02314508)
 shape = SubResource("BoxShape3D_blgmw")
 debug_color = Color(0, 11.708403, 13.469126, 0.41960785)
 
@@ -40,3 +43,14 @@ mesh = SubResource("BoxMesh_ugqxb")
 
 [node name="redo_hill2" parent="." unique_id=1275111694 instance=ExtResource("1_qdcjf")]
 transform = Transform3D(-4.6577625, 8.742278e-07, 0, 4.0719453e-07, 10, 8.742278e-07, 3.5598077e-14, 8.742278e-07, -10, 0, -2.4593487, -75.628136)
+
+[node name="Filler" type="StaticBody3D" parent="." unique_id=986926126]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Filler" unique_id=2112524537]
+transform = Transform3D(74.003235, 0, 0, 0, 27.21821, 0, 0, 0, 66.17358, 0, -6.3392334, -62.42714)
+shape = SubResource("BoxShape3D_qdcjf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Filler/CollisionShape3D" unique_id=342448080]
+transform = Transform3D(1, -5.551115e-17, -2.842171e-14, 6.82121e-13, 1.0000002, 3.8146973e-06, 1.4210855e-14, -5.820766e-10, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_ugqxb")

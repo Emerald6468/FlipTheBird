@@ -56,10 +56,27 @@ collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1528681829]
 shape = SubResource("BoxShape3D_lp38j")
+debug_color = Color(0.6901961, 0.2901961, 1, 1)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/CollisionShape3D" unique_id=989745606]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 2.6079497, 0, 0, 0)
 mesh = SubResource("BoxMesh_13ybb")
+
+[node name="Boundary" type="StaticBody3D" parent="." unique_id=1585072908]
+transform = Transform3D(9.20498, 0, 0, 0, 230.49712, 0, 0, 0, 2544.9868, -62.213142, 0, 0)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boundary" unique_id=2123190972]
+shape = SubResource("BoxShape3D_lp38j")
+debug_color = Color(0.6901961, 0.2901961, 1, 1)
+
+[node name="Boundary2" type="StaticBody3D" parent="." unique_id=1727077054]
+transform = Transform3D(9.20498, 0, 0, 0, 230.49712, 0, 0, 0, 2544.9868, 62.027084, 0, 0)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boundary2" unique_id=889233998]
+shape = SubResource("BoxShape3D_lp38j")
+debug_color = Color(0.6901961, 0.2901961, 1, 1)
 
 [node name="Segments" type="Node3D" parent="." unique_id=1540151618]
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://2ugd5e4h4flw"]
 
-[ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_34bmr"]
+[ext_resource type="Script" uid="uid://dfj7emp282ijs" path="res://Scripts/game_over.gd" id="1_34bmr"]
 [ext_resource type="Texture2D" uid="uid://xahpxv64ojol" path="res://Assets/UI/SPR_SCOREBOARD.png" id="2_wpfos"]
 [ext_resource type="Texture2D" uid="uid://c16nf1o27rvfk" path="res://Assets/UI/SPR_RESTART.png" id="3_ielvo"]
 [ext_resource type="FontFile" uid="uid://nyh6pi4wihst" path="res://Assets/Fonts/PEPSI_pl.ttf" id="4_7n8ck"]

@@ -25,29 +25,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.846207, -4.3996983, 59.05
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.71956, -4.3996906, 29.175682)
 
 [node name="Rock" parent="." unique_id=1886200248 instance=ExtResource("4_11soq")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 28.81118, -7.422512, 81.301994)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 28.81118, -0.66692734, 81.301994)
 
 [node name="Rock5" parent="." unique_id=1120442682 instance=ExtResource("4_11soq")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40.34301, -7.422512, 117.16715)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40.34301, -0.66692734, 117.16715)
 
 [node name="Rock6" parent="." unique_id=866656379 instance=ExtResource("4_11soq")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 25.240273, -7.422512, 136.9534)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 25.240273, -0.66692734, 136.9534)
 
 [node name="Rock7" parent="." unique_id=2083553171 instance=ExtResource("4_11soq")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -7.969105, -7.422512, 158.0057)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -7.969105, -0.66692734, 158.0057)
 
 [node name="Rock2" parent="." unique_id=102939632 instance=ExtResource("4_11soq")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 34.817963, -7.4225197, 39.451996)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 34.817963, -0.66693497, 39.451996)
 
 [node name="Rock3" parent="." unique_id=1178530637 instance=ExtResource("4_11soq")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -34.487183, -7.422512, 4.088608)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -30.46703, -0.66692924, 41.651165)
 
 [node name="Rock4" parent="." unique_id=1564436528 instance=ExtResource("4_11soq")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 6.785969, -7.422512, 42.46328)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 6.785969, -0.66692734, 42.46328)
 
 [node name="Hill" parent="." unique_id=1647938067 instance=ExtResource("1_81lra")]
 
-[node name="detector" type="Area3D" parent="." unique_id=467771591 groups=["Segment"]]
+[node name="detector" type="Area3D" parent="." unique_id=467771591]
 script = ExtResource("6_4bdwv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="detector" unique_id=1767862070]
