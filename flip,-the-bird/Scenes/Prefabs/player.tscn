@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://bxtm0w0rdannr" path="res://Assets/Sounds/SFX_NEW_snow_impact.wav" id="8_68wta"]
 [ext_resource type="AudioStream" uid="uid://dljp130g6jj86" path="res://Assets/Sounds/SFX_rock_impact.wav" id="9_ofsyp"]
 [ext_resource type="AudioStream" uid="uid://mi5kckm8qcod" path="res://Assets/Sounds/UI_point.wav" id="11_b8ttq"]
+[ext_resource type="AudioStream" uid="uid://wuj6wq6duh43" path="res://Assets/Sounds/MUS_Main_Menu.wav" id="11_ofsyp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qohmv"]
 
@@ -59,6 +60,10 @@ autoplay = true
 
 [node name="NightTimeMusic" type="AudioStreamPlayer" parent="." unique_id=1889990550]
 stream = ExtResource("4_0ctox")
+volume_db = -10.0
+
+[node name="MainMenuMusic" type="AudioStreamPlayer" parent="." unique_id=1640004645]
+stream = ExtResource("11_ofsyp")
 volume_db = -10.0
 
 [node name="slide" type="AudioStreamPlayer" parent="." unique_id=1485078097]
