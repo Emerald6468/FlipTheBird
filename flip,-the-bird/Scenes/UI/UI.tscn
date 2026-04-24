@@ -2,7 +2,12 @@
 
 [ext_resource type="Script" uid="uid://c4n5428v864xr" path="res://Scripts/ui.gd" id="1_s86y4"]
 [ext_resource type="PackedScene" uid="uid://bwwhjhcvtwsc2" path="res://Scenes/UI/PauseMenu.tscn" id="2_636u5"]
-[ext_resource type="PackedScene" uid="uid://dxg61un5lpj8c" path="res://Scenes/UI/GameOver.tscn" id="3_akgwn"]
+[ext_resource type="FontFile" uid="uid://nyh6pi4wihst" path="res://Assets/Fonts/PEPSI_pl.ttf" id="2_b83rk"]
+[ext_resource type="PackedScene" uid="uid://2ugd5e4h4flw" path="res://Scenes/UI/GameOver.tscn" id="3_akgwn"]
+
+[sub_resource type="Theme" id="Theme_oqha6"]
+default_font = ExtResource("2_b83rk")
+default_font_size = 30
 
 [node name="Ui" type="Control" unique_id=1288116663]
 layout_mode = 3
@@ -15,35 +20,21 @@ script = ExtResource("1_s86y4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1080068254]
 
-[node name="Velocity" type="Label" parent="CanvasLayer" unique_id=2116289162]
-offset_left = 11.0
-offset_top = 10.0
-offset_right = 154.0
-offset_bottom = 33.0
-text = "Forward Velocity:0"
-
 [node name="Score" type="Label" parent="CanvasLayer" unique_id=1549746461]
-offset_left = 13.0
-offset_top = 52.0
-offset_right = 70.0
-offset_bottom = 75.0
-text = "Score:0"
+offset_left = 19.0
+offset_top = 49.0
+offset_right = 76.0
+offset_bottom = 78.0
+theme = SubResource("Theme_oqha6")
+text = "0"
 
-[node name="GAMEOVER" type="Label" parent="CanvasLayer" unique_id=370431119]
-offset_left = 539.0
-offset_top = 158.0
-offset_right = 579.0
-offset_bottom = 227.0
-theme_override_font_sizes/font_size = 50
-horizontal_alignment = 1
-
-[node name="Fragile" type="Label" parent="CanvasLayer" unique_id=495550100]
-offset_left = 11.0
-offset_top = 101.0
-offset_right = 128.0
-offset_bottom = 150.0
-text = "Is Fragile: False
-"
+[node name="Score2" type="Label" parent="CanvasLayer" unique_id=1283675147]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 123.0
+offset_bottom = 45.0
+theme = SubResource("Theme_oqha6")
+text = "Score"
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=1430205416 instance=ExtResource("2_636u5")]
 

@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Flip, the bird"
+config/description="Flip, to save your people you must... do sick tricks"
+config/version="1.0"
 run/main_scene="uid://bhxhkhl0usd2h"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://Assets/icon.svg"
+boot_splash/bg_color=Color(0.61510235, 0.7081987, 0.995151, 1)
+boot_splash/image="uid://ckqqk0cngupq1"
+config/icon="uid://ckqqk0cngupq1"
 
 [autoload]
 

@@ -295,7 +295,7 @@ func _physics_process(delta: float) -> void:
 	#("ANIMATIONS-for-FLIP/main")
 	move_and_slide()
 	Global.velocity = current_velocity
-	Global.score = int(Global.score)
+	if Global.score != 0: Global.score = int(Global.score)
 
 
 func play_random_anim():
