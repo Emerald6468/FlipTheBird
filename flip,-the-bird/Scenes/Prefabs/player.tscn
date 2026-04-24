@@ -231,7 +231,7 @@ visible = false
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="Armature" type="Node3D" parent="CollisionShape3D/Model" unique_id=1112429275]
-transform = Transform3D(0.5594818, 0, 0, 0, 0, -0.5594818, 0, 0.5594818, 0, 0, 0.6798401, 1.0520144)
+transform = Transform3D(0.5594818, 0, 0, 0, 0, -0.5594818, 0, 0.5594818, 0, 0, -0.05660534, 1.0520144)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="CollisionShape3D/Model/Armature" unique_id=731125155]
 bones/0/name = "Bone"
@@ -378,21 +378,21 @@ transform = Transform3D(-0.9000001, -1.3589623e-07, 7.1054274e-15, -1.3589623e-0
 shape = SubResource("SphereShape3D_pv3ct")
 
 [node name="Dizzy" type="MeshInstance3D" parent="." unique_id=1656142127]
-transform = Transform3D(0.39551538, 0.94709665, -0.04831906, -0.15396556, 0.037600815, -0.91920674, -0.74969935, 0.4919332, 0.1632858, 0.501493, 2.3895397, -0.948534)
+transform = Transform3D(0.39551538, 0.94709665, -0.04831906, -0.15396556, 0.037600815, -0.91920674, -0.74969935, 0.4919332, 0.1632858, 0.501493, 1.8158901, -0.948534)
 mesh = ExtResource("4_mhr4y")
 
 [node name="Dizzy2" type="MeshInstance3D" parent="." unique_id=1263023134]
-transform = Transform3D(0.45909938, 0.8868801, -0.051686574, -0.17871743, 0.035210155, -0.9832702, -0.8702229, 0.46065605, 0.17466588, 0.501493, 2.3895397, -0.948534)
+transform = Transform3D(0.45909938, 0.8868801, -0.051686574, -0.17871743, 0.035210155, -0.9832702, -0.8702229, 0.46065605, 0.17466588, 0.501493, 1.8158901, -0.948534)
 visible = false
 mesh = SubResource("PlaneMesh_ultsi")
 
 [node name="Dizzy3" type="MeshInstance3D" parent="." unique_id=1567888137]
-transform = Transform3D(0.45909938, 0.8868801, -0.051686574, -0.17871743, 0.035210155, -0.9832702, -0.8702229, 0.46065605, 0.17466588, 0.501493, 2.3895397, -0.948534)
+transform = Transform3D(0.45909938, 0.8868801, -0.051686574, -0.17871743, 0.035210155, -0.9832702, -0.8702229, 0.46065605, 0.17466588, 0.501493, 1.8158901, -0.948534)
 visible = false
 mesh = SubResource("PlaneMesh_33gpj")
 
 [node name="Dizzy4" type="MeshInstance3D" parent="." unique_id=168193874]
-transform = Transform3D(0.45909938, 0.8868801, -0.051686574, -0.17871743, 0.035210155, -0.9832702, -0.8702229, 0.46065605, 0.17466588, 0.501493, 2.3895397, -0.948534)
+transform = Transform3D(0.45909938, 0.8868801, -0.051686574, -0.17871743, 0.035210155, -0.9832702, -0.8702229, 0.46065605, 0.17466588, 0.501493, 1.8158901, -0.948534)
 visible = false
 mesh = SubResource("PlaneMesh_dfo05")
 

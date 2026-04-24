@@ -7,6 +7,7 @@
 [node name="Pebble" type="Node3D" unique_id=469391190]
 
 [node name="pickupable pebble" parent="." unique_id=1245232047 instance=ExtResource("1_08d14")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="Area3D" type="Area3D" parent="pickupable pebble" unique_id=713019307 groups=["Pickup"]]
 collision_layer = 3

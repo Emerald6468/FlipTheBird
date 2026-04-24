@@ -160,10 +160,10 @@ func check_collisions():
 	if fragile: fragile_timer()
 	var area_list = collision_checker.get_overlapping_areas()
 	var body_list = collision_checker.get_overlapping_bodies()
-	if collision_checker.has_overlapping_areas() and !dont_check:
+	if collision_checker.has_overlapping_areas():
 		nothing_around = false
 		for area in area_list:
-			if area.is_in_group("Obstacle"):
+			if area.is_in_group("Obstacle")  and !dont_check:
 				#game over trigger
 				if fragile: Global.game_over = true
 				dont_check = true
