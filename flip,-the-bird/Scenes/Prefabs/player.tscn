@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://bxtm0w0rdannr" path="res://Assets/Sounds/SFX_NEW_snow_impact.wav" id="8_68wta"]
 [ext_resource type="AudioStream" uid="uid://dljp130g6jj86" path="res://Assets/Sounds/SFX_rock_impact.wav" id="9_ofsyp"]
 [ext_resource type="AudioStream" uid="uid://mi5kckm8qcod" path="res://Assets/Sounds/UI_point.wav" id="11_b8ttq"]
+[ext_resource type="AudioStream" uid="uid://wuj6wq6duh43" path="res://Assets/Sounds/MUS_Main_Menu.wav" id="11_ofsyp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qohmv"]
 
@@ -108,6 +109,10 @@ autoplay = true
 stream = ExtResource("4_0ctox")
 volume_db = -10.0
 
+[node name="MainMenuMusic" type="AudioStreamPlayer" parent="." unique_id=1640004645]
+stream = ExtResource("11_ofsyp")
+volume_db = -10.0
+
 [node name="slide" type="AudioStreamPlayer" parent="." unique_id=1485078097]
 stream = ExtResource("6_ak25i")
 volume_db = -13.0
@@ -128,6 +133,10 @@ volume_db = -10.0
 stream = ExtResource("8_68wta")
 volume_db = -10.0
 
+[node name="coinpickup" type="AudioStreamPlayer" parent="." unique_id=1743714254]
+stream = ExtResource("11_b8ttq")
+volume_db = -10.0
+
 [node name="GroundChecker" type="Area3D" parent="." unique_id=1064808601]
 collision_layer = 8
 collision_mask = 6
@@ -136,7 +145,3 @@ collision_mask = 6
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.8586276, 0)
 shape = SubResource("CapsuleShape3D_0ctox")
 debug_color = Color(0.8235294, 0.39607844, 0.09803922, 0.827451)
-
-[node name="coinpickup" type="AudioStreamPlayer" parent="." unique_id=1743714254]
-stream = ExtResource("11_b8ttq")
-volume_db = -10.0
