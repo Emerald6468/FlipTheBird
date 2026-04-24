@@ -80,6 +80,9 @@ debug_color = Color(0.6901961, 0.2901961, 1, 1)
 
 [node name="Segments" type="Node3D" parent="." unique_id=1540151618]
 
+[node name="Segment8" parent="Segments" unique_id=1164998841 instance=ExtResource("5_nf6tf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2905.3381)
+
 [node name="Segment2" parent="Segments" unique_id=1829706351 instance=ExtResource("4_13ybb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1906.4553)
 
@@ -91,9 +94,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -282.40338)
 
 [node name="Segment3" parent="Segments" unique_id=2093011163 instance=ExtResource("5_nf6tf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1525.0511)
-
-[node name="Segment3" parent="Segments/Segment3" unique_id=1164998841 instance=ExtResource("5_nf6tf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1380.287)
 
 [node name="Segment5" parent="Segments" unique_id=452560790 instance=ExtResource("5_nf6tf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -739.0873)

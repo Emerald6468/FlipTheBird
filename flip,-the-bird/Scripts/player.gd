@@ -64,7 +64,7 @@ var first_one = true
 #Maybe player rotates faster per full spin? 
 
 #score
-@export var pebble_score = 100
+@export var pebble_score = 5000
 
 @export var gravity_modifier = 1.0
 
@@ -320,7 +320,7 @@ func play_random_anim():
 	
 	var choice = random_anims.pick_random()
 	anim.play(choice)
-	Global.score += 5 * position.y * total_flips
+	Global.score += .5 * position.y * total_flips
 	var tricksound = $tricksound
 	tricksound.stop()
 	tricksound.play()

@@ -21,6 +21,7 @@ var list_len = 0
 @onready var segment1 = preload("res://Scenes/LevelSegments/segment1.tscn")
 @onready var segment2 = preload("res://Scenes/LevelSegments/segment2.tscn")
 @onready var segment3 = preload("res://Scenes/LevelSegments/segment3.tscn")
+@onready var segment4 = preload("res://Scenes/LevelSegments/segment4.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -32,6 +33,7 @@ func _ready() -> void:
 	segment_list = [
 		segment2,
 		segment3,
+		segment4,
 	]
 	list_len = len(segment_list)
 	

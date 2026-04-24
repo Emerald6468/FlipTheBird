@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bxk34ho64bngf" path="res://Scenes/Prefabs/hill.tscn" id="1_81lra"]
 [ext_resource type="Script" uid="uid://cvhcv5a1hwuwi" path="res://Scripts/segment.gd" id="1_juycf"]
-[ext_resource type="PackedScene" path="res://Scenes/Prefabs/Pebble 2.tscn" id="2_juycf"]
+[ext_resource type="PackedScene" uid="uid://dtwp34bgjw8aa" path="res://Scenes/Prefabs/Pebble 2.tscn" id="2_juycf"]
 [ext_resource type="PackedScene" uid="uid://g17hi0bmeo4y" path="res://Scenes/Prefabs/Pebble.tscn" id="3_4bdwv"]
 [ext_resource type="PackedScene" uid="uid://buc5mi1l0tx4e" path="res://Scenes/Prefabs/rock.tscn" id="4_11soq"]
 [ext_resource type="Script" uid="uid://bmruwike156mb" path="res://Scripts/Deleter.gd" id="6_4bdwv"]
@@ -25,25 +25,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.846207, -4.3996983, 59.05
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.71956, -4.3996906, 29.175682)
 
 [node name="Rock" parent="." unique_id=1886200248 instance=ExtResource("4_11soq")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 28.81118, -0.66692734, 81.301994)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 28.81118, -2.5, 81.301994)
 
 [node name="Rock5" parent="." unique_id=1120442682 instance=ExtResource("4_11soq")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40.34301, -0.66692734, 117.16715)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40.34301, -2.5, 117.16715)
 
 [node name="Rock6" parent="." unique_id=866656379 instance=ExtResource("4_11soq")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 25.240273, -0.66692734, 136.9534)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 25.240273, -2.5, 136.9534)
 
 [node name="Rock7" parent="." unique_id=2083553171 instance=ExtResource("4_11soq")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -7.969105, -0.66692734, 158.0057)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -7.969105, -2.5, 158.0057)
 
 [node name="Rock2" parent="." unique_id=102939632 instance=ExtResource("4_11soq")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 34.817963, -0.66693497, 39.451996)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 34.817963, -2.5, 39.451996)
 
 [node name="Rock3" parent="." unique_id=1178530637 instance=ExtResource("4_11soq")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -30.46703, -0.66692924, 41.651165)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -30.46703, -2.5, 41.651165)
 
 [node name="Rock4" parent="." unique_id=1564436528 instance=ExtResource("4_11soq")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 6.785969, -0.66692734, 42.46328)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 6.785969, -2.5, 42.46328)
 
 [node name="Hill" parent="." unique_id=1647938067 instance=ExtResource("1_81lra")]
 
