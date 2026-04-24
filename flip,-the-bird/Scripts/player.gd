@@ -78,13 +78,15 @@ func _ready() -> void:
 	#anim.play("Armature|main")
 
 func dizz_nation():
-	if !just_switched:
+	dizzy.hide()
+	dizzy_2.hide()
+	dizzy_3.hide()
+	dizzy_4.hide()
+	if fragile: diz_list[current_diz].show()
+	if !just_switched and fragile:
 		just_switched = true
 		#dizzy.mesh = diz_list[current_diz]
-		dizzy.hide()
-		dizzy_2.hide()
-		dizzy_3.hide()
-		dizzy_4.hide()
+		
 		diz_list[current_diz].show()
 		current_diz += 1
 		if current_diz >= 4: current_diz = 0
