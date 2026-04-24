@@ -81,6 +81,10 @@ volume_db = -10.0
 stream = ExtResource("8_68wta")
 volume_db = -10.0
 
+[node name="coinpickup" type="AudioStreamPlayer" parent="." unique_id=1743714254]
+stream = ExtResource("11_b8ttq")
+volume_db = -10.0
+
 [node name="GroundChecker" type="Area3D" parent="." unique_id=1064808601]
 collision_layer = 8
 collision_mask = 6
@@ -89,7 +93,3 @@ collision_mask = 6
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.8586276, 0)
 shape = SubResource("CapsuleShape3D_0ctox")
 debug_color = Color(0.8235294, 0.39607844, 0.09803922, 0.827451)
-
-[node name="coinpickup" type="AudioStreamPlayer" parent="." unique_id=1743714254]
-stream = ExtResource("11_b8ttq")
-volume_db = -10.0
