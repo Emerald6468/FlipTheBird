@@ -3,7 +3,7 @@ extends CharacterBody3D
 #Basics
 @export var Speed = 20.0
 @export var Force = 120
-@export var Max_Velocity = 120
+@export var Max_Velocity = 300
 var current_velocity = Force
 
 
@@ -221,7 +221,8 @@ func leaping():
 
 #Running every frame main function
 func _physics_process(delta: float) -> void:
-	print("down velocity: " + str(velocity.y))
+	print("y cord: " + str(position.y))
+	if position.y <= -2.5: position.y = -2
 	dizz_nation()
 	#trick button
 	#if Input.is_key_pressed(KEY_E):

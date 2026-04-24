@@ -92,11 +92,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -282.40338)
 [node name="Segment3" parent="Segments" unique_id=2093011163 instance=ExtResource("5_nf6tf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1525.0511)
 
+[node name="Segment3" parent="Segments/Segment3" unique_id=1164998841 instance=ExtResource("5_nf6tf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1380.287)
+
 [node name="Segment5" parent="Segments" unique_id=452560790 instance=ExtResource("5_nf6tf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -739.0873)
 
+[node name="Segment7" parent="Segments" unique_id=59941675 instance=ExtResource("4_13ybb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2344.1616)
+
 [node name="SegmentSpawner" type="Marker3D" parent="." unique_id=2049950332]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2214.4983)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4374.602)
 
 [node name="Deleter" type="Area3D" parent="." unique_id=1917447058]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2231.3767)
