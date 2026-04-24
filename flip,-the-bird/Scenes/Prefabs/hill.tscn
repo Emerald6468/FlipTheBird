@@ -42,7 +42,7 @@ visible = false
 mesh = SubResource("BoxMesh_ugqxb")
 
 [node name="redo_hill2" parent="." unique_id=1275111694 instance=ExtResource("1_qdcjf")]
-transform = Transform3D(-4.6577625, 8.742278e-07, 0, 4.0719453e-07, 10, 8.742278e-07, 3.5598077e-14, 8.742278e-07, -10, 0, -2.4593487, -75.628136)
+transform = Transform3D(-4.6577625, 7.5954216e-07, 0, 4.0719453e-07, 8.688149, 6.997132e-07, 3.5598077e-14, 7.5954216e-07, -8.003785, 0, -2.4593487, -70.3605)
 
 [node name="Filler" type="StaticBody3D" parent="." unique_id=986926126]
 
