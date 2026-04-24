@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://waawid216qdq"]
+
+[ext_resource type="PackedScene" uid="uid://bxk34ho64bngf" path="res://Scenes/Prefabs/hill.tscn" id="1_81lra"]
+[ext_resource type="Script" uid="uid://cvhcv5a1hwuwi" path="res://Scripts/segment.gd" id="1_juycf"]
+[ext_resource type="PackedScene" path="res://Scenes/Prefabs/Pebble 2.tscn" id="2_juycf"]
+[ext_resource type="PackedScene" uid="uid://g17hi0bmeo4y" path="res://Scenes/Prefabs/Pebble.tscn" id="3_4bdwv"]
+[ext_resource type="PackedScene" uid="uid://buc5mi1l0tx4e" path="res://Scenes/Prefabs/rock.tscn" id="4_11soq"]
+[ext_resource type="Script" uid="uid://bmruwike156mb" path="res://Scripts/Deleter.gd" id="6_4bdwv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4bdwv"]
+
+[node name="Segment" type="Node3D" unique_id=1829706351]
+script = ExtResource("1_juycf")
+
+[node name="Pebble" parent="." unique_id=469391190 instance=ExtResource("2_juycf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.669945, -1.8580799, 51.378647)
+
+[node name="Pebble2" parent="." unique_id=674961745 instance=ExtResource("3_4bdwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.239475, -4.3996983, 19.031212)
+
+[node name="Pebble3" parent="." unique_id=1300461047 instance=ExtResource("3_4bdwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.846207, -4.3996983, 59.056267)
+
+[node name="Pebble4" parent="." unique_id=184272154 instance=ExtResource("3_4bdwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.71956, -4.3996906, 29.175682)
+
+[node name="Rock" parent="." unique_id=1886200248 instance=ExtResource("4_11soq")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 28.81118, -7.422512, 81.301994)
+
+[node name="Rock5" parent="." unique_id=1120442682 instance=ExtResource("4_11soq")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -40.34301, -7.422512, 117.16715)
+
+[node name="Rock6" parent="." unique_id=866656379 instance=ExtResource("4_11soq")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 25.240273, -7.422512, 136.9534)
+
+[node name="Rock7" parent="." unique_id=2083553171 instance=ExtResource("4_11soq")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -7.969105, -7.422512, 158.0057)
+
+[node name="Rock2" parent="." unique_id=102939632 instance=ExtResource("4_11soq")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 34.817963, -7.4225197, 39.451996)
+
+[node name="Rock3" parent="." unique_id=1178530637 instance=ExtResource("4_11soq")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -34.487183, -7.422512, 4.088608)
+
+[node name="Rock4" parent="." unique_id=1564436528 instance=ExtResource("4_11soq")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 6.785969, -7.422512, 42.46328)
+
+[node name="Hill" parent="." unique_id=1647938067 instance=ExtResource("1_81lra")]
+
+[node name="detector" type="Area3D" parent="." unique_id=467771591 groups=["Segment"]]
+script = ExtResource("6_4bdwv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="detector" unique_id=1767862070]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, -160.11757)
+shape = SubResource("BoxShape3D_4bdwv")

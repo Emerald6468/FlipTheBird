@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://r8xi8p7ejnw2"]
+
+[ext_resource type="Script" uid="uid://dsylgw6jbiv5q" path="res://Level.gd" id="1_lp38j"]
+[ext_resource type="PackedScene" uid="uid://b2svsxeylpykh" path="res://Scenes/Prefabs/player.tscn" id="2_8ewqj"]
+[ext_resource type="Shader" uid="uid://4gy6lqo48q7y" path="res://Assets/Mainshader.gdshader" id="3_13ybb"]
+[ext_resource type="PackedScene" uid="uid://waawid216qdq" path="res://Scenes/LevelSegments/segment2.tscn" id="4_13ybb"]
+[ext_resource type="PackedScene" uid="uid://blppcmm50tf4d" path="res://Scenes/LevelSegments/segment3.tscn" id="5_nf6tf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nf6tf"]
+shader = ExtResource("3_13ybb")
+shader_parameter/sky_top_color = Color(2.695322e-06, 0.873922, 0.9911999, 1)
+shader_parameter/sky_horizon_color = Color(0.8221627, 0.9743741, 0.9950823, 1)
+shader_parameter/inv_sky_curve = 3.999999841054287
+shader_parameter/ground_bottom_color = Color(0.5058824, 0.7176471, 1, 1)
+shader_parameter/ground_horizon_color = Color(0.47843137, 0.68235296, 1, 1)
+shader_parameter/inv_ground_curve = 30.000000670552268
+shader_parameter/sun_angle_max = 0.8660254
+shader_parameter/inv_sun_curve = 22.782017
+shader_parameter/exposure = 1.0
+shader_parameter/sky_cover_modulate = Color(1, 1, 1, 1)
+
+[sub_resource type="Sky" id="Sky_blgmw"]
+sky_material = SubResource("ShaderMaterial_nf6tf")
+
+[sub_resource type="Environment" id="Environment_qppum"]
+background_mode = 2
+sky = SubResource("Sky_blgmw")
+ambient_light_sky_contribution = 0.2
+ambient_light_energy = 0.5
+adjustment_enabled = true
+adjustment_saturation = 1.5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lp38j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ewqj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_13ybb"]
+material = SubResource("StandardMaterial3D_8ewqj")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qppum"]
+
+[node name="DayLevel" type="Node3D" unique_id=1984432045]
+script = ExtResource("1_lp38j")
+
+[node name="Player" parent="." unique_id=992012420 instance=ExtResource("2_8ewqj")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1177887692]
+environment = SubResource("Environment_qppum")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=525000275]
+transform = Transform3D(1, 0, 0, 0, 0.35903603, 0.9333238, 0, -0.9333238, 0.35903603, -77.96352, 74.75569, 171.13345)
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=1447392388]
+transform = Transform3D(119.19823, 0, 0, 0, 2.107, 0, 0, 0, 2544.9868, 0, -1.874646, -1163.3369)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1528681829]
+shape = SubResource("BoxShape3D_lp38j")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/CollisionShape3D" unique_id=989745606]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 2.6079497, 0, 0, 0)
+mesh = SubResource("BoxMesh_13ybb")
+
+[node name="Segments" type="Node3D" parent="." unique_id=1540151618]
+
+[node name="Segment2" parent="Segments" unique_id=1829706351 instance=ExtResource("4_13ybb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1906.4553)
+
+[node name="Segment4" parent="Segments" unique_id=1001046296 instance=ExtResource("4_13ybb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1156.8817)
+
+[node name="Segment6" parent="Segments" unique_id=1193704268 instance=ExtResource("4_13ybb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -282.40338)
+
+[node name="Segment3" parent="Segments" unique_id=2093011163 instance=ExtResource("5_nf6tf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1525.0511)
+
+[node name="Segment5" parent="Segments" unique_id=452560790 instance=ExtResource("5_nf6tf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -739.0873)
+
+[node name="SegmentSpawner" type="Marker3D" parent="." unique_id=2049950332]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2214.4983)
+
+[node name="Deleter" type="Area3D" parent="." unique_id=1917447058]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2231.3767)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Deleter" unique_id=1292676933]
+transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 13.055838, 0, 0, 0)
+shape = SubResource("BoxShape3D_qppum")
+debug_color = Color(1, 0, 0.13333334, 1)

@@ -29,6 +29,7 @@ window/size/viewport_height=1080
 Obstacle="Slows you down when you get hit"
 Hill="This is a hill"
 Pickup=""
+Segment=""
 
 [input]
 

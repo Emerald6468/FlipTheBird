@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dbi2e6b0rpoy8"]
+
+[ext_resource type="PackedScene" uid="uid://bcp25yn7cbavs" path="res://Assets/Models/redo_hill.glb" id="1_l4a06"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l4a06"]
+albedo_color = Color(0.93333334, 1, 1, 1)
+
+[node name="redo_hill" unique_id=1275111694 instance=ExtResource("1_l4a06")]
+
+[node name="Plane" parent="." index="0" unique_id=1025376718]
+material_override = SubResource("StandardMaterial3D_l4a06")

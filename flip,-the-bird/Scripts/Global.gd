@@ -12,6 +12,10 @@ var game_over = false
 var is_fragile = false
 
 #ENDLESS RUNNER
+var spawner_pos: Vector3
+
+
+
 var velocity = 50
 
 func reset_var():

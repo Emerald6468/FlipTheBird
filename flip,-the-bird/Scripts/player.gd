@@ -29,7 +29,7 @@ var going_up = false
 @export var height_shrinker = 0.04
 
 #Player angle
-@onready var model: Node3D = $CollisionShape3D/glassesflip_FINSKELETON2
+@onready var model: Node3D = $CollisionShape3D/Model
 var previous_angle
 var angle_power = 1.0
 var total_flips = 0
@@ -39,7 +39,7 @@ var axis_speed = 1.0
 var rad_change = 0.0
 
 #Obstacle Collision
-@onready var collision_checker: Area3D = $CollisionShape3D/glassesflip_FINSKELETON2/CollisionChecker
+@onready var collision_checker: Area3D = $CollisionShape3D/Model/CollisionChecker
 @onready var ground_checker: Area3D = $GroundChecker
 var close_to_hill = false
 var dont_check = false
@@ -58,7 +58,7 @@ var first_one = true
 #Only runs on start
 func _ready() -> void:
 	current_velocity = -Force
-	anim.play("Armature|main")
+	#anim.play("Armature|main")
 
 #Increases your speed going down slopes
 func SlopeSliding():
