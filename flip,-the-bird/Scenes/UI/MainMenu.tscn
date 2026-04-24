@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://8jbhq0c8kyvq" path="res://Assets/Sounds/UI_click.wav" id="7_kl3t2"]
 
 [node name="MainMenu" type="Control" unique_id=1070244605]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

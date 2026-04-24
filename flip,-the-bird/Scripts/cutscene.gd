@@ -24,6 +24,8 @@ extends Control
 
 var cutscene_1
 var cutscene_1_length
+var cutscene_2
+var cutscene_2_length
 var page = 0
 @onready var texture_rect: TextureRect = $CanvasLayer/ColorRect/TextureRect
 
@@ -33,6 +35,7 @@ var just_hovered = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	page = 0
 	cutscene_1 = [
 		image_1,
 		image_2,
@@ -48,13 +51,30 @@ func _ready() -> void:
 		image_12
 	]
 	cutscene_1_length = len(cutscene_1)
+	
+	cutscene_2 = [
+		image_13,
+		image_14,
+		image_15,
+		image_16,
+		image_17,
+		image_18,
+	]
+	cutscene_2_length = len(cutscene_2)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if page >= cutscene_1_length: 
+	if Global.high_score >= Global.goal:
 		Global.have_played_c1 = true
-		get_tree().change_scene_to_file("res://Scenes/UI/MainMenu.tscn")
-	else: texture_rect.texture = cutscene_1[page]
+		if page >= cutscene_2_length: 
+			Global.have_played_c2 = true
+			get_tree().change_scene_to_file("res://Scenes/UI/MainMenu.tscn")
+		else: texture_rect.texture = cutscene_2[page]
+	else:
+		if page >= cutscene_1_length: 
+			Global.have_played_c1 = true
+			get_tree().change_scene_to_file("res://Scenes/UI/MainMenu.tscn")
+		else: texture_rect.texture = cutscene_1[page]
 	if just_hovered:
 		just_hovered = false
 		hover.stop()

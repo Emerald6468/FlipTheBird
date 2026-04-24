@@ -4,8 +4,11 @@ extends CharacterBody3D
 @export var Speed = 20.0
 @export var Force = 120
 @export var Max_Velocity = 300
-var current_velocity = Force
+var current_velocity: float
 
+#Random Animations
+var is_doing_random_anim = false
+var has_tricked = false
 
 #Dizzy
 @onready var dizzy: MeshInstance3D = $Dizzy
@@ -18,9 +21,9 @@ var just_switched = false
 
 
 #Animation
-@onready var anim = $CollisionShape3D/glassesflip_FINSKELETON2/Armature/AnimationPlayer
+@onready var anim = $CollisionShape3D/Model/AnimationPlayer
 @onready var cam = $Camera3D
-var random_anims = ["Armature|trick1", "Armature|trick2", "Armature|trick3"]
+var random_anims = ["ANIMATIONS-for-FLIP/trick1", "ANIMATIONS-for-FLIP/trick2", "ANIMATIONS-for-FLIP/trick3"]
 var original_rotation: Vector3
 
 #Slope
@@ -74,7 +77,7 @@ func _ready() -> void:
 		dizzy_3,
 		dizzy_4,
 	]
-	current_velocity = -Force
+	current_velocity = Force * -1
 	#anim.play("Armature|main")
 
 func dizz_nation():
@@ -227,76 +230,80 @@ func _physics_process(delta: float) -> void:
 	if position.y <= -2.5: position.y = -2
 	dizz_nation()
 	#trick button
-	#if Input.is_key_pressed(KEY_E):
-		#play_random_anim() 
+	if Input.is_key_pressed(KEY_SPACE):
+		play_random_anim() 
 		
 	check_collisions()
 	leaping()
 	#rad_change = 0.0
 	Global.is_fragile = fragile
-	if !is_on_floor(): current_velocity += .01
-	if current_velocity >= 0: current_velocity = -Force
-	if current_velocity < -Max_Velocity: current_velocity = -Max_Velocity
-	Global.forward_velocity = current_velocity
-	previous_angle = model.get_rotation().x
-	previous_angle = rad_to_deg(previous_angle)
-	#W and S rotate, A and D steer
-	var input_dir := Input.get_vector("Left", "Right", "Forward", "Backward")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		#Left and right
-		velocity.x = direction.x * Speed * 2
-		#Rotate
-		var air_change = 1.0
-		if !is_on_floor(): air_change = 2.5
-		rad_change = (deg_to_rad(input_dir.y)*4.5)* axis_speed  * air_change
-		#print("degrees changing: " + str(rad_to_deg(rad_change)))
-		#var rad_change = deg_to_rad(input_dir.y)*2.5 * air_change
-		#while trick, don't let it rotate
-		if !is_doing_random_anim:
-			model.rotate_x(rad_change)
-	else:
-		velocity.x = move_toward(velocity.x, 0, Speed)
-	if input_dir.y != 0: 
-		is_flipping = true
-	else: 
-		is_flipping = false
-	
-	call_deferred("rotation_math")
-	#Gravity
-	if is_on_floor():
-		if was_in_air:
-			was_in_air = false
-			var softland = $SoftSnowImpact
-			if !softland.playing: softland.play()
-		just_leaped = false
-		#Set total_flips back to 0
-		Global.score += total_flips
-		total_flips = 0
-		axis_speed = 1.0
-		call_deferred("SlopeSliding")
-	else:
-		velocity += (get_gravity() * gravity_modifier) * delta
-		#Commented code below causes player to launch out of bounds (overflows velocity.y)
-		#Note: As result, Flip will slowly lose momentum, but regain it when near ~(-10)
-		#velocity.y += angle_power
-		if velocity.y > 50: velocity.y = 50
-		elif velocity.y < -50: velocity.y = -50
-	#Handle jump
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	if !is_doing_random_anim:
+		if !is_on_floor(): current_velocity += .01
+		if current_velocity >= 0: current_velocity = -Force
+		if current_velocity < -Max_Velocity: current_velocity = -Max_Velocity
+		Global.forward_velocity = current_velocity
+		previous_angle = model.get_rotation().x
+		previous_angle = rad_to_deg(previous_angle)
+		#W and S rotate, A and D steer
+		var input_dir := Input.get_vector("Left", "Right", "Forward", "Backward")
+		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		if direction:
+			#Left and right
+			velocity.x = direction.x * Speed * 2
+			#Rotate
+			var air_change = 1.0
+			if !is_on_floor(): air_change = 2.5
+			rad_change = (deg_to_rad(input_dir.y)*4.5)* axis_speed  * air_change
+			#print("degrees changing: " + str(rad_to_deg(rad_change)))
+			#var rad_change = deg_to_rad(input_dir.y)*2.5 * air_change
+			#while trick, don't let it rotate
+			if !is_doing_random_anim:
+				model.rotate_x(rad_change)
+		else:
+			velocity.x = move_toward(velocity.x, 0, Speed)
+		if input_dir.y != 0: 
+			is_flipping = true
+		else: 
+			is_flipping = false
 		
+		call_deferred("rotation_math")
+		#Gravity
+		if is_on_floor():
+			if was_in_air:
+				was_in_air = false
+				var softland = $SoftSnowImpact
+				if !softland.playing: softland.play()
+			just_leaped = false
+			has_tricked = false
+			#Set total_flips back to 0
+			Global.score += total_flips
+			total_flips = 0
+			axis_speed = 1.0
+			call_deferred("SlopeSliding")
+		else:
+			velocity += (get_gravity() * gravity_modifier) * delta
+			#Commented code below causes player to launch out of bounds (overflows velocity.y)
+			#Note: As result, Flip will slowly lose momentum, but regain it when near ~(-10)
+			#velocity.y += angle_power
+			if velocity.y > 50: velocity.y = 50
+			elif velocity.y < -50: velocity.y = -50
+			
+			
+	if !is_doing_random_anim:
+		if !nothing_around: anim.play("ANIMATIONS-for-FLIP/main")
+		else: anim.stop()
+	#("ANIMATIONS-for-FLIP/main")
 	move_and_slide()
 	Global.velocity = current_velocity
+	Global.score = int(Global.score)
 
-#Random Animations
-var is_doing_random_anim = false
 
 func play_random_anim():
-	if is_doing_random_anim:
+	if is_doing_random_anim or has_tricked:
 		return
 	
 	is_doing_random_anim = true
+	has_tricked = true
 	
 	#save  current rotation
 	var saved_rotation = model.global_transform.basis
@@ -312,13 +319,24 @@ func play_random_anim():
 	model.rotation.z = 0
 	
 	var choice = random_anims.pick_random()
-	#anim.play(choice)
+	anim.play(choice)
+	Global.score += 5 * position.y * total_flips
+	var tricksound = $tricksound
+	tricksound.stop()
+	tricksound.play()
 	
+	var save_velo_z = current_velocity
+	var save_velo_y = velocity.y
+	var save_velo_x = velocity.x
+	current_velocity = 0
+	velocity.y = 0
+	velocity.x = 0
 	#wait for the animation to finish
-	#await anim.animation_finished
+	await anim.animation_finished
 	
 	#restore the original rotation
 	model.global_transform.basis = saved_rotation
-	
+	current_velocity = save_velo_z
+	velocity.y = save_velo_y
+	velocity.x = save_velo_x
 	is_doing_random_anim = false
-	anim.play("Armature|main")

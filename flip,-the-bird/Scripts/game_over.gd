@@ -28,4 +28,5 @@ func _process(delta: float) -> void:
 func _on_restart_pressed() -> void:
 	clicked.play()
 	Global.reset_var()
-	get_tree().reload_current_scene()
+	if Global.high_score >= Global.goal: get_tree().change_scene_to_file("res://Scenes/UI/Cutscene.tscn")
+	else: get_tree().reload_current_scene()

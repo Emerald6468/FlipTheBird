@@ -10,6 +10,8 @@ var have_played_c2 = false
 #game over logic
 var game_over = false
 var is_fragile = false
+#var goal = 0
+var goal = 100000
 
 #ENDLESS RUNNER
 var spawner_pos: Vector3
