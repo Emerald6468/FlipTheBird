@@ -8,7 +8,7 @@ var score = 0
 #level generation
 @onready var segment_spawner: Marker3D = $SegmentSpawner
 var spawner_location 
-@export var spawn_timer_length = 2.0
+@export var spawn_timer_length = 4
 var just_spawned = false
 var segment_list = []
 var list_len = 0

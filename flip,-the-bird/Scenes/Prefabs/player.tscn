@@ -3,9 +3,13 @@
 [ext_resource type="Script" uid="uid://bncoejlqlfy4e" path="res://Scripts/player.gd" id="1_68wta"]
 [ext_resource type="PackedScene" uid="uid://bwffiwrlf24k7" path="res://Assets/Models/FINAL_flipglasses.glb" id="2_68wta"]
 [ext_resource type="PackedScene" uid="uid://dw6jql5rd5yg8" path="res://Scenes/UI/UI.tscn" id="3_0ctox"]
+[ext_resource type="Texture2D" uid="uid://umhhgbicrp1g" path="res://Assets/Spritesheet/stargif-ezgif.com-gif-to-sprite-converter (3).png" id="3_ofsyp"]
 [ext_resource type="AudioStream" uid="uid://duaqp1csd3nyi" path="res://Assets/Sounds/MUS_twink_jazz_EXT.wav" id="4_0ctox"]
+[ext_resource type="PlaneMesh" uid="uid://sdkxqt6velcm" path="res://Assets/Spritesheet/dizzy1.tres" id="4_mhr4y"]
+[ext_resource type="Texture2D" uid="uid://50ycnyicgypc" path="res://Assets/Spritesheet/stargif-ezgif.com-gif-to-sprite-converter (2).png" id="4_qapsg"]
 [ext_resource type="AudioStream" uid="uid://d0ck1pji7418t" path="res://Assets/Sounds/groovy_beat.wav" id="4_v34u6"]
 [ext_resource type="AudioStream" uid="uid://bejucnye8ufuv" path="res://Assets/Sounds/SFX_snow_slide.wav" id="6_ak25i"]
+[ext_resource type="Texture2D" uid="uid://4c2vnhxslmlr" path="res://Assets/Spritesheet/stargif-ezgif.com-gif-to-sprite-converter (4).png" id="6_eejau"]
 [ext_resource type="AudioStream" uid="uid://df26v0x10vvg2" path="res://Assets/Sounds/SFX_NEW_air_woosh.wav" id="7_b8ttq"]
 [ext_resource type="AudioStream" uid="uid://bxtm0w0rdannr" path="res://Assets/Sounds/SFX_NEW_snow_impact.wav" id="8_68wta"]
 [ext_resource type="AudioStream" uid="uid://dljp130g6jj86" path="res://Assets/Sounds/SFX_rock_impact.wav" id="9_ofsyp"]
@@ -16,6 +20,30 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v1l4e"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_pv3ct"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rc3i2"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("4_qapsg")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ultsi"]
+material = SubResource("StandardMaterial3D_rc3i2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_823f0"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("3_ofsyp")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_33gpj"]
+material = SubResource("StandardMaterial3D_823f0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5us4r"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("6_eejau")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dfo05"]
+material = SubResource("StandardMaterial3D_5us4r")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0ctox"]
 height = 5.14209
@@ -46,6 +74,25 @@ debug_color = Color(0.60817593, 0.53965366, 0.05646863, 0.41960785)
 unique_name_in_owner = true
 transform = Transform3D(-1.0588236, -6.731261e-08, -2.5244321e-07, -6.7312634e-08, 1.0588236, 9.2565315e-08, 2.5244321e-07, 9.2565344e-08, -1.0588236, -9.966621e-08, 1.3410344, 1.5229855e-07)
 shape = SubResource("SphereShape3D_pv3ct")
+
+[node name="Dizzy" type="MeshInstance3D" parent="." unique_id=1656142127]
+transform = Transform3D(0.39551538, 0.94709665, -0.04831906, -0.15396556, 0.037600815, -0.91920674, -0.74969935, 0.4919332, 0.1632858, 0.501493, 2.3895397, -0.948534)
+mesh = ExtResource("4_mhr4y")
+
+[node name="Dizzy2" type="MeshInstance3D" parent="." unique_id=1263023134]
+transform = Transform3D(0.45909938, 0.8868801, -0.051686574, -0.17871743, 0.035210155, -0.9832702, -0.8702229, 0.46065605, 0.17466588, 0.501493, 2.3895397, -0.948534)
+visible = false
+mesh = SubResource("PlaneMesh_ultsi")
+
+[node name="Dizzy3" type="MeshInstance3D" parent="." unique_id=1567888137]
+transform = Transform3D(0.45909938, 0.8868801, -0.051686574, -0.17871743, 0.035210155, -0.9832702, -0.8702229, 0.46065605, 0.17466588, 0.501493, 2.3895397, -0.948534)
+visible = false
+mesh = SubResource("PlaneMesh_33gpj")
+
+[node name="Dizzy4" type="MeshInstance3D" parent="." unique_id=168193874]
+transform = Transform3D(0.45909938, 0.8868801, -0.051686574, -0.17871743, 0.035210155, -0.9832702, -0.8702229, 0.46065605, 0.17466588, 0.501493, 2.3895397, -0.948534)
+visible = false
+mesh = SubResource("PlaneMesh_dfo05")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1204415277]
 transform = Transform3D(0.8233345, -0.11800163, 0.55515397, 2.5289013e-09, 0.9781476, 0.20791171, -0.56755644, -0.17118089, 0.80534273, 13.085773, 5.4978437, 7.072418)

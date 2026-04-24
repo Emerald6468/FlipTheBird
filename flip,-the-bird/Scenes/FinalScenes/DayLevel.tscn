@@ -51,7 +51,7 @@ environment = SubResource("Environment_qppum")
 transform = Transform3D(1, 0, 0, 0, 0.35903603, 0.9333238, 0, -0.9333238, 0.35903603, -77.96352, 74.75569, 171.13345)
 
 [node name="Ground" type="StaticBody3D" parent="." unique_id=1447392388]
-transform = Transform3D(119.19823, 0, 0, 0, 2.107, 0, 0, 0, 2544.9868, 0, -1.874646, -1163.3369)
+transform = Transform3D(119.19823, 0, 0, 0, 19.09883, 0, 0, 0, 2544.9868, 0, -12.875098, -1163.3369)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1528681829]

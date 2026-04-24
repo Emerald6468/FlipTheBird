@@ -3,8 +3,19 @@ extends CharacterBody3D
 #Basics
 @export var Speed = 20.0
 @export var Force = 120
-@export var Max_Velocity = 300
+@export var Max_Velocity = 120
 var current_velocity = Force
+
+
+#Dizzy
+@onready var dizzy: MeshInstance3D = $Dizzy
+@onready var dizzy_2: MeshInstance3D = $Dizzy2
+@onready var dizzy_3: MeshInstance3D = $Dizzy3
+@onready var dizzy_4: MeshInstance3D = $Dizzy4
+var diz_list = []
+var current_diz = 0
+var just_switched = false
+
 
 #Animation
 @onready var anim = $CollisionShape3D/glassesflip_FINSKELETON2/Armature/AnimationPlayer
@@ -57,8 +68,28 @@ var first_one = true
 #FUNCTIONS
 #Only runs on start
 func _ready() -> void:
+	diz_list = [
+		dizzy,
+		dizzy_2,
+		dizzy_3,
+		dizzy_4,
+	]
 	current_velocity = -Force
 	#anim.play("Armature|main")
+
+func dizz_nation():
+	if !just_switched:
+		just_switched = true
+		#dizzy.mesh = diz_list[current_diz]
+		dizzy.hide()
+		dizzy_2.hide()
+		dizzy_3.hide()
+		dizzy_4.hide()
+		diz_list[current_diz].show()
+		current_diz += 1
+		if current_diz >= 4: current_diz = 0
+		await get_tree().create_timer(.05).timeout
+		just_switched = false
 
 #Increases your speed going down slopes
 func SlopeSliding():
@@ -190,10 +221,11 @@ func leaping():
 
 #Running every frame main function
 func _physics_process(delta: float) -> void:
-	
+	print("down velocity: " + str(velocity.y))
+	dizz_nation()
 	#trick button
-	if Input.is_key_pressed(KEY_E):
-		play_random_anim() 
+	#if Input.is_key_pressed(KEY_E):
+		#play_random_anim() 
 		
 	check_collisions()
 	leaping()
@@ -277,10 +309,10 @@ func play_random_anim():
 	model.rotation.z = 0
 	
 	var choice = random_anims.pick_random()
-	anim.play(choice)
+	#anim.play(choice)
 	
 	#wait for the animation to finish
-	await anim.animation_finished
+	#await anim.animation_finished
 	
 	#restore the original rotation
 	model.global_transform.basis = saved_rotation

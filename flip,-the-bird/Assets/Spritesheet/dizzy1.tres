@@ -1,0 +1,10 @@
+[gd_resource type="PlaneMesh" format=3 uid="uid://sdkxqt6velcm"]
+
+[ext_resource type="Texture2D" uid="uid://umhhgbicrp1g" path="res://Assets/Spritesheet/stargif-ezgif.com-gif-to-sprite-converter (3).png" id="1_ir6c5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r18gy"]
+transparency = 1
+albedo_texture = ExtResource("1_ir6c5")
+
+[resource]
+material = SubResource("StandardMaterial3D_r18gy")
